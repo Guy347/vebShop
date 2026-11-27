@@ -4,10 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>COSMIC MARKETPLACE</title>
-<meta name="description" content="EXPLORE BEYOND. SHOP BEYOND.">
 <style>
-:root{--bg:#050510;--bg2:#090B1B;--card:#11182D;--p:#8B5CF6;--pn:#A855F7;--b:#38BDF8;--c:#22D3EE;--pk:#EC4899;--tx:#F8FAFC;--t2:#94A3B8;--ok:#22C55E;--wn:#F59E0B;--er:#EF4444;--br:rgba(148,163,184,.2)}
+:root{--bg:#050510;--p:#8B5CF6;--pn:#A855F7;--sky:#38BDF8;--c:#22D3EE;--pk:#EC4899;--tx:#F8FAFC;--t2:#94A3B8;--ok:#22C55E;--wn:#F59E0B;--er:#EF4444;--br:rgba(148,163,184,.2)}
 *{box-sizing:border-box;margin:0;padding:0}
+[hidden]{display:none!important}
 html{scroll-behavior:smooth}
 body{font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;background:radial-gradient(ellipse at 15% 0,#1b1145 0,transparent 55%),radial-gradient(ellipse at 90% 40%,#0a2a4a 0,transparent 50%),var(--bg);color:var(--tx);min-height:100vh;overflow-x:hidden;line-height:1.5}
 #stars{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
@@ -15,7 +15,7 @@ body{font-family:"Segoe UI","Noto Sans Thai",Tahoma,sans-serif;background:radial
 a{color:var(--c);text-decoration:none}
 button{font:inherit;cursor:pointer;color:inherit;background:none;border:0}
 h1,h2,h3{line-height:1.25}
-input,select,textarea{font:inherit;color:var(--tx);background:rgba(5,5,16,.65);border:1px solid var(--br);border-radius:12px;padding:10px 14px;width:100%;min-height:44px;outline:none;transition:.2s}
+input,select,textarea{font:inherit;color:var(--tx);background:rgba(5,5,16,.65);border:1px solid var(--br);border-radius:12px;padding:10px 14px;width:100%;min-height:44px;outline:none}
 input[type=checkbox],input[type=radio]{width:auto;min-height:0;accent-color:var(--pn)}
 input:focus,select:focus,textarea:focus{border-color:var(--c);box-shadow:0 0 0 3px rgba(34,211,238,.18)}
 select option{background:#11182D}
@@ -23,23 +23,24 @@ label{font-size:.85rem;color:var(--t2);display:block;margin-bottom:4px}
 .wrap{max-width:1280px;margin:0 auto;padding:0 16px}
 .sec{padding:28px 16px}
 .glass{background:rgba(17,24,45,.72);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--br);border-radius:16px}
-.pad{padding:20px}.mut{color:var(--t2)}.sm{font-size:.82rem}.gold{color:var(--wn)}.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.end{justify-content:flex-end}.sp{justify-content:space-between}
+.pad{padding:20px}.mut{color:var(--t2)}.sm{font-size:.82rem}.gold{color:var(--wn)}
+.row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}.end{justify-content:flex-end}.sp{justify-content:space-between}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 20px;border-radius:12px;background:linear-gradient(135deg,var(--p),var(--pk));color:#fff;font-weight:600;transition:.2s;box-shadow:0 0 18px rgba(139,92,246,.35)}
 .btn:hover{transform:translateY(-2px);box-shadow:0 0 28px rgba(168,85,247,.6)}
 .btn:disabled{opacity:.5;cursor:not-allowed;transform:none}
 .btn.ghost{background:rgba(255,255,255,.05);border:1px solid var(--br);box-shadow:none}
-.btn.cy{background:linear-gradient(135deg,var(--b),var(--c));color:#04121c}
+.btn.cy{background:linear-gradient(135deg,var(--sky),var(--c));color:#04121c}
 .btn.danger{background:linear-gradient(135deg,#b91c1c,var(--er))}
 .btn.ok{background:linear-gradient(135deg,#15803d,var(--ok))}
 .btn.sm{min-height:36px;padding:0 12px;font-size:.85rem}.btn.block{width:100%}
-.ib{min-width:44px;min-height:44px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--br);position:relative;display:inline-flex;align-items:center;justify-content:center;color:var(--tx);font-size:1.05rem}
+.ib{min-width:44px;min-height:44px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--br);position:relative;display:inline-flex;align-items:center;justify-content:center;color:var(--tx)}
 .ib:hover{border-color:var(--c)}
 .bdg{position:absolute;top:-5px;right:-5px;background:var(--pk);color:#fff;border-radius:99px;font-size:.68rem;min-width:18px;height:18px;display:flex;align-items:center;justify-content:center;padding:0 4px}
-.bdg:empty,.bdg[data-n="0"]{display:none}
+.bdg:empty{display:none}
 .spin{width:18px;height:18px;border:3px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:sp .7s linear infinite;display:inline-block}
-@keyframes sp{to{transform:rotate(360deg)}}@keyframes fl{50%{transform:translateY(-14px)}}@keyframes orb{to{transform:rotate(360deg)}}
-.ann{background:linear-gradient(90deg,var(--p),var(--pk),var(--b));text-align:center;font-size:.85rem;padding:6px 12px}
-.nav{position:sticky;top:0;z-index:50;background:rgba(5,5,16,.82);backdrop-filter:blur(16px);border-bottom:1px solid var(--br)}
+@keyframes sp{to{transform:rotate(360deg)}}@keyframes fl{50%{transform:translateY(-14px)}}@keyframes orb{to{transform:rotate(360deg)}}@keyframes in{from{transform:translateX(40px);opacity:0}}
+.ann{background:linear-gradient(90deg,var(--p),var(--pk),var(--sky));text-align:center;font-size:.85rem;padding:6px 12px}
+.nav{position:sticky;top:0;z-index:50;background:rgba(5,5,16,.88);backdrop-filter:blur(16px);border-bottom:1px solid var(--br)}
 .nv{display:flex;align-items:center;gap:12px;padding-top:10px;padding-bottom:10px}
 .logo{display:flex;align-items:center;gap:8px;color:var(--tx);font-weight:800;letter-spacing:.12em;white-space:nowrap}
 .lg-mark{color:var(--c);font-size:1.5rem;text-shadow:0 0 14px var(--c)}
@@ -49,34 +50,35 @@ label{font-size:.85rem;color:var(--t2);display:block;margin-bottom:4px}
 .cats{display:flex;gap:6px;overflow-x:auto;padding:0 16px 8px;max-width:1280px;margin:0 auto;scrollbar-width:none}
 .cats a{white-space:nowrap;color:var(--t2);font-size:.85rem;padding:4px 12px;border-radius:99px;border:1px solid transparent}
 .cats a:hover{color:var(--tx);border-color:var(--br)}
-.burger{display:none}
+.burger,.ms{display:none}
 .ddw{position:relative}
-.dd{display:none;position:absolute;right:0;top:calc(100% + 8px);width:320px;max-width:90vw;z-index:60;padding:10px;background:rgba(12,16,34,.97);border:1px solid var(--br);border-radius:16px;box-shadow:0 20px 50px #000}
+.dd{display:none;position:absolute;right:0;top:calc(100% + 8px);width:320px;max-width:90vw;z-index:60;padding:10px;background:rgba(12,16,34,.98);border:1px solid var(--br);border-radius:16px;box-shadow:0 20px 50px #000}
 .dd.open{display:block}.dd a,.dd .it{display:block;padding:9px 10px;border-radius:10px;color:var(--tx);width:100%;text-align:left}.dd a:hover,.dd .it:hover{background:rgba(139,92,246,.2)}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:24px;align-items:center;padding:48px 16px}
 .hero h1{font-size:clamp(2rem,5vw,3.8rem);background:linear-gradient(90deg,#fff,var(--c),var(--pn),var(--pk));-webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:.04em}
-.tagl{letter-spacing:.35em;color:var(--c);font-size:.8rem;margin-bottom:10px;font-weight:700}
-.planet-w{display:flex;justify-content:center;position:relative}
-.planet{width:min(340px,70vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%,#c4b5fd,#8B5CF6 35%,#EC4899 65%,#1e1b4b);box-shadow:0 0 90px rgba(139,92,246,.6),inset -30px -30px 60px rgba(0,0,0,.5);position:relative;animation:fl 7s ease-in-out infinite}
+.tagl{letter-spacing:.3em;color:var(--c);font-size:.8rem;margin-bottom:10px;font-weight:700}
+.planet-w{display:flex;justify-content:center}
+.planet{width:min(320px,70vw);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 30% 30%,#c4b5fd,#8B5CF6 35%,#EC4899 65%,#1e1b4b);box-shadow:0 0 90px rgba(139,92,246,.6),inset -30px -30px 60px rgba(0,0,0,.5);position:relative;animation:fl 7s ease-in-out infinite}
 .planet:before{content:"";position:absolute;inset:-10% -28%;border:7px solid rgba(34,211,238,.45);border-radius:50%;transform:rotateX(75deg) rotateZ(-15deg)}
 .orbit{position:absolute;inset:0;animation:orb 14s linear infinite}.orbit span{position:absolute;top:-6%;left:50%;font-size:2rem}
 .sh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;gap:10px;flex-wrap:wrap}
-.sh h2{font-size:1.4rem;background:linear-gradient(90deg,var(--tx),var(--c));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sh h2{font-size:1.4rem}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:16px}
 .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
-.cc{padding:18px;text-align:center;color:var(--tx);transition:.25s;display:block}.cc:hover{transform:translateY(-4px);border-color:var(--c);box-shadow:0 0 24px rgba(34,211,238,.3)}.cc i{font-style:normal;font-size:2rem;display:block}
+.cc{padding:18px;text-align:center;color:var(--tx);transition:.25s;display:block}.cc:hover{transform:translateY(-4px);border-color:var(--c)}.cc i{font-style:normal;font-size:2rem;display:block}
 .card{position:relative;overflow:hidden;transition:.25s}.card:hover{transform:translateY(-4px);border-color:var(--pn);box-shadow:0 0 30px rgba(168,85,247,.3)}
-.pimg{aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,var(--a),var(--b) 70%,#050510);font-size:3.4rem;overflow:hidden}.pimg img{width:100%;height:100%;object-fit:cover}.pimg.big{font-size:8rem}.pimg.s{width:56px;height:56px;font-size:1.6rem;border-radius:12px;flex:none;aspect-ratio:auto}
+.pimg{aspect-ratio:1;display:flex;align-items:center;justify-content:center;background:radial-gradient(circle at 30% 25%,var(--ga),var(--gb) 70%,#050510);font-size:3.4rem;overflow:hidden}
+.pimg.big{font-size:8rem}.pimg.s{width:56px;height:56px;font-size:1.6rem;border-radius:12px;flex:none;aspect-ratio:auto}
 .plink{display:block;color:inherit}
 .tag{position:absolute;left:10px;top:10px;background:var(--pk);color:#fff;border-radius:8px;padding:2px 8px;font-size:.75rem;font-weight:700}
 .heart{position:absolute;right:8px;top:8px;width:40px;height:40px;border-radius:50%;background:rgba(5,5,16,.6);font-size:1.2rem;color:var(--pk)}
 .cb{padding:12px;display:grid;gap:6px}.pn{color:var(--tx);font-weight:600;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
 .pr b{color:var(--c);font-size:1.1rem}.pr s{color:var(--t2);font-size:.82rem;margin-left:6px}
 .banners{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-.bn{padding:24px;border-radius:16px;background:linear-gradient(135deg,var(--a),var(--b));color:#fff;display:block;position:relative;overflow:hidden;min-height:130px}.bn i{position:absolute;right:14px;bottom:-6px;font-size:4.5rem;font-style:normal;opacity:.85}.bn h3,.bn p{max-width:70%}
+.bn{padding:24px;border-radius:16px;background:linear-gradient(135deg,var(--ga),var(--gb));color:#fff;display:block;position:relative;overflow:hidden;min-height:130px}.bn i{position:absolute;right:14px;bottom:-6px;font-size:4.5rem;font-style:normal}.bn h3,.bn p{max-width:70%}
 .cd{font-family:monospace;background:rgba(236,72,153,.2);color:var(--pk);padding:4px 10px;border-radius:8px}
 .fld{margin-bottom:12px}.fld.bad input,.fld.bad select,.fld.bad textarea{border-color:var(--er)}
-.err{color:#fca5a5;font-size:.78rem;display:block;min-height:0}
+.err{color:#fca5a5;font-size:.78rem;display:block}
 .alert{background:rgba(239,68,68,.12);border:1px solid var(--er);color:#fecaca;padding:10px 12px;border-radius:12px;margin-bottom:12px;font-size:.88rem}.alert:empty{display:none}
 .note{background:rgba(245,158,11,.1);border:1px solid rgba(245,158,11,.5);color:#fde68a;padding:10px 12px;border-radius:12px;font-size:.82rem;margin:10px 0}
 .note.info{background:rgba(56,189,248,.1);border-color:rgba(56,189,248,.5);color:#bae6fd}
@@ -86,21 +88,21 @@ label{font-size:.85rem;color:var(--t2);display:block;margin-bottom:4px}
 .auth .box{width:100%;max-width:480px;padding:28px}.auth.wide .box{max-width:640px}
 .demo{display:grid;gap:8px;margin-top:14px}.demo code{background:rgba(0,0,0,.4);padding:1px 6px;border-radius:6px;font-size:.78rem;word-break:break-all}
 .bar{height:6px;border-radius:9px;background:rgba(255,255,255,.1);overflow:hidden;margin-top:6px}.bar i{display:block;height:100%;width:0;transition:.3s}
-.opt{display:flex;gap:10px;align-items:center;padding:12px;border:1px solid var(--br);border-radius:12px;margin-bottom:8px;cursor:pointer}.opt:has(input:checked){border-color:var(--c);background:rgba(34,211,238,.08)}.opt label{margin:0;color:var(--tx);cursor:pointer;flex:1}
+.opt{display:flex;gap:10px;align-items:center;padding:12px;border:1px solid var(--br);border-radius:12px;margin-bottom:8px}.opt label{margin:0;color:var(--tx);cursor:pointer;flex:1}
 .pd{display:grid;grid-template-columns:1fr 1fr;gap:28px}.gal{overflow:hidden}.thumbs{display:flex;gap:8px;margin-top:10px}.th{width:68px;border-radius:12px;overflow:hidden;border:2px solid transparent}.th.on{border-color:var(--c)}
 .sw{width:34px;height:34px;border-radius:50%;border:2px solid var(--br);margin-right:8px}.sw.on{outline:2px solid var(--c);outline-offset:2px}
 .sz{min-width:44px;min-height:40px;border:1px solid var(--br);border-radius:10px;margin-right:6px;padding:0 10px}.sz.on{border-color:var(--c);background:rgba(34,211,238,.15)}
 .qty{display:inline-flex;align-items:center;gap:4px}.qty button{width:40px;height:40px;border-radius:10px;border:1px solid var(--br);background:rgba(255,255,255,.05)}.qty input{width:64px;text-align:center}
 .sb{display:inline-block;padding:2px 10px;border-radius:99px;font-size:.75rem;font-weight:600;background:rgba(148,163,184,.2)}
-.sb.pending{background:rgba(245,158,11,.2);color:var(--wn)}.sb.processing{background:rgba(56,189,248,.2);color:var(--b)}.sb.shipped{background:rgba(168,85,247,.2);color:var(--pn)}.sb.delivered,.sb.approved,.sb.active{background:rgba(34,197,94,.2);color:var(--ok)}.sb.cancelled,.sb.suspended{background:rgba(239,68,68,.2);color:var(--er)}
+.sb.pending{background:rgba(245,158,11,.2);color:var(--wn)}.sb.processing{background:rgba(56,189,248,.2);color:var(--sky)}.sb.shipped{background:rgba(168,85,247,.2);color:var(--pn)}.sb.delivered,.sb.approved,.sb.active{background:rgba(34,197,94,.2);color:var(--ok)}.sb.cancelled,.sb.suspended{background:rgba(239,68,68,.2);color:var(--er)}
 .shopl{display:grid;grid-template-columns:250px 1fr;gap:20px}
-.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:10px;text-align:left;border-bottom:1px solid var(--br);vertical-align:middle}th{color:var(--t2);font-weight:600;white-space:nowrap}td input,td select{min-height:36px;padding:4px 8px;width:auto;max-width:110px}
+.tw{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:.88rem}th,td{padding:10px;text-align:left;border-bottom:1px solid var(--br);vertical-align:middle}th{color:var(--t2);white-space:nowrap}td input,td select{min-height:36px;padding:4px 8px;width:auto;max-width:100px}
 .dash{display:grid;grid-template-columns:240px 1fr;gap:20px;max-width:1400px;margin:0 auto;padding:20px 16px}
-.dash.full{padding:0;max-width:none;gap:0;min-height:100vh}.dash.full .side{border-radius:0;min-height:100vh}.dash.full .dmain{padding:20px}
-.side{padding:16px;align-self:start;position:sticky;top:76px;display:grid;gap:6px}.dash.full .side{top:0;align-self:stretch}
-.side nav{display:grid;gap:4px;margin:10px 0}.side nav a{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;color:var(--t2);position:relative}.side nav a.on,.side nav a:hover{background:linear-gradient(90deg,rgba(139,92,246,.35),transparent);color:var(--tx)}
+.dash.full{padding:0;max-width:none;gap:0;min-height:100vh}.dash.full .side{border-radius:0;min-height:100vh;top:0}.dash.full .dmain{padding:20px;min-width:0}
+.side{padding:16px;align-self:start;position:sticky;top:76px;display:grid;gap:6px}
+.side nav{display:grid;gap:4px;margin:10px 0}.side nav a{display:flex;gap:10px;align-items:center;padding:10px 12px;border-radius:12px;color:var(--t2)}.side nav a.on,.side nav a:hover{background:linear-gradient(90deg,rgba(139,92,246,.35),transparent);color:var(--tx)}
 .dtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;gap:10px;flex-wrap:wrap}
-.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:18px}.kpi{padding:16px;position:relative;overflow:hidden}.kpi:after{content:"";position:absolute;right:-20px;top:-20px;width:80px;height:80px;border-radius:50%;background:radial-gradient(var(--pn),transparent 70%);opacity:.4}.kpi b{font-size:1.5rem;display:block}.kpi i{font-style:normal;font-size:1.4rem}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin-bottom:18px}.kpi{padding:16px}.kpi b{font-size:1.5rem;display:block}.kpi i{font-style:normal;font-size:1.4rem}
 .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
 .chart{width:100%;height:auto}
 .ni{display:flex;gap:10px;align-items:flex-start;padding:10px;border-radius:12px;border-bottom:1px solid var(--br)}.ni.un{background:rgba(139,92,246,.12)}.ni>div{flex:1}
@@ -108,26 +110,22 @@ label{font-size:.85rem;color:var(--t2);display:block;margin-bottom:4px}
 .sline{display:flex;gap:12px;align-items:center;padding:12px 0;border-bottom:1px solid var(--br)}.sline>div:nth-child(2){flex:1;min-width:0}
 #modal{display:none;position:fixed;inset:0;z-index:100;align-items:center;justify-content:center;padding:14px}#modal.open{display:flex}
 .mb{position:absolute;inset:0;background:rgba(0,0,10,.75)}
-.mc{position:relative;width:100%;max-width:520px;max-height:92vh;overflow:auto;padding:24px;background:rgba(14,18,38,.98)}.mc.wide{max-width:760px}.mc .x{position:absolute;right:10px;top:10px;width:40px;height:40px;border-radius:10px}
+.mc{position:relative;width:100%;max-width:520px;max-height:92vh;overflow:auto;padding:24px;background:rgba(14,18,38,.98)}.mc.wide{max-width:760px}.mc .x{position:absolute;right:10px;top:10px}
 #toasts{position:fixed;right:14px;bottom:14px;z-index:200;display:grid;gap:8px;max-width:calc(100vw - 28px)}
 .toast{padding:12px 16px;border-radius:12px;background:#11182D;border-left:4px solid var(--ok);box-shadow:0 10px 30px #000;animation:in .3s}.toast.err{border-color:var(--er)}.toast.warn{border-color:var(--wn)}.toast.out{opacity:0;transition:.4s}
-@keyframes in{from{transform:translateX(40px);opacity:0}}
 .foot{border-top:1px solid var(--br);margin-top:40px;padding:30px 16px;text-align:center;color:var(--t2);font-size:.85rem;background:rgba(5,5,16,.7)}
 .avatar{width:84px;height:84px;border-radius:50%;background:linear-gradient(135deg,var(--p),var(--c));display:flex;align-items:center;justify-content:center;font-size:2.6rem}
 .avs button{font-size:1.5rem;width:44px;height:44px;border-radius:10px;border:1px solid var(--br)}
 .crumb{color:var(--t2);font-size:.85rem;margin-bottom:12px}.pager{display:flex;gap:6px;justify-content:center;margin-top:20px;flex-wrap:wrap}
-.nl{display:flex;gap:8px;max-width:480px;margin:12px auto 0}
-.mm{display:none}
 @media(max-width:1024px){.hero{grid-template-columns:1fr;text-align:center}.hero .row{justify-content:center}.pd,.cols{grid-template-columns:1fr}}
-@media(max-width:900px){.dash{grid-template-columns:1fr}.side{position:static}.side nav{display:flex;overflow-x:auto}.side nav a{white-space:nowrap}.shopl{grid-template-columns:1fr}#filt{display:none}#filt.open{display:block}}
+@media(max-width:900px){.dash{grid-template-columns:1fr}.side{position:static}.dash.full .side{min-height:0}.side nav{display:flex;overflow-x:auto}.side nav a{white-space:nowrap}.shopl{grid-template-columns:1fr}#filt{display:none}#filt.open{display:block}}
 @media(min-width:901px){#filtbtn{display:none}}
 @media(max-width:720px){
-.burger{display:inline-flex}.search{order:5;flex-basis:100%;max-width:none}.nv{flex-wrap:wrap}.hide-s{display:none!important}.cats{display:none}
+.burger{display:inline-flex}.search{order:5;flex-basis:100%;max-width:none}.nv{flex-wrap:wrap}.hide-s{display:none!important}
+.cats{display:none}body.mmo .cats{display:flex;flex-direction:column;overflow:visible;padding-bottom:12px}body.mmo .ms{display:block}
 .grid{grid-template-columns:repeat(2,1fr);gap:10px}.pimg{font-size:2.6rem}.g2,.g3{grid-template-columns:1fr}.pn{font-size:.88rem}
-.mm{display:block;position:fixed;inset:0 30% 0 0;min-width:260px;background:#0a0d20;z-index:90;padding:18px;overflow:auto;transform:translateX(-105%);transition:.3s;border-right:1px solid var(--br)}body.mmo .mm{transform:none}
-.mm a,.mm button{display:block;padding:12px 6px;color:var(--tx);width:100%;text-align:left;border-bottom:1px solid var(--br)}
 .dd{position:fixed;left:10px;right:10px;top:70px;width:auto;max-width:none}
-.nl{flex-direction:column}.auth .box{padding:20px}.mc{padding:18px}.sec{padding:20px 12px}}
+.auth .box{padding:20px}.mc{padding:18px}.sec{padding:20px 12px}.cart-cols{grid-template-columns:1fr!important}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
 </style>
 </head>
@@ -138,308 +136,315 @@ label{font-size:.85rem;color:var(--t2);display:block;margin-bottom:4px}
 <div id="toasts" aria-live="polite"></div>
 <script>
 'use strict';
-/* ============ UTILITIES ============ */
+/* ===== UTILITIES ===== */
 const $=(s,r=document)=>r.querySelector(s),$=(s,r=document)=>[...r.querySelectorAll(s)];
-const esc=s=>String(s??'').replace(/[&<>"'`]/g,c=>'&#'+c.charCodeAt(0)+';');
+const esc=s=>String(s==null?'':s).replace(/[&<>"'`]/g,c=>'&#'+c.charCodeAt(0)+';');
 const rid=p=>p+Math.random().toString(36).slice(2,9);
 const DAY=864e5,sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const bt=n=>'฿'+Math.round(n).toLocaleString('en-US');
 const EM=/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
-const KEY='cosmic_db_v1';
-const LS={get:k=>{try{return localStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{localStorage.setItem(k,v)}catch(e){}},del:k=>{try{localStorage.removeItem(k)}catch(e){}}};
-const SS={get:k=>{try{return sessionStorage.getItem(k)}catch(e){return null}},set:(k,v)=>{try{sessionStorage.setItem(k,v)}catch(e){}},del:k=>{try{sessionStorage.removeItem(k)}catch(e){}}};
+const KEY='cosmic_lite_v1';
+const mkStore=st=>({get:k=>{try{return st().getItem(k)}catch(e){return null}},set:(k,v)=>{try{st().setItem(k,v)}catch(e){}},del:k=>{try{st().removeItem(k)}catch(e){}}});
+const LS=mkStore(()=>localStorage),SS=mkStore(()=>sessionStorage);
 let DB,lang=LS.get('cosmic_lang')==='en'?'en':'th';
-const S={u:null,coupon:'',reset:null,next:'',mok:null,tmpImg:undefined,done:null};
+const S={u:null,coupon:'',reset:null,next:'',mok:null,done:null,prefill:'',keep:false};
 const LOCK={};
 const DEMO={buyer:{email:'buyer@cosmic.demo',pw:'Buyer#2025'},seller:{email:'seller@cosmic.demo',pw:'Seller#2025'},admin:{email:'admin@cosmic.demo',pw:'Admin#2025'}};
 const GR=[['#8B5CF6','#22D3EE'],['#EC4899','#8B5CF6'],['#38BDF8','#8B5CF6'],['#EC4899','#F59E0B'],['#22D3EE','#22C55E'],['#F59E0B','#EC4899']];
-const COL=[{n:{th:'ม่วงนีออน',en:'Neon Purple'},hex:'#A855F7'},{n:{th:'ฟ้าไซแอน',en:'Cyan'},hex:'#22D3EE'},{n:{th:'ดำจักรวาล',en:'Cosmic Black'},hex:'#1e1b3a'},{n:{th:'ชมพูเนบิวลา',en:'Nebula Pink'},hex:'#EC4899'}];
-const EMO=['🎧','⌚','🖥️','⌨️','📷','🔊','🧥','👟','🧢','👕','🎒','🕶️','💡','🛋️','☕','🪴','🧴','💄','🚀','🤖','🔭','⛺','🧭','🔋','🛸','🪐','🌌','📦'];
-const AVS=['🧑‍🚀','👩‍🚀','👨‍🚀','🤖','🛸','🪐','🌙','⭐','🛰️','👽'];
+const COL=[{n:{th:'ม่วงนีออน',en:'Neon Purple'},hex:'#A855F7'},{n:{th:'ฟ้าไซแอน',en:'Cyan'},hex:'#22D3EE'},{n:{th:'ดำจักรวาล',en:'Cosmic Black'},hex:'#1e1b3a'}];
+const EMO=['🎧','⌚','🖥️','⌨️','📷','🔊','🧥','👟','🧢','👕','🎒','💡','🛋️','☕','🪴','🧴','💄','🚀','🤖','🔭','⛺','🧭','🔋','🛸','🪐','🌌','📦','🏪'];
+const AVS=['🧑‍🚀','👩‍🚀','🤖','🛸','🪐','🌙','⭐','👽'];
 const FLOW=['pending','processing','shipped','delivered'];
 const NI={order_new:'🛒',order_status:'📦',review_new:'⭐',low_stock:'⚠️',seller_new:'🏪',promo:'🎁',system:'🛰️'};
+const BANNERS=[{icon:'🪐',g:0,title:{th:'ลดสูงสุด 30% หมวดอุปกรณ์ไอที',en:'Up to 30% off electronics'},sub:{th:'ใช้โค้ด COSMIC10',en:'Use code COSMIC10'},link:'shop?cat=c1'},{icon:'🧥',g:1,title:{th:'แฟชั่นนักสำรวจ',en:'Explorer fashion'},sub:{th:'คอลเลกชันใหม่มาแล้ว',en:'New collection is here'},link:'shop?cat=c2'},{icon:'🚚',g:4,title:{th:'ส่งฟรีทั่วกาแล็กซี',en:'Free shipping galaxy-wide'},sub:{th:'เมื่อซื้อครบตามเงื่อนไข',en:'On qualifying orders'},link:'shop'}];
 
-/* ============ i18n DICTIONARY: key:[TH,EN] ============ */
+/* ===== i18n: key:[TH,EN] ===== */
 const D={
 slogan:['สำรวจจักรวาลแห่งการช้อปปิ้ง ซื้อขายได้ไร้ขีดจำกัด','Explore the universe of shopping — buy and sell without limits'],
 ann:['🚀 ส่งฟรีเมื่อซื้อครบ {n} บาท • ใช้โค้ด COSMIC10 ลด 10%','🚀 Free shipping over ฿{n} • Use code COSMIC10 for 10% off'],
-home:['หน้าแรก','Home'],shop:['สินค้าทั้งหมด','Shop'],stores:['ร้านค้า','Stores'],cart:['ตะกร้า','Cart'],wishlist:['รายการโปรด','Wishlist'],
-search_ph:['ค้นหาสินค้า ร้านค้า...','Search products, stores...'],search:['ค้นหา','Search'],login:['เข้าสู่ระบบ','Log in'],register:['สมัครสมาชิก','Register'],logout:['ออกจากระบบ','Log out'],
-profile:['โปรไฟล์','Profile'],account:['บัญชีของฉัน','My account'],back_home:['กลับหน้าหลัก','Back to home'],loading:['กำลังโหลด...','Loading...'],error:['เกิดข้อผิดพลาด','Something went wrong'],
-cancel:['ยกเลิก','Cancel'],confirm:['ยืนยัน','Confirm'],save:['บันทึก','Save'],edit:['แก้ไข','Edit'],delete:['ลบ','Delete'],add:['เพิ่ม','Add'],view:['ดู','View'],all:['ทั้งหมด','All'],
-status:['สถานะ','Status'],actions:['การทำงาน','Actions'],date:['วันที่','Date'],total:['รวม','Total'],price:['ราคา','Price'],qty:['จำนวน','Quantity'],name:['ชื่อ','Name'],email:['อีเมล','Email'],phone:['เบอร์โทรศัพท์','Phone'],password:['รหัสผ่าน','Password'],
-apply:['ใช้','Apply'],remove:['ลบออก','Remove'],show:['แสดง','Show'],hide:['ซ่อน','Hide'],saved:['บันทึกแล้ว','Saved'],deleted:['ลบแล้ว','Deleted'],coming:['เร็วๆ นี้ (Coming soon)','Coming soon'],
-sec_cats:['หมวดหมู่แนะนำ','Featured Categories'],sec_flash:['⚡ แฟลชเซล','⚡ Flash Sale'],sec_best:['สินค้าขายดี','Best Sellers'],sec_rec:['แนะนำสำหรับคุณ','Recommended for you'],sec_new:['สินค้ามาใหม่','New Arrivals'],sec_stores:['ร้านค้าแนะนำ','Featured Stores'],sec_recent:['ดูล่าสุด','Recently Viewed'],
-ends_in:['สิ้นสุดใน','Ends in'],see_all:['ดูทั้งหมด','See all'],hero_cta1:['เริ่มช้อปเลย','Start shopping'],hero_cta2:['เปิดร้านกับเรา','Open your store'],
-news_t:['รับข่าวสารจากจักรวาล','News from the cosmos'],news_ph:['อีเมลของคุณ','Your email'],news_btn:['สมัครรับข่าว','Subscribe'],news_ok:['บันทึกอีเมลแล้ว (Demo: ไม่มีการส่งอีเมลจริง ต้องใช้ Backend)','Email saved locally (Demo: no real emails — needs a backend)'],
+home:['หน้าแรก','Home'],shop:['สินค้าทั้งหมด','Shop'],cart:['ตะกร้า','Cart'],wishlist:['รายการโปรด','Wishlist'],search_ph:['ค้นหาสินค้า ร้านค้า...','Search products, stores...'],search:['ค้นหา','Search'],
+login:['เข้าสู่ระบบ','Log in'],register:['สมัครสมาชิก','Register'],logout:['ออกจากระบบ','Log out'],profile:['โปรไฟล์','Profile'],account:['บัญชีของฉัน','My account'],back_home:['กลับหน้าหลัก','Back to home'],error:['เกิดข้อผิดพลาด','Something went wrong'],
+cancel:['ยกเลิก','Cancel'],confirm:['ยืนยัน','Confirm'],save:['บันทึก','Save'],edit:['แก้ไข','Edit'],delete:['ลบ','Delete'],add:['เพิ่ม','Add'],view:['ดู','View'],all:['ทั้งหมด','All'],status:['สถานะ','Status'],actions:['การทำงาน','Actions'],date:['วันที่','Date'],total:['รวม','Total'],price:['ราคา','Price'],qty:['จำนวน','Quantity'],name:['ชื่อ','Name'],email:['อีเมล','Email'],phone:['เบอร์โทรศัพท์','Phone'],password:['รหัสผ่าน','Password'],apply:['ใช้','Apply'],remove:['ลบออก','Remove'],show:['แสดง','Show'],hide:['ซ่อน','Hide'],saved:['บันทึกแล้ว','Saved'],deleted:['ลบแล้ว','Deleted'],
+sec_cats:['หมวดหมู่แนะนำ','Featured Categories'],sec_flash:['⚡ แฟลชเซล','⚡ Flash Sale'],sec_best:['สินค้าขายดี','Best Sellers'],sec_rec:['แนะนำสำหรับคุณ','Recommended for you'],sec_new:['สินค้ามาใหม่','New Arrivals'],sec_stores:['ร้านค้าแนะนำ','Featured Stores'],ends_in:['สิ้นสุดใน','Ends in'],see_all:['ดูทั้งหมด','See all'],hero_cta1:['เริ่มช้อปเลย','Start shopping'],hero_cta2:['เปิดร้านกับเรา','Open your store'],
 ft_note:['เว็บไซต์ตัวอย่างสำหรับสาธิต ไม่มีการซื้อขายหรือรับชำระเงินจริง','Demo site — no real transactions or payments.'],ft_sec:['การตรวจสอบสิทธิ์ฝั่ง Frontend เป็นเพียงการจำลอง ใน Production ต้องตรวจสอบที่ Backend','Frontend role checks are a simulation; production requires backend verification.'],
-sold:['ขายแล้ว {n}','{n} sold'],in_stock:['มีสินค้า {n} ชิ้น','{n} in stock'],low_stock:['เหลือน้อย {n} ชิ้น','Only {n} left'],out_stock:['สินค้าหมด','Out of stock'],
-add_cart:['เพิ่มลงตะกร้า','Add to cart'],buy_now:['ซื้อเลย','Buy now'],color:['สี','Color'],size:['ขนาด','Size'],desc:['รายละเอียด','Description'],reviews:['รีวิว','Reviews'],related:['สินค้าที่เกี่ยวข้อง','Related products'],
-no_items:['ไม่พบรายการ','Nothing found'],write_review:['เขียนรีวิว','Write a review'],rating:['คะแนน','Rating'],comment:['ความคิดเห็น','Comment'],submit:['ส่ง','Submit'],verified:['ซื้อแล้ว','Verified purchase'],
-rev_login:['เข้าสู่ระบบด้วยบัญชีผู้ซื้อเพื่อรีวิว','Log in with a buyer account to review'],rev_done:['คุณรีวิวสินค้านี้แล้ว','You already reviewed this product'],v_short:['สั้นเกินไป (อย่างน้อย 5 ตัวอักษร)','Too short (min 5 characters)'],
-filters:['ตัวกรอง','Filters'],f_cat:['หมวดหมู่','Category'],f_min:['ราคาต่ำสุด','Min price'],f_max:['ราคาสูงสุด','Max price'],f_rate:['คะแนนขั้นต่ำ','Min rating'],f_store:['ร้านค้า','Seller'],f_stock:['เฉพาะสินค้าที่มีของ','In stock only'],
-sort:['เรียงตาม','Sort by'],s_new:['ใหม่ล่าสุด','Newest'],s_best:['ขายดี','Best selling'],s_pl:['ราคาต่ำ → สูง','Price low → high'],s_ph:['ราคาสูง → ต่ำ','Price high → low'],s_rate:['คะแนนสูงสุด','Top rated'],results:['{n} รายการ','{n} results'],clear:['ล้างตัวกรอง','Clear filters'],
-cart_t:['ตะกร้าสินค้า','Shopping cart'],cart_empty:['ตะกร้าว่างเปล่า','Your cart is empty'],subtotal:['ราคาสินค้า','Subtotal'],discount:['ส่วนลด','Discount'],shipping:['ค่าจัดส่ง','Shipping'],grand:['ยอดสุทธิ','Grand total'],
-coupon:['คูปองส่วนลด','Coupon'],coupon_ph:['กรอกโค้ด','Enter code'],checkout:['ชำระเงิน','Checkout'],free:['ฟรี','Free'],cont_shop:['เลือกซื้อสินค้าต่อ','Continue shopping'],unavailable:['สินค้าไม่พร้อมขาย','Unavailable'],
-coupon_ok:['ใช้คูปองสำเร็จ','Coupon applied'],coupon_bad:['คูปองไม่ถูกต้องหรือหมดอายุ','Invalid or expired coupon'],coupon_min:['ยอดไม่ถึงขั้นต่ำ ฿{n}','Minimum spend ฿{n} not met'],added_cart:['เพิ่มลงตะกร้าแล้ว','Added to cart'],
-co_buyer:['ข้อมูลผู้ซื้อ','Buyer info'],co_addr:['ที่อยู่จัดส่ง','Shipping address'],co_new:['+ ที่อยู่ใหม่','+ New address'],co_ship:['วิธีจัดส่ง','Delivery method'],ship_std:['มาตรฐาน (3-5 วัน)','Standard (3–5 days)'],ship_exp:['ด่วน (1-2 วัน)','Express (1–2 days)'],ship_warp:['วาร์ปไดรฟ์ (ภายในวัน)','Warp Drive (same day)'],
-co_pay:['วิธีชำระเงิน','Payment method'],pay_card:['บัตรเครดิต/เดบิต (UI)','Credit/debit card (UI)'],pay_qr:['QR พร้อมเพย์ (UI)','QR payment (UI)'],pay_cod:['เก็บเงินปลายทาง (UI)','Cash on delivery (UI)'],
-pay_note:['เป็นเพียง UI สาธิต ไม่มีการรับชำระเงินจริง ห้ามกรอกข้อมูลบัตรจริง','UI demo only — no real payment is processed. Never enter real card details.'],co_sum:['สรุปคำสั่งซื้อ','Order summary'],co_confirm:['ยืนยันคำสั่งซื้อ (Demo)','Confirm order (Demo)'],
-done_t:['สั่งซื้อสำเร็จ (Demo)','Order placed (Demo)'],done_s:['เป็นคำสั่งซื้อตัวอย่าง ไม่มีการเรียกเก็บเงินจริง','This is a demo order — nothing was charged.'],buyer_only:['ฟังก์ชันนี้สำหรับบัญชีผู้ซื้อเท่านั้น','This is for buyer accounts only'],stock_short:['สต็อกไม่พอ: {name}','Not enough stock: {name}'],cartEmpty:['กรุณาเลือกสินค้าในตะกร้า','Select items in your cart'],
+sold:['ขายแล้ว {n}','{n} sold'],in_stock:['มีสินค้า {n} ชิ้น','{n} in stock'],low_stock:['เหลือน้อย {n} ชิ้น','Only {n} left'],out_stock:['สินค้าหมด','Out of stock'],add_cart:['เพิ่มลงตะกร้า','Add to cart'],buy_now:['ซื้อเลย','Buy now'],color:['สี','Color'],size:['ขนาด','Size'],reviews:['รีวิว','Reviews'],related:['สินค้าที่เกี่ยวข้อง','Related products'],no_items:['ไม่พบรายการ','Nothing found'],write_review:['เขียนรีวิว','Write a review'],rating:['คะแนน','Rating'],comment:['ความคิดเห็น','Comment'],submit:['ส่ง','Submit'],verified:['ซื้อแล้ว','Verified purchase'],rev_login:['เข้าสู่ระบบด้วยบัญชีผู้ซื้อเพื่อรีวิว','Log in with a buyer account to review'],rev_done:['คุณรีวิวสินค้านี้แล้ว','You already reviewed this product'],v_short:['สั้นเกินไป (อย่างน้อย 5 ตัวอักษร)','Too short (min 5 characters)'],
+filters:['ตัวกรอง','Filters'],f_cat:['หมวดหมู่','Category'],f_min:['ราคาต่ำสุด','Min price'],f_max:['ราคาสูงสุด','Max price'],f_rate:['คะแนนขั้นต่ำ','Min rating'],f_store:['ร้านค้า','Seller'],f_stock:['เฉพาะสินค้าที่มีของ','In stock only'],sort:['เรียงตาม','Sort by'],s_new:['ใหม่ล่าสุด','Newest'],s_best:['ขายดี','Best selling'],s_pl:['ราคาต่ำ → สูง','Price low → high'],s_ph:['ราคาสูง → ต่ำ','Price high → low'],s_rate:['คะแนนสูงสุด','Top rated'],results:['{n} รายการ','{n} results'],clear:['ล้างตัวกรอง','Clear filters'],
+cart_t:['ตะกร้าสินค้า','Shopping cart'],cart_empty:['ตะกร้าว่างเปล่า','Your cart is empty'],subtotal:['ราคาสินค้า','Subtotal'],discount:['ส่วนลด','Discount'],shipping:['ค่าจัดส่ง','Shipping'],grand:['ยอดสุทธิ','Grand total'],coupon_ph:['กรอกโค้ดส่วนลด','Coupon code'],checkout:['ชำระเงิน','Checkout'],free:['ฟรี','Free'],cont_shop:['เลือกซื้อสินค้าต่อ','Continue shopping'],unavailable:['สินค้าไม่พร้อมขาย','Unavailable'],coupon_ok:['ใช้คูปองสำเร็จ','Coupon applied'],coupon_bad:['คูปองไม่ถูกต้องหรือหมดอายุ','Invalid or expired coupon'],coupon_min:['ยอดไม่ถึงขั้นต่ำ ฿{n}','Minimum spend ฿{n} not met'],added_cart:['เพิ่มลงตะกร้าแล้ว','Added to cart'],
+co_buyer:['ข้อมูลผู้ซื้อ','Buyer info'],co_addr:['ที่อยู่จัดส่ง','Shipping address'],co_new:['+ ที่อยู่ใหม่','+ New address'],co_ship:['วิธีจัดส่ง','Delivery method'],ship_std:['มาตรฐาน (3-5 วัน)','Standard (3–5 days)'],ship_exp:['ด่วน (1-2 วัน)','Express (1–2 days)'],ship_warp:['วาร์ปไดรฟ์ (ภายในวัน)','Warp Drive (same day)'],co_pay:['วิธีชำระเงิน','Payment method'],pay_card:['บัตรเครดิต/เดบิต (UI)','Credit/debit card (UI)'],pay_qr:['QR พร้อมเพย์ (UI)','QR payment (UI)'],pay_cod:['เก็บเงินปลายทาง (UI)','Cash on delivery (UI)'],pay_note:['เป็นเพียง UI สาธิต ไม่มีการรับชำระเงินจริง ห้ามกรอกข้อมูลบัตรจริง','UI demo only — no real payment is processed. Never enter real card details.'],co_sum:['สรุปคำสั่งซื้อ','Order summary'],co_confirm:['ยืนยันคำสั่งซื้อ (Demo)','Confirm order (Demo)'],done_t:['สั่งซื้อสำเร็จ (Demo)','Order placed (Demo)'],done_s:['เป็นคำสั่งซื้อตัวอย่าง ไม่มีการเรียกเก็บเงินจริง','This is a demo order — nothing was charged.'],buyer_only:['ฟังก์ชันนี้สำหรับบัญชีผู้ซื้อเท่านั้น','This is for buyer accounts only'],stock_short:['สต็อกไม่พอ: {name}','Not enough stock: {name}'],cartEmpty:['กรุณาเลือกสินค้าในตะกร้า','Select items in your cart'],
 st_pending:['รอดำเนินการ','Pending'],st_processing:['กำลังเตรียมสินค้า','Processing'],st_shipped:['จัดส่งแล้ว','Shipped'],st_delivered:['จัดส่งสำเร็จ','Delivered'],st_cancelled:['ยกเลิก','Cancelled'],st_approved:['อนุมัติแล้ว','Approved'],st_active:['ใช้งาน','Active'],st_suspended:['ถูกระงับ','Suspended'],st_hidden:['ซ่อน','Hidden'],
-track:['ติดตามพัสดุ','Track'],cancel_order:['ยกเลิกคำสั่งซื้อ','Cancel order'],order_no:['เลขที่คำสั่งซื้อ','Order No.'],items:['รายการสินค้า','Items'],buyer:['ผู้ซื้อ','Buyer'],store:['ร้านค้า','Store'],
-auth_welcome:['ยินดีต้อนรับกลับสู่จักรวาล','Welcome back to the cosmos'],remember:['จดจำการเข้าสู่ระบบ','Remember me'],forgot_q:['ลืมรหัสผ่าน?','Forgot password?'],no_acc:['ยังไม่มีบัญชี?','No account yet?'],have_acc:['มีบัญชีแล้ว?','Already have an account?'],
-demo_t:['บัญชีทดลอง (Demo)','Demo accounts'],demo_warn:['ใช้ทดลองเท่านั้น ห้ามใช้รหัสผ่านจริงหรือข้อมูลสำคัญ','For testing only. Never use real passwords or sensitive data.'],demo_buyer:['เข้าสู่ระบบในฐานะผู้ซื้อ','Log in as Buyer'],demo_seller:['เข้าสู่ระบบในฐานะผู้ขาย','Log in as Seller'],demo_admin:['เข้าสู่ระบบในฐานะผู้ดูแลระบบ','Log in as Admin'],
+track:['ติดตามพัสดุ','Track'],cancel_order:['ยกเลิกคำสั่งซื้อ','Cancel order'],order_no:['เลขที่คำสั่งซื้อ','Order No.'],buyer:['ผู้ซื้อ','Buyer'],store:['ร้านค้า','Store'],
+auth_welcome:['ยินดีต้อนรับกลับสู่จักรวาล','Welcome back to the cosmos'],remember:['จดจำการเข้าสู่ระบบ','Remember me'],forgot_q:['ลืมรหัสผ่าน?','Forgot password?'],no_acc:['ยังไม่มีบัญชี?','No account yet?'],have_acc:['มีบัญชีแล้ว?','Already have an account?'],demo_t:['บัญชีทดลอง (Demo)','Demo accounts'],demo_warn:['ใช้ทดลองเท่านั้น ห้ามใช้รหัสผ่านจริงหรือข้อมูลสำคัญ','For testing only. Never use real passwords or sensitive data.'],demo_buyer:['เข้าสู่ระบบในฐานะผู้ซื้อ','Log in as Buyer'],demo_seller:['เข้าสู่ระบบในฐานะผู้ขาย','Log in as Seller'],demo_admin:['เข้าสู่ระบบในฐานะผู้ดูแลระบบ','Log in as Admin'],
 v_req:['กรุณากรอกข้อมูลนี้','This field is required'],v_email:['รูปแบบอีเมลไม่ถูกต้อง','Invalid email format'],v_pw8:['รหัสผ่านต้องมีอย่างน้อย 8 ตัวอักษร','Password must be at least 8 characters'],v_match:['รหัสผ่านไม่ตรงกัน','Passwords do not match'],v_user:['ชื่อผู้ใช้ 3-20 ตัว (a-z, 0-9, _)','Username 3–20 chars (a-z, 0-9, _)'],v_phone:['เบอร์โทรไม่ถูกต้อง','Invalid phone number'],v_num:['ตัวเลขไม่ถูกต้อง','Invalid number'],v_code:['รหัสต้องเป็น A-Z, 0-9 (3-16 ตัว)','Code must be A-Z, 0-9 (3–16)'],
-badCred:['อีเมลหรือรหัสผ่านไม่ถูกต้อง','Incorrect email or password'],locked:['พยายามหลายครั้งเกินไป กรุณารอ 30 วินาที','Too many attempts. Wait 30 seconds'],suspended:['บัญชีนี้ถูกระงับ','This account is suspended'],emailTaken:['อีเมลนี้ถูกใช้แล้ว','Email already registered'],userTaken:['ชื่อผู้ใช้นี้ถูกใช้แล้ว','Username already taken'],
-regClosed:['ปิดรับสมัครสมาชิกชั่วคราว','Registration is currently closed'],loginOk:['เข้าสู่ระบบสำเร็จ ยินดีต้อนรับ {name}','Logged in. Welcome, {name}'],regOk:['สมัครสมาชิกสำเร็จ กรุณาเข้าสู่ระบบ','Registered! Please log in'],logoutOk:['ออกจากระบบแล้ว','You have been logged out'],badPw:['รหัสผ่านปัจจุบันไม่ถูกต้อง','Current password is incorrect'],
-reg_t:['สร้างบัญชีใหม่','Create your account'],first:['ชื่อจริง','First name'],last:['นามสกุล','Last name'],username:['ชื่อผู้ใช้งาน','Username'],confirm_pw:['ยืนยันรหัสผ่าน','Confirm password'],acc_type:['ประเภทบัญชี','Account type'],store_name:['ชื่อร้านค้า','Store name'],store_hint:['ร้านจะรอการอนุมัติจากผู้ดูแลระบบก่อนแสดงสินค้า','Your store awaits admin approval before products appear'],
-pw_str:['ความแข็งแรง','Strength'],pw_0:['อ่อนมาก','Weak'],pw_1:['พอใช้','Fair'],pw_2:['ดี','Good'],pw_3:['แข็งแรง','Strong'],
+badCred:['อีเมลหรือรหัสผ่านไม่ถูกต้อง','Incorrect email or password'],locked:['พยายามหลายครั้งเกินไป กรุณารอ 30 วินาที','Too many attempts. Wait 30 seconds'],suspended:['บัญชีนี้ถูกระงับ','This account is suspended'],emailTaken:['อีเมลนี้ถูกใช้แล้ว','Email already registered'],userTaken:['ชื่อ/รหัสนี้ถูกใช้แล้ว','Already taken'],regClosed:['ปิดรับสมัครสมาชิกชั่วคราว','Registration is currently closed'],loginOk:['เข้าสู่ระบบสำเร็จ ยินดีต้อนรับ {name}','Logged in. Welcome, {name}'],regOk:['สมัครสมาชิกสำเร็จ กรุณาเข้าสู่ระบบ','Registered! Please log in'],logoutOk:['ออกจากระบบแล้ว','You have been logged out'],badPw:['รหัสผ่านปัจจุบันไม่ถูกต้อง','Current password is incorrect'],
+reg_t:['สร้างบัญชีใหม่','Create your account'],first:['ชื่อจริง','First name'],last:['นามสกุล','Last name'],username:['ชื่อผู้ใช้งาน','Username'],confirm_pw:['ยืนยันรหัสผ่าน','Confirm password'],acc_type:['ประเภทบัญชี','Account type'],store_name:['ชื่อร้านค้า','Store name'],store_hint:['ร้านจะรอการอนุมัติจากผู้ดูแลระบบก่อนแสดงสินค้า','Your store awaits admin approval before products appear'],pw_str:['ความแข็งแรง','Strength'],pw_0:['อ่อนมาก','Weak'],pw_1:['พอใช้','Fair'],pw_2:['ดี','Good'],pw_3:['แข็งแรง','Strong'],admin_note:['หมายเหตุ: สมัครเป็นผู้ดูแลระบบผ่านฟอร์มนี้ไม่ได้','Note: admin accounts cannot be created here'],
 fg_t:['รีเซ็ตรหัสผ่าน','Reset password'],fg_send:['ขอรหัสรีเซ็ต','Request reset code'],fg_note:['Demo: ไม่มีการส่งอีเมลจริง การส่งอีเมลรีเซ็ตรหัสผ่านจริงต้องใช้ Backend และ Email Service','Demo: no email is sent. Real reset emails require a backend and an email service.'],fg_msg:['หากอีเมลนี้มีอยู่ในระบบ จะมีการออกรหัสรีเซ็ต','If this email exists, a reset code is issued.'],fg_code:['รหัส Demo (แสดงบนหน้าจอเพื่อสาธิตเท่านั้น): {c}','Demo code (shown on screen for demonstration only): {c}'],fg_code_f:['รหัสรีเซ็ต 6 หลัก','6-digit reset code'],fg_new:['รหัสผ่านใหม่','New password'],fg_bad:['รหัสไม่ถูกต้องหรือหมดอายุ','Invalid or expired code'],fg_ok:['เปลี่ยนรหัสผ่านสำเร็จ','Password changed'],fg_reset:['ตั้งรหัสผ่านใหม่','Set new password'],
-r_buyer:['ผู้ซื้อ','Buyer'],r_seller:['ผู้ขาย','Seller'],r_admin:['ผู้ดูแลระบบ','Admin'],
-denied_t:['ไม่มีสิทธิ์เข้าถึง (Access Denied)','Access Denied'],denied_s:['บัญชีของคุณไม่มีสิทธิ์เปิดหน้านี้ (เป็นเพียงการจำลองฝั่ง Frontend)','Your role cannot open this page (frontend simulation only).'],nf:['ไม่พบหน้านี้','Page not found'],to_dash:['ไปยังแดชบอร์ดของฉัน','Go to my dashboard'],
-m_overview:['ภาพรวม','Overview'],m_profile:['โปรไฟล์','My Profile'],m_orders:['คำสั่งซื้อ','Orders'],m_wishlist:['รายการโปรด','Wishlist'],m_recent:['ดูล่าสุด','Recently Viewed'],m_reviews:['รีวิว','Reviews'],m_addresses:['สมุดที่อยู่','Address Book'],m_notifications:['การแจ้งเตือน','Notifications'],m_settings:['ตั้งค่า','Settings'],
-m_products:['สินค้า','Products'],m_store:['ร้านค้า','Store'],m_reports:['รายงาน','Reports'],m_users:['ผู้ใช้','Users'],m_sellers:['ผู้ขาย','Sellers'],m_stores:['ร้านค้า','Stores'],m_categories:['หมวดหมู่','Categories'],m_promotions:['โปรโมชั่น','Promotions'],m_banners:['แบนเนอร์','Banners'],m_analytics:['วิเคราะห์','Analytics'],
-member_since:['สมาชิกตั้งแต่','Member since'],role:['ประเภทบัญชี','Role'],edit_profile:['แก้ไขข้อมูลส่วนตัว','Edit profile'],change_pw:['เปลี่ยนรหัสผ่าน','Change password'],cur_pw:['รหัสผ่านปัจจุบัน','Current password'],pw_changed:['เปลี่ยนรหัสผ่านแล้ว','Password changed'],avatar:['รูปโปรไฟล์','Avatar'],
-add_addr:['เพิ่มที่อยู่','Add address'],label:['ป้ายกำกับ','Label'],line:['ที่อยู่','Address'],city:['จังหวัด/เมือง','City'],zip:['รหัสไปรษณีย์','Postcode'],default:['ค่าเริ่มต้น','Default'],set_default:['ตั้งเป็นค่าเริ่มต้น','Set default'],
-login_hist:['ประวัติการเข้าสู่ระบบ (Demo)','Login history (Demo)'],device:['อุปกรณ์','Device'],lang_set:['ภาษา','Language'],reset_demo:['รีเซ็ตข้อมูล Demo ทั้งหมด','Reset all demo data'],sess_note:['Session และข้อมูลทั้งหมดเก็บใน LocalStorage ของเบราว์เซอร์นี้เพื่อการสาธิตเท่านั้น ไม่ใช่ระบบรักษาความปลอดภัย','Sessions and data live in this browser LocalStorage for demo only — not a security system.'],
-no_orders:['ยังไม่มีคำสั่งซื้อ','No orders yet'],my_orders_n:['คำสั่งซื้อของฉัน','My orders'],spent:['ยอดซื้อสะสม','Total spent'],unread:['ยังไม่อ่าน','Unread'],
-n_order_new:['คำสั่งซื้อใหม่ {order}','New order {order}'],n_order_status:['คำสั่งซื้อ {order} เปลี่ยนสถานะเป็น {status}','Order {order} is now {status}'],n_review_new:['รีวิวใหม่ ({stars}★) สำหรับ {name}','New review ({stars}★) for {name}'],n_low_stock:['สต็อกเหลือน้อย: {name} ({n} ชิ้น)','Low stock: {name} ({n} left)'],n_seller_new:['ผู้ขายใหม่ลงทะเบียน: {name}','New seller registered: {name}'],n_promo:['โปรโมชั่น: ใช้โค้ด {code} รับส่วนลด','Promo: use code {code} for a discount'],n_system:['ยินดีต้อนรับสู่ COSMIC MARKETPLACE (Demo)','Welcome to COSMIC MARKETPLACE (Demo)'],
-notif_t:['การแจ้งเตือน','Notifications'],mark_all:['อ่านทั้งหมด','Mark all read'],no_notif:['ไม่มีการแจ้งเตือน','No notifications'],view_all:['ดูทั้งหมด','View all'],
+r_buyer:['ผู้ซื้อ','Buyer'],r_seller:['ผู้ขาย','Seller'],r_admin:['ผู้ดูแลระบบ','Admin'],denied_t:['ไม่มีสิทธิ์เข้าถึง (Access Denied)','Access Denied'],denied_s:['บัญชีของคุณไม่มีสิทธิ์เปิดหน้านี้ (เป็นเพียงการจำลองฝั่ง Frontend)','Your role cannot open this page (frontend simulation only).'],nf:['ไม่พบหน้านี้','Page not found'],to_dash:['ไปยังแดชบอร์ดของฉัน','Go to my dashboard'],
+m_overview:['ภาพรวม','Overview'],m_profile:['โปรไฟล์','My Profile'],m_orders:['คำสั่งซื้อ','Orders'],m_wishlist:['รายการโปรด','Wishlist'],m_reviews:['รีวิว','Reviews'],m_addresses:['สมุดที่อยู่','Address Book'],m_notifications:['การแจ้งเตือน','Notifications'],m_settings:['ตั้งค่า','Settings'],m_products:['สินค้า','Products'],m_store:['ร้านค้า','Store'],m_reports:['รายงาน','Reports'],m_users:['ผู้ใช้','Users'],m_sellers:['ผู้ขาย/ร้านค้า','Sellers & Stores'],m_categories:['หมวดหมู่','Categories'],m_promotions:['โปรโมชั่น','Promotions'],
+member_since:['สมาชิกตั้งแต่','Member since'],role:['ประเภทบัญชี','Role'],edit_profile:['แก้ไขข้อมูลส่วนตัว','Edit profile'],change_pw:['เปลี่ยนรหัสผ่าน','Change password'],cur_pw:['รหัสผ่านปัจจุบัน','Current password'],pw_changed:['เปลี่ยนรหัสผ่านแล้ว','Password changed'],avatar:['รูปโปรไฟล์','Avatar'],add_addr:['เพิ่มที่อยู่','Add address'],label:['ป้ายกำกับ','Label'],line:['ที่อยู่','Address'],city:['จังหวัด/เมือง','City'],zip:['รหัสไปรษณีย์','Postcode'],default:['ค่าเริ่มต้น','Default'],set_default:['ตั้งเป็นค่าเริ่มต้น','Set default'],lang_set:['ภาษา','Language'],reset_demo:['รีเซ็ตข้อมูล Demo ทั้งหมด','Reset all demo data'],sess_note:['Session และข้อมูลทั้งหมดเก็บใน LocalStorage ของเบราว์เซอร์นี้เพื่อการสาธิตเท่านั้น ไม่ใช่ระบบรักษาความปลอดภัย','Sessions and data live in this browser LocalStorage for demo only — not a security system.'],my_orders_n:['คำสั่งซื้อของฉัน','My orders'],spent:['ยอดซื้อสะสม','Total spent'],unread:['ยังไม่อ่าน','Unread'],
+n_order_new:['คำสั่งซื้อใหม่ {order}','New order {order}'],n_order_status:['คำสั่งซื้อ {order} เปลี่ยนสถานะเป็น {status}','Order {order} is now {status}'],n_review_new:['รีวิวใหม่ ({stars}★) สำหรับ {name}','New review ({stars}★) for {name}'],n_low_stock:['สต็อกเหลือน้อย: {name} ({n} ชิ้น)','Low stock: {name} ({n} left)'],n_seller_new:['ผู้ขายใหม่ลงทะเบียน: {name}','New seller registered: {name}'],n_promo:['โปรโมชั่น: ใช้โค้ด {code} รับส่วนลด','Promo: use code {code} for a discount'],n_system:['ยินดีต้อนรับสู่ COSMIC MARKETPLACE (Demo)','Welcome to COSMIC MARKETPLACE (Demo)'],notif_t:['การแจ้งเตือน','Notifications'],mark_all:['อ่านทั้งหมด','Mark all read'],no_notif:['ไม่มีการแจ้งเตือน','No notifications'],view_all:['ดูทั้งหมด','View all'],
 rev_total:['รายได้รวม','Total revenue'],orders_n:['คำสั่งซื้อ','Orders'],products_n:['สินค้า','Products'],customers_n:['ลูกค้า','Customers'],pending_n:['รอดำเนินการ','Pending'],done_n:['สำเร็จ','Completed'],rev_chart:['รายได้ 14 วันล่าสุด','Revenue — last 14 days'],top_prod:['สินค้าขายดี','Top products'],recent_orders:['คำสั่งซื้อล่าสุด','Recent orders'],
-add_prod:['เพิ่มสินค้า','Add product'],edit_prod:['แก้ไขสินค้า','Edit product'],name_th:['ชื่อ (ไทย)','Name (TH)'],name_en:['ชื่อ (อังกฤษ)','Name (EN)'],desc_th:['รายละเอียด (ไทย)','Description (TH)'],desc_en:['รายละเอียด (อังกฤษ)','Description (EN)'],category:['หมวดหมู่','Category'],disc_pct:['ส่วนลด (%)','Discount (%)'],stock:['สต็อก','Stock'],icon:['ไอคอน','Icon'],theme_col:['สีธีมภาพ','Image theme'],upload_img:['อัปโหลดรูป','Upload image'],remove_img:['ลบรูป','Remove image'],colors_in:['สีสินค้า (คั่นด้วย ,)','Colors (comma-separated)'],sizes_in:['ขนาด (คั่นด้วย ,)','Sizes (comma-separated)'],visible:['แสดง','Visible'],
-store_set:['ข้อมูลร้านค้า','Store settings'],store_logo:['โลโก้ร้าน','Store logo'],store_cover:['ภาพหน้าปก','Cover'],store_desc:['คำอธิบายร้าน','Description'],store_addr:['ที่อยู่ร้าน','Address'],contact:['ช่องทางติดต่อ','Contact'],store_rating:['คะแนนร้าน','Store rating'],
-users_n:['สมาชิก','Members'],sellers_n:['ผู้ขาย','Sellers'],growth:['การเติบโต (รายได้ 14 วัน)','Growth (14-day revenue)'],activity:['กิจกรรมล่าสุด','Recent activity'],suspend:['ระงับ','Suspend'],activate:['เปิดใช้งาน','Activate'],approve:['อนุมัติ','Approve'],
-export_csv:['ส่งออก CSV','Export CSV'],site_set:['ตั้งค่าระบบ','System settings'],free_ship_min:['ส่งฟรีเมื่อซื้อครบ (฿)','Free shipping over (฿)'],ship_fee_std:['ค่าส่งมาตรฐาน (฿)','Standard fee (฿)'],ship_fee_exp:['ค่าส่งด่วน (฿)','Express fee (฿)'],ship_fee_warp:['ค่าส่งวาร์ป (฿)','Warp fee (฿)'],allow_reg:['เปิดรับสมัครสมาชิก','Allow registration'],
+add_prod:['เพิ่มสินค้า','Add product'],edit_prod:['แก้ไขสินค้า','Edit product'],name_th:['ชื่อ (ไทย)','Name (TH)'],name_en:['ชื่อ (อังกฤษ)','Name (EN)'],desc_th:['รายละเอียด (ไทย)','Description (TH)'],desc_en:['รายละเอียด (อังกฤษ)','Description (EN)'],category:['หมวดหมู่','Category'],discount_pct:['ส่วนลด (%)','Discount (%)'],stock:['สต็อก','Stock'],icon:['ไอคอน','Icon'],theme_col:['สีธีมภาพ','Image theme'],colors_in:['สีสินค้า (คั่นด้วย ,)','Colors (comma-separated)'],sizes_in:['ขนาด (คั่นด้วย ,)','Sizes (comma-separated)'],visible:['แสดง','Visible'],
+store_set:['ข้อมูลร้านค้า','Store settings'],store_addr:['ที่อยู่ร้าน','Address'],contact:['ช่องทางติดต่อ','Contact'],store_rating:['คะแนนร้าน','Store rating'],store_logo:['โลโก้ร้าน','Store logo'],store_cover:['ธีมหน้าปก','Cover theme'],
+users_n:['สมาชิก','Members'],sellers_n:['ผู้ขาย','Sellers'],growth:['การเติบโต (รายได้ 14 วัน)','Growth (14-day revenue)'],activity:['กิจกรรมล่าสุด','Recent activity'],suspend:['ระงับ','Suspend'],activate:['เปิดใช้งาน','Activate'],approve:['อนุมัติ','Approve'],site_set:['ตั้งค่าระบบ','System settings'],free_ship_min:['ส่งฟรีเมื่อซื้อครบ (฿)','Free shipping over (฿)'],ship_fee_std:['ค่าส่งมาตรฐาน (฿)','Standard fee (฿)'],ship_fee_exp:['ค่าส่งด่วน (฿)','Express fee (฿)'],ship_fee_warp:['ค่าส่งวาร์ป (฿)','Warp fee (฿)'],allow_reg:['เปิดรับสมัครสมาชิก','Allow registration'],
 code:['โค้ด','Code'],type:['ประเภท','Type'],value:['ค่า','Value'],min_spend:['ยอดขั้นต่ำ','Min spend'],t_percent:['เปอร์เซ็นต์','Percent'],t_fixed:['จำนวนเงิน','Fixed amount'],t_ship:['ส่งฟรี','Free shipping'],used:['ใช้แล้ว','Used'],
-b_title_th:['หัวข้อ (ไทย)','Title (TH)'],b_title_en:['หัวข้อ (อังกฤษ)','Title (EN)'],b_sub_th:['คำอธิบาย (ไทย)','Subtitle (TH)'],b_sub_en:['คำอธิบาย (อังกฤษ)','Subtitle (EN)'],
-rev_by_cat:['รายได้ตามหมวดหมู่','Revenue by category'],rev_by_store:['รายได้ตามร้านค้า','Revenue by store'],ord_14:['คำสั่งซื้อ 14 วัน','Orders — 14 days'],ord_status:['คำสั่งซื้อตามสถานะ','Orders by status'],user_growth:['สมาชิกใหม่รายสัปดาห์','New members per week'],
-confirm_del:['ยืนยันการลบรายการนี้?','Delete this item?'],storage_full:['พื้นที่จัดเก็บเต็ม','Storage is full'],wish_add:['เพิ่มในรายการโปรดแล้ว','Added to wishlist'],wish_rm:['นำออกจากรายการโปรดแล้ว','Removed from wishlist'],in_use:['มีสินค้าใช้หมวดหมู่นี้อยู่','Category is in use'],
-rev_by_prod:['ยอดขายตามสินค้า','Sales by product'],sales_qty:['จำนวนขาย','Units'],revenue:['รายได้','Revenue'],hist_empty:['ยังไม่มีข้อมูล','No data'],my_rev:['รีวิวของฉัน','My reviews'],user:['ผู้ใช้','User'],product:['สินค้า','Product'],owner:['เจ้าของ','Owner'],
-cur_lang:['ภาษาไทย / English','ภาษาไทย / English'],dash:['แดชบอร์ด','Dashboard'],to_store:['ไปหน้าร้าน','Storefront'],img_note:['รูปเก็บใน LocalStorage (ย่อขนาดอัตโนมัติ)','Images are stored in LocalStorage (auto-resized)'],
-admin_note:['หมายเหตุ: ผู้ดูแลระบบสมัครผ่านฟอร์มทั่วไปไม่ได้','Note: admin accounts cannot be created via public registration'],
-};
-function t(k,p){const e=D[k];let s=e?e[lang==='th'?0:1]:k;if(p)s=s.replace(/\{(\w+)\}/g,(m,x)=>p[x]??'');return s}
-const L=o=>o&&typeof o==='object'?(o[lang]||o.en||o.th||''):(o??'');
+rev_by_prod:['ยอดขายตามสินค้า','Sales by product'],sales_qty:['จำนวนขาย','Units'],revenue:['รายได้','Revenue'],my_rev:['รีวิวของฉัน','My reviews'],user:['ผู้ใช้','User'],product:['สินค้า','Product'],owner:['เจ้าของ','Owner'],dash:['แดชบอร์ด','Dashboard'],to_store:['ไปหน้าร้าน','Storefront'],confirm_del:['ยืนยันการลบรายการนี้?','Delete this item?'],storage_full:['พื้นที่จัดเก็บเต็ม','Storage is full'],wish_add:['เพิ่มในรายการโปรดแล้ว','Added to wishlist'],wish_rm:['นำออกจากรายการโปรดแล้ว','Removed from wishlist'],in_use:['มีสินค้าใช้หมวดหมู่นี้อยู่','Category is in use']};
+function t(k,p){const e=D[k];let s=e?e[lang==='th'?0:1]:k;if(p)s=s.replace(/\{(\w+)\}/g,(m,x)=>p[x]==null?'':p[x]);return s}
+const L=o=>o&&typeof o==='object'?(o[lang]||o.en||o.th||''):(o==null?'':o);
 const loc=()=>lang==='th'?'th-TH':'en-GB';
 const tm=ts=>new Date(ts).toLocaleDateString(loc(),{day:'numeric',month:'short',year:'numeric'});
 const dt=ts=>new Date(ts).toLocaleString(loc(),{day:'numeric',month:'short',hour:'2-digit',minute:'2-digit'});
 
-/* ============ DATA LAYER (LocalStorage demo database) ============ */
+/* ===== DATA LAYER (LocalStorage demo database) ===== */
 const load=()=>{try{const d=JSON.parse(LS.get(KEY));return d&&d.v===1?d:null}catch(e){return null}};
 const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(DB))}catch(e){toast(t('storage_full'),'err')}};
-async function hashPw(pw,salt){ // DEMO ONLY: production must hash on the server (bcrypt/argon2)
+async function hashPw(pw,salt){ // DEMO ONLY. Production: hash on the server with bcrypt/argon2
  const data=salt+':'+pw;
  try{if(window.crypto&&crypto.subtle){const b=await crypto.subtle.digest('SHA-256',new TextEncoder().encode(data));return 'sha256
 
-## สิ่งที่รวมอยู่ในไฟล์
-- **ผู้ซื้อ:** ค้นหา/กรอง/เรียงสินค้า (24 รายการ), ตัวเลือกสีและขนาด, ตะกร้า, คูปอง, Checkout แบบ Demo, ติดตามคำสั่งซื้อ, Wishlist, รีวิว, สมุดที่อยู่
-- **ผู้ขาย:** Dashboard พร้อมกราฟ, CRUD สินค้า (อัปโหลดรูปได้), แก้สต็อก, เปลี่ยนสถานะคำสั่งซื้อ, จัดการร้าน, รายงานและ CSV
-- **แอดมิน:** 13 เมนู ครอบคลุมผู้ใช้ ผู้ขาย ร้านค้า สินค้า หมวดหมู่ คำสั่งซื้อ รีวิว โปรโมชั่น แบนเนอร์ รายงาน และตั้งค่า
-- **ระบบกลาง:** แจ้งเตือน 7 ประเภท, สลับภาษา ไทย/อังกฤษ โดยไม่ reload, Session หมดอายุและถูกเพิกถอนได้, Access Denied ตาม Role, ป้องกัน XSS ด้วยการ escape ทุกข้อมูล
+## สิ่งที่ตัดออก (ประมาณ 20%)
 
-## ข้อจำกัดที่ควรรู้
-- **ไม่ใช่ระบบความปลอดภัยจริง** รหัสผ่านถูก hash (SHA-256 + salt) ก่อนเก็บ แต่ข้อมูลทั้งหมดอยู่ใน LocalStorage ที่ผู้ใช้แก้ไขได้ ระบบ Role ก็เป็นเพียงการจำลอง Production ต้องใช้ Backend, bcrypt/argon2 และตรวจสิทธิ์ฝั่งเซิร์ฟเวอร์
-- **ลืมรหัสผ่านไม่ส่งอีเมลจริง** โค้ดสำหรับสาธิตจะแสดงรหัส 6 หลักบนหน้าจอ และระบุไว้ชัดเจนในหน้านั้นว่าการส่งอีเมลจริงต้องใช้ Backend และ Email Service
-- **ไม่มีการรับชำระเงินจริง** ส่วนชำระเงินเป็น UI เท่านั้น และไม่มีช่องให้กรอกข้อมูลบัตร
-- **ภาพสินค้าเป็นกราฟิกจากอีโมจิและ gradient** ไม่ต้องพึ่งอินเทอร์เน็ต และผู้ขายอัปโหลดรูปจริงได้
-- **ผ่านการตรวจโดยอ่านโค้ดเท่านั้น ยังไม่ได้รันจริง** หากพบบั๊กหรือต้องการแก้ส่วนไหน ส่งอาการมาได้เลย เช่น "กด X แล้วเกิด Y"+[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}}catch(e){}
- let h=2166136261;for(const ch of data){h^=ch.charCodeAt(0);h=Math.imul(h,16777619)}return 'demo
+- **หน้าแอดมิน:** Analytics, Banners, Reports และหน้า Stores แยก (รวมกับ Sellers แล้ว)
+- **ฝั่งผู้ซื้อ:** Recently Viewed และ Newsletter
+- **ฝั่งผู้ขาย:** อัปโหลดรูปสินค้าและโลโก้ (ใช้ไอคอนอีโมจิกับธีมสีแทน) และ Export CSV
+- **หน้าตั้งค่า:** ประวัติการเข้าสู่ระบบ
+- **ฟอร์มแก้ไข:** แก้ไขหมวดหมู่ โปรโมชั่น และที่อยู่ ทำได้แค่เพิ่ม ลบ หรือเปิด/ปิด
+- **ข้อมูลตัวอย่าง:** ลดเหลือ 21 สินค้า และ 20 คำสั่งซื้อ
+- **เมนูมือถือ:** ปุ่ม ☰ เปิดเมนูหมวดหมู่และปุ่ม Login/Register แทนเมนูแยก
 
-## สิ่งที่รวมอยู่ในไฟล์
-- **ผู้ซื้อ:** ค้นหา/กรอง/เรียงสินค้า (24 รายการ), ตัวเลือกสีและขนาด, ตะกร้า, คูปอง, Checkout แบบ Demo, ติดตามคำสั่งซื้อ, Wishlist, รีวิว, สมุดที่อยู่
-- **ผู้ขาย:** Dashboard พร้อมกราฟ, CRUD สินค้า (อัปโหลดรูปได้), แก้สต็อก, เปลี่ยนสถานะคำสั่งซื้อ, จัดการร้าน, รายงานและ CSV
-- **แอดมิน:** 13 เมนู ครอบคลุมผู้ใช้ ผู้ขาย ร้านค้า สินค้า หมวดหมู่ คำสั่งซื้อ รีวิว โปรโมชั่น แบนเนอร์ รายงาน และตั้งค่า
-- **ระบบกลาง:** แจ้งเตือน 7 ประเภท, สลับภาษา ไทย/อังกฤษ โดยไม่ reload, Session หมดอายุและถูกเพิกถอนได้, Access Denied ตาม Role, ป้องกัน XSS ด้วยการ escape ทุกข้อมูล
+## สิ่งที่ยังอยู่ครบ
 
-## ข้อจำกัดที่ควรรู้
-- **ไม่ใช่ระบบความปลอดภัยจริง** รหัสผ่านถูก hash (SHA-256 + salt) ก่อนเก็บ แต่ข้อมูลทั้งหมดอยู่ใน LocalStorage ที่ผู้ใช้แก้ไขได้ ระบบ Role ก็เป็นเพียงการจำลอง Production ต้องใช้ Backend, bcrypt/argon2 และตรวจสิทธิ์ฝั่งเซิร์ฟเวอร์
-- **ลืมรหัสผ่านไม่ส่งอีเมลจริง** โค้ดสำหรับสาธิตจะแสดงรหัส 6 หลักบนหน้าจอ และระบุไว้ชัดเจนในหน้านั้นว่าการส่งอีเมลจริงต้องใช้ Backend และ Email Service
-- **ไม่มีการรับชำระเงินจริง** ส่วนชำระเงินเป็น UI เท่านั้น และไม่มีช่องให้กรอกข้อมูลบัตร
-- **ภาพสินค้าเป็นกราฟิกจากอีโมจิและ gradient** ไม่ต้องพึ่งอินเทอร์เน็ต และผู้ขายอัปโหลดรูปจริงได้
-- **ผ่านการตรวจโดยอ่านโค้ดเท่านั้น ยังไม่ได้รันจริง** หากพบบั๊กหรือต้องการแก้ส่วนไหน ส่งอาการมาได้เลย เช่น "กด X แล้วเกิด Y"+(h>>>0).toString(16)}
+- **ระบบสมาชิก:** Login, Register, Forgot Password (Demo), Logout, ปุ่มบัญชีทดลอง 3 Role
+- **ฝั่งผู้ซื้อ:** ค้นหา กรอง เรียงสินค้า ตะกร้า คูปอง Checkout Demo ติดตามคำสั่งซื้อ Wishlist และรีวิว
+- **ฝั่งผู้ขาย:** CRUD สินค้า แก้สต็อก เปลี่ยนสถานะคำสั่งซื้อ จัดการร้าน และดูรายงาน
+- **ฝั่งแอดมิน:** จัดการผู้ใช้ ผู้ขาย สินค้า หมวดหมู่ คำสั่งซื้อ รีวิว โปรโมชั่น และตั้งค่าระบบ
+- **ระบบกลาง:** แจ้งเตือน 7 ประเภท สลับภาษา ไทย/อังกฤษ โดยไม่ reload Access Denied และการ escape ข้อมูลป้องกัน XSS
+
+## ข้อควรระวัง
+
+- Role-Based Access และ Session เป็นแค่การจำลองใน LocalStorage ไม่ใช่ระบบความปลอดภัยจริง
+- หน้าลืมรหัสผ่านไม่ส่งอีเมลจริง และระบุไว้ในหน้านั้นแล้ว
+- ส่วนชำระเงินเป็น UI สาธิตเท่านั้น ไม่มีช่องกรอกบัตร
+
+ถ้าเปิดแล้วหน้าเว็บว่าง หรือปุ่มไหนกดไม่ติด ส่งข้อความ Error จาก Console หรือบอกว่า "กดปุ่ม X แล้วเกิด Y" มาได้เลย+[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')}}catch(e){}
+ let h=2166136261;for(let i=0;i<data.length;i++){h^=data.charCodeAt(i);h=Math.imul(h,16777619)}return 'demo
+
+## สิ่งที่ตัดออก (ประมาณ 20%)
+
+- **หน้าแอดมิน:** Analytics, Banners, Reports และหน้า Stores แยก (รวมกับ Sellers แล้ว)
+- **ฝั่งผู้ซื้อ:** Recently Viewed และ Newsletter
+- **ฝั่งผู้ขาย:** อัปโหลดรูปสินค้าและโลโก้ (ใช้ไอคอนอีโมจิกับธีมสีแทน) และ Export CSV
+- **หน้าตั้งค่า:** ประวัติการเข้าสู่ระบบ
+- **ฟอร์มแก้ไข:** แก้ไขหมวดหมู่ โปรโมชั่น และที่อยู่ ทำได้แค่เพิ่ม ลบ หรือเปิด/ปิด
+- **ข้อมูลตัวอย่าง:** ลดเหลือ 21 สินค้า และ 20 คำสั่งซื้อ
+- **เมนูมือถือ:** ปุ่ม ☰ เปิดเมนูหมวดหมู่และปุ่ม Login/Register แทนเมนูแยก
+
+## สิ่งที่ยังอยู่ครบ
+
+- **ระบบสมาชิก:** Login, Register, Forgot Password (Demo), Logout, ปุ่มบัญชีทดลอง 3 Role
+- **ฝั่งผู้ซื้อ:** ค้นหา กรอง เรียงสินค้า ตะกร้า คูปอง Checkout Demo ติดตามคำสั่งซื้อ Wishlist และรีวิว
+- **ฝั่งผู้ขาย:** CRUD สินค้า แก้สต็อก เปลี่ยนสถานะคำสั่งซื้อ จัดการร้าน และดูรายงาน
+- **ฝั่งแอดมิน:** จัดการผู้ใช้ ผู้ขาย สินค้า หมวดหมู่ คำสั่งซื้อ รีวิว โปรโมชั่น และตั้งค่าระบบ
+- **ระบบกลาง:** แจ้งเตือน 7 ประเภท สลับภาษา ไทย/อังกฤษ โดยไม่ reload Access Denied และการ escape ข้อมูลป้องกัน XSS
+
+## ข้อควรระวัง
+
+- Role-Based Access และ Session เป็นแค่การจำลองใน LocalStorage ไม่ใช่ระบบความปลอดภัยจริง
+- หน้าลืมรหัสผ่านไม่ส่งอีเมลจริง และระบุไว้ในหน้านั้นแล้ว
+- ส่วนชำระเงินเป็น UI สาธิตเท่านั้น ไม่มีช่องกรอกบัตร
+
+ถ้าเปิดแล้วหน้าเว็บว่าง หรือปุ่มไหนกดไม่ติด ส่งข้อความ Error จาก Console หรือบอกว่า "กดปุ่ม X แล้วเกิด Y" มาได้เลย+(h>>>0).toString(16)}
 const unit=p=>Math.round(p.price*(1-(p.disc||0)/100));
 const store=id=>DB.stores.find(s=>s.id===id),prod=id=>DB.products.find(p=>p.id===id),cat=id=>DB.cats.find(c=>c.id===id),usr=id=>DB.users.find(u=>u.id===id);
-const avail=p=>!!p&&p.status==='active'&&(store(p.storeId)||{}).status==='approved'&&(cat(p.cat)||{}).active!==false;
+const avail=p=>!!p&&p.status==='active'&&!!store(p.storeId)&&store(p.storeId).status==='approved'&&!!cat(p.cat)&&cat(p.cat).active!==false;
 const revs=pid=>DB.reviews.filter(r=>r.pid===pid&&!r.hidden);
 const rate=pid=>{const r=revs(pid);return{n:r.length,avg:r.length?r.reduce((s,x)=>s+x.rating,0)/r.length:0}};
 const stars=v=>'★'.repeat(Math.round(v))+'☆'.repeat(5-Math.round(v));
 const paid=o=>o.status!=='cancelled';
 function notify(uid,type,p){DB.notifs.unshift({id:rid('n'),uid,type,p:p||{},ts:Date.now(),read:false})}
-function mkOrder(o){const ord={id:'CM'+(10000+(++DB.seq)),ts:Date.now(),status:'pending',...o};ord.hist=ord.hist||[{s:ord.status,ts:ord.ts}];DB.orders.unshift(ord);return ord}
-const snap=(p,q,price,ci=-1,si='')=>({pid:p.id,name:p.name,icon:p.icon,g:p.g,img:p.img||'',qty:q,price,ci,si});
+function mkOrder(o){const ord=Object.assign({id:'CM'+(10000+(++DB.seq)),ts:Date.now(),status:'pending'},o);ord.hist=ord.hist||[{s:ord.status,ts:ord.ts}];DB.orders.unshift(ord);return ord}
+const snap=(p,q,price,ci,si)=>({pid:p.id,name:p.name,icon:p.icon,g:p.g,qty:q,price,ci:ci==null?-1:ci,si:si||''});
 async function seed(){
  const now=Date.now();
- const mkU=async(id,role,f,l,un,em,pw,ph,av,age)=>{const salt=rid('x');return{id,role,first:f,last:l,username:un,email:em,phone:ph,salt,hash:await hashPw(pw,salt),avatar:av,status:'active',created:now-age*DAY,verified:true,addresses:[{id:rid('a'),label:'Home',name:f+' '+l,phone:ph,line:'99/9 Galaxy Rd.',city:'Bangkok',zip:'10110',def:true}]}};
- const users=[await mkU('u1','admin','Cosmic','Admin','admin',DEMO.admin.email,DEMO.admin.pw,'0800000001','🛰️',90),
- await mkU('u2','buyer','Nova','Explorer','nova',DEMO.buyer.email,DEMO.buyer.pw,'0800000002','🧑‍🚀',60),
- await mkU('u3','seller','Orion','Tech','orion',DEMO.seller.email,DEMO.seller.pw,'0800000003','🤖',80),
- await mkU('u4','seller','Stella','Wear','stella','stella@cosmic.demo',rid('p')+'Aa1!','0800000004','👩‍🚀',70),
- await mkU('u5','seller','Atlas','Home','atlas','atlas@cosmic.demo',rid('p')+'Aa1!','0800000005','👨‍🚀',65),
- await mkU('u6','buyer','Luna','Sky','luna','luna@cosmic.demo',rid('p')+'Aa1!','0800000006','🌙',40),
- await mkU('u7','buyer','Rigel','Star','rigel','rigel@cosmic.demo',rid('p')+'Aa1!','0800000007','⭐',20)];
- const stores=[['s1','u3','Nebula Tech','🛰️',0],['s2','u4','Stellar Wear','👕',1],['s3','u5','Orbit Home','🏠',2]].map(([id,o,n,lg,g],i)=>({id,ownerId:o,name:n,logo:lg,logoImg:'',cover:g,desc:{th:'ร้านค้าคุณภาพจากกาแล็กซีใกล้เคียง',en:'Quality goods from a nearby galaxy'},address:'Bangkok, Thailand',email:'shop'+(i+1)+'@cosmic.demo',phone:'02000000'+i+'0',social:'@'+n.replace(/\s/g,'').toLowerCase(),status:'approved',created:now-(60-i*5)*DAY}));
- const cats=[['c1','💻','อุปกรณ์อิเล็กทรอนิกส์','Electronics'],['c2','🧥','แฟชั่น','Fashion'],['c3','🏠','บ้านและของใช้','Home & Living'],['c4','🧴','ความงาม','Beauty'],['c5','🚀','ของเล่นและโมเดล','Toys & Models'],['c6','⛺','กลางแจ้ง','Outdoors']].map(([id,icon,th,en])=>({id,icon,name:{th,en},active:true}));
- const P0=[['s1','c1','🎧','หูฟังไร้สาย Nebula X','Nebula X Wireless Headphones',3290,20,40,540,1,1,0],['s1','c1','⌚','สมาร์ทวอทช์ Orbit Pro','Orbit Pro Smartwatch',5990,15,25,320,0,1,0],['s1','c1','🖥️','จอเกมมิ่ง Quasar 27 นิ้ว','Quasar 27" Gaming Monitor',11900,10,12,150,0,0,0],['s1','c1','⌨️','คีย์บอร์ดแสงนีออน','Neon Mechanical Keyboard',2490,25,60,410,1,0,0],['s1','c1','📷','กล้องแอคชั่น Comet 4K','Comet 4K Action Camera',4590,0,18,210,0,0,0],['s1','c1','🔊','ลำโพงพกพา Pulsar','Pulsar Portable Speaker',1890,30,80,690,1,1,0],
- ['s2','c2','🧥','แจ็คเก็ตนักบินอวกาศ','Astronaut Bomber Jacket',2790,10,35,280,0,1,1],['s2','c2','👟','รองเท้าผ้าใบ Lunar','Lunar Sneakers',3490,15,50,520,1,1,2],['s2','c2','🧢','หมวกแก๊ป Galaxy','Galaxy Cap',590,0,120,380,0,1,0],['s2','c2','👕','เสื้อยืด Supernova','Supernova Tee',690,20,200,760,1,1,1],['s2','c2','🎒','เป้สะพายหลัง Voyager','Voyager Backpack',1990,5,45,230,0,1,0],['s2','c2','🕶️','แว่นกันแดด Eclipse','Eclipse Sunglasses',1290,10,70,190,0,1,0],
- ['s3','c3','💡','โคมไฟโปรเจกเตอร์กาแล็กซี','Galaxy Projector Lamp',1490,20,60,450,1,0,0],['s3','c3','🛋️','โซฟาโมดูลาร์ Stellar','Stellar Modular Sofa',15900,12,8,40,0,1,0],['s3','c3','☕','แก้วเก็บอุณหภูมิ Cosmo','Cosmo Thermal Mug',450,0,300,880,0,1,0],['s3','c3','🪴','กระถางต้นไม้ลอยได้','Levitating Planter',2200,10,20,120,0,0,0],
- ['s2','c4','🧴','เซรั่ม Aurora Glow','Aurora Glow Serum',1190,15,90,610,0,0,0],['s2','c4','💄','ลิปสติกเนบิวลา','Nebula Lipstick',490,0,150,540,0,1,0],
- ['s3','c5','🚀','จรวดโมเดล Saturn V','Saturn V Rocket Model',1790,10,30,170,0,0,0],['s1','c5','🤖','หุ่นยนต์ Astro Bot','Astro Bot Robot',2590,20,22,260,1,0,0],['s1','c5','🔭','กล้องโทรทรรศน์เด็ก','Junior Telescope',3290,5,15,95,0,0,0],
- ['s3','c6','⛺','เต็นท์ Moon Base','Moon Base Tent',4990,15,14,85,0,0,0],['s2','c6','🧭','เข็มทิศ Pathfinder','Pathfinder Compass',390,0,140,210,0,0,0],['s1','c6','🔋','แบตสำรอง Fusion 20000','Fusion 20000mAh Power Bank',1290,25,85,640,1,0,0]];
- const products=P0.map((r,i)=>({id:'p'+(i+1),storeId:r[0],cat:r[1],icon:r[2],name:{th:r[3],en:r[4]},desc:{th:r[3]+' — ดีไซน์ล้ำยุค คุณภาพพรีเมียม คัดสรรสำหรับนักสำรวจจักรวาล',en:r[4]+' — futuristic design and premium quality, curated for cosmic explorers.'},price:r[5],disc:r[6],stock:r[7],sold:r[8],flash:!!r[9],colors:r[10]?COL.slice(0,3):[],sizes:r[11]===1?['S','M','L','XL']:r[11]===2?['38','39','40','41','42']:[],g:+r[1][1]-1,status:'active',created:now-(30-i)*DAY,img:''}));
+ const mkU=async(id,role,f,l,un,em,pw,ph,av,age)=>{const salt=rid('x');return{id,role,first:f,last:l,username:un,email:em,phone:ph,salt,hash:await hashPw(pw,salt),avatar:av,status:'active',created:now-age*DAY,addresses:[{id:rid('a'),label:'Home',name:f+' '+l,phone:ph,line:'99/9 Galaxy Rd.',city:'Bangkok',zip:'10110',def:true}]}};
+ const users=[];
+ users.push(await mkU('u1','admin','Cosmic','Admin','admin',DEMO.admin.email,DEMO.admin.pw,'0800000001','🛰️',90));
+ users.push(await mkU('u2','buyer','Nova','Explorer','nova',DEMO.buyer.email,DEMO.buyer.pw,'0800000002','🧑‍🚀',60));
+ users.push(await mkU('u3','seller','Orion','Tech','orion',DEMO.seller.email,DEMO.seller.pw,'0800000003','🤖',80));
+ users.push(await mkU('u4','seller','Stella','Wear','stella','stella@cosmic.demo',rid('p')+'Aa1!','0800000004','👩‍🚀',70));
+ users.push(await mkU('u5','seller','Atlas','Home','atlas','atlas@cosmic.demo',rid('p')+'Aa1!','0800000005','🛸',65));
+ users.push(await mkU('u6','buyer','Luna','Sky','luna','luna@cosmic.demo',rid('p')+'Aa1!','0800000006','🌙',40));
+ users.push(await mkU('u7','buyer','Rigel','Star','rigel','rigel@cosmic.demo',rid('p')+'Aa1!','0800000007','⭐',20));
+ const stores=[['s1','u3','Nebula Tech','🛰️',0],['s2','u4','Stellar Wear','👕',1],['s3','u5','Orbit Home','🏠',2]].map((r,i)=>({id:r[0],ownerId:r[1],name:r[2],logo:r[3],cover:r[4],desc:{th:'ร้านค้าคุณภาพจากกาแล็กซีใกล้เคียง',en:'Quality goods from a nearby galaxy'},address:'Bangkok, Thailand',email:'shop'+(i+1)+'@cosmic.demo',phone:'02000000'+i+'0',social:'@'+r[2].replace(/\s/g,'').toLowerCase(),status:'approved',created:now-(60-i*5)*DAY}));
+ const cats=[['c1','💻','อุปกรณ์อิเล็กทรอนิกส์','Electronics'],['c2','🧥','แฟชั่น','Fashion'],['c3','🏠','บ้านและของใช้','Home & Living'],['c4','🧴','ความงาม','Beauty'],['c5','🚀','ของเล่นและโมเดล','Toys & Models'],['c6','⛺','กลางแจ้ง','Outdoors']].map(r=>({id:r[0],icon:r[1],name:{th:r[2],en:r[3]},active:true}));
+ const P0=[
+ ['s1','c1','🎧','หูฟังไร้สาย Nebula X','Nebula X Wireless Headphones',3290,20,40,540,1,1,0],
+ ['s1','c1','⌚','สมาร์ทวอทช์ Orbit Pro','Orbit Pro Smartwatch',5990,15,25,320,0,1,0],
+ ['s1','c1','🖥️','จอเกมมิ่ง Quasar 27 นิ้ว','Quasar 27-inch Gaming Monitor',11900,10,12,150,0,0,0],
+ ['s1','c1','⌨️','คีย์บอร์ดแสงนีออน','Neon Mechanical Keyboard',2490,25,60,410,1,0,0],
+ ['s1','c1','📷','กล้องแอคชั่น Comet 4K','Comet 4K Action Camera',4590,0,18,210,0,0,0],
+ ['s1','c1','🔊','ลำโพงพกพา Pulsar','Pulsar Portable Speaker',1890,30,80,690,1,1,0],
+ ['s2','c2','🧥','แจ็คเก็ตนักบินอวกาศ','Astronaut Bomber Jacket',2790,10,35,280,0,1,1],
+ ['s2','c2','👟','รองเท้าผ้าใบ Lunar','Lunar Sneakers',3490,15,50,520,1,1,2],
+ ['s2','c2','🧢','หมวกแก๊ป Galaxy','Galaxy Cap',590,0,120,380,0,1,0],
+ ['s2','c2','👕','เสื้อยืด Supernova','Supernova Tee',690,20,200,760,1,1,1],
+ ['s2','c2','🎒','เป้สะพายหลัง Voyager','Voyager Backpack',1990,5,45,230,0,1,0],
+ ['s3','c3','💡','โคมไฟโปรเจกเตอร์กาแล็กซี','Galaxy Projector Lamp',1490,20,60,450,1,0,0],
+ ['s3','c3','🛋️','โซฟาโมดูลาร์ Stellar','Stellar Modular Sofa',15900,12,8,40,0,1,0],
+ ['s3','c3','☕','แก้วเก็บอุณหภูมิ Cosmo','Cosmo Thermal Mug',450,0,300,880,0,1,0],
+ ['s3','c3','🪴','กระถางต้นไม้ลอยได้','Levitating Planter',2200,10,20,120,0,0,0],
+ ['s2','c4','🧴','เซรั่ม Aurora Glow','Aurora Glow Serum',1190,15,90,610,0,0,0],
+ ['s2','c4','💄','ลิปสติกเนบิวลา','Nebula Lipstick',490,0,150,540,0,1,0],
+ ['s3','c5','🚀','จรวดโมเดล Saturn V','Saturn V Rocket Model',1790,10,30,170,0,0,0],
+ ['s1','c5','🤖','หุ่นยนต์ Astro Bot','Astro Bot Robot',2590,20,22,260,1,0,0],
+ ['s3','c6','⛺','เต็นท์ Moon Base','Moon Base Tent',4990,15,14,85,0,0,0],
+ ['s2','c6','🧭','เข็มทิศ Pathfinder','Pathfinder Compass',390,0,140,210,0,0,0]];
+ const products=P0.map((r,i)=>({id:'p'+(i+1),storeId:r[0],cat:r[1],icon:r[2],name:{th:r[3],en:r[4]},desc:{th:r[3]+' — ดีไซน์ล้ำยุค คุณภาพพรีเมียม คัดสรรสำหรับนักสำรวจจักรวาล',en:r[4]+' — futuristic design and premium quality, curated for cosmic explorers.'},price:r[5],disc:r[6],stock:r[7],sold:r[8],flash:!!r[9],colors:r[10]?COL.slice(0,3):[],sizes:r[11]===1?['S','M','L','XL']:r[11]===2?['38','39','40','41','42']:[],g:(+r[1].slice(1))-1,status:'active',created:now-(30-i)*DAY}));
  const RV=[{th:'คุณภาพดีมาก ส่งไว คุ้มค่า',en:'Great quality, fast shipping, worth it'},{th:'ใช้งานดี ดีไซน์สวย',en:'Works well, beautiful design'},{th:'ประทับใจ แนะนำเลย',en:'Impressed — highly recommended'},{th:'โอเคตามราคา',en:'Decent for the price'}];
- const reviews=[];products.forEach((p,i)=>{reviews.push({id:rid('r'),pid:p.id,uid:'u2',rating:5-(i%4===0?1:0),text:RV[i%4],ts:now-(i+3)*DAY,hidden:false},{id:rid('r'),pid:p.id,uid:i%2?'u6':'u7',rating:4+(i%3===0?1:0),text:RV[(i+1)%4],ts:now-(i+1)*DAY,hidden:false})});
- DB={v:1,seq:0,users,sessions:[],stores,cats,products,reviews,orders:[],notifs:[],cart:{},wishlist:{},recent:{},loginHistory:[],newsletter:[],
- promos:[{code:'COSMIC10',type:'percent',value:10,min:500,active:true,used:0},{code:'GALAXY100',type:'fixed',value:100,min:1000,active:true,used:0},{code:'FREESHIP',type:'ship',value:0,min:0,active:true,used:0}],
- banners:[{id:'b1',icon:'🪐',g:0,title:{th:'ลดสูงสุด 30% หมวดอุปกรณ์ไอที',en:'Up to 30% off electronics'},sub:{th:'ใช้โค้ด COSMIC10',en:'Use code COSMIC10'},link:'shop?cat=c1',active:true},{id:'b2',icon:'🧥',g:1,title:{th:'แฟชั่นนักสำรวจ',en:'Explorer fashion'},sub:{th:'คอลเลกชันใหม่มาแล้ว',en:'New collection is here'},link:'shop?cat=c2',active:true},{id:'b3',icon:'🚚',g:4,title:{th:'ส่งฟรีทั่วกาแล็กซี',en:'Free shipping galaxy-wide'},sub:{th:'เมื่อซื้อครบตามเงื่อนไข',en:'On qualifying orders'},link:'shop',active:true}],
- settings:{freeShip:2000,ship:{std:50,exp:120,warp:250},allowReg:true}};
- const FL=['pending','processing','shipped','delivered'];
- for(let k=29;k>=0;k--){const p=products[(k*7)%24],q=1+k%3,bu=['u2','u6','u7'][k%3],bd=usr(bu);
-  const st=k<5?['pending','processing','shipped','pending','processing'][k]:['delivered','delivered','shipped','delivered','cancelled','delivered','delivered'][k%7];
-  const ts=now-(k*.95+.3)*DAY,i=FL.indexOf(st),hist=st==='cancelled'?[{s:'pending',ts},{s:'cancelled',ts:ts+36e5}]:FL.slice(0,i+1).map((s,j)=>({s,ts:ts+j*288e5}));
+ const reviews=[];
+ products.forEach((p,i)=>{reviews.push({id:rid('r'),pid:p.id,uid:i%2?'u6':'u7',rating:4+(i%3===0?1:0),text:RV[i%4],ts:now-(i+1)*DAY,hidden:false});if(i%2===0)reviews.push({id:rid('r'),pid:p.id,uid:'u2',rating:5,text:RV[(i+1)%4],ts:now-(i+3)*DAY,hidden:false})});
+ DB={v:1,seq:0,users,sessions:[],stores,cats,products,reviews,orders:[],notifs:[],cart:{},wishlist:{},
+  promos:[{code:'COSMIC10',type:'percent',value:10,min:500,active:true,used:0},{code:'GALAXY100',type:'fixed',value:100,min:1000,active:true,used:0},{code:'FREESHIP',type:'ship',value:0,min:0,active:true,used:0}],
+  settings:{freeShip:2000,ship:{std:50,exp:120,warp:250},allowReg:true}};
+ for(let k=19;k>=0;k--){
+  const p=products[(k*5)%21],q=1+k%3,bu=['u2','u6','u7'][k%3],bd=usr(bu);
+  const st=k<4?['pending','processing','shipped','pending'][k]:['delivered','delivered','shipped','delivered','cancelled','delivered','delivered'][k%7];
+  const ts=now-(k*1.4+.3)*DAY,i=FLOW.indexOf(st);
+  const hist=st==='cancelled'?[{s:'pending',ts},{s:'cancelled',ts:ts+36e5}]:FLOW.slice(0,i+1).map((s,j)=>({s,ts:ts+j*288e5}));
   const pr=unit(p),sub=pr*q,ship=sub>=2000?0:50;
-  mkOrder({ts,buyer:bu,storeId:p.storeId,items:[snap(p,q,pr)],sub,disc:0,ship,total:sub+ship,shipM:'std',pay:'cod',addr:{name:bd.first+' '+bd.last,phone:bd.phone,...bd.addresses[0]},status:st,hist})}
- notify('u1','seller_new',{name:'Atlas Home'});notify('u1','system');notify('u3','order_new',{order:'CM10030'});notify('u3','low_stock',{name:products[2].name,n:3});notify('u2','promo',{code:'COSMIC10'});notify('u2','system');
+  mkOrder({ts,buyer:bu,storeId:p.storeId,items:[snap(p,q,pr)],sub,disc:0,ship,total:sub+ship,shipM:'std',pay:'cod',addr:Object.assign({},bd.addresses[0],{name:bd.first+' '+bd.last,phone:bd.phone}),status:st,hist})}
+ notify('u1','seller_new',{name:'Atlas Home'});notify('u1','system');notify('u3','order_new',{order:'CM10020'});notify('u3','low_stock',{name:products[2].name,n:3});notify('u2','promo',{code:'COSMIC10'});notify('u2','system');
  return DB}
-/* ============ SERVICE INTERFACE (swap bodies for fetch() to a real backend) ============ */
+
+/* ===== SERVICE INTERFACE (replace bodies with fetch() to a real backend later) ===== */
 const sessTok=()=>SS.get('cosmic_token')||LS.get('cosmic_token');
 function dropTok(){SS.del('cosmic_token');LS.del('cosmic_token')}
 function me(){const tok=sessTok();if(!tok)return null;const s=DB.sessions.find(x=>x.token===tok);if(!s||s.exp<Date.now()){dropTok();return null}const u=usr(s.uid);if(!u||u.status!=='active'){dropTok();return null}return u}
 const U=()=>(S.u=me());
 const owner=()=>{const u=U();return u?u.id:'guest'};
-const cartArr=()=>DB.cart[owner()]||(DB.cart[owner()]=[]),wl=()=>DB.wishlist[owner()]||(DB.wishlist[owner()]=[]),rec=()=>DB.recent[owner()]||(DB.recent[owner()]=[]);
-function mergeGuest(uid){const g=DB.cart.guest||[],c=DB.cart[uid]||(DB.cart[uid]=[]);g.forEach(i=>{const x=c.find(y=>y.id===i.id);x?x.qty+=i.qty:c.push(i)});delete DB.cart.guest;
- DB.wishlist[uid]=[...new Set([...(DB.wishlist[uid]||[]),...(DB.wishlist.guest||[])])];delete DB.wishlist.guest;DB.recent[uid]=[...new Set([...(DB.recent[uid]||[]),...(DB.recent.guest||[])])].slice(0,12);delete DB.recent.guest}
+const cartArr=()=>DB.cart[owner()]||(DB.cart[owner()]=[]),wl=()=>DB.wishlist[owner()]||(DB.wishlist[owner()]=[]);
+function mergeGuest(uid){const g=DB.cart.guest||[],c=DB.cart[uid]||(DB.cart[uid]=[]);g.forEach(i=>{const x=c.find(y=>y.id===i.id);if(x)x.qty+=i.qty;else c.push(i)});delete DB.cart.guest;DB.wishlist[uid]=[...new Set((DB.wishlist[uid]||[]).concat(DB.wishlist.guest||[]))];delete DB.wishlist.guest}
 const Svc={
  auth:{
-  async login(email,pw,remember){await sleep(450);email=email.trim().toLowerCase();const lk=LOCK[email];if(lk&&lk.until>Date.now())return{err:'locked'};
+  async login(email,pw,remember){await sleep(400);email=email.trim().toLowerCase();const lk=LOCK[email];if(lk&&lk.until>Date.now())return{err:'locked'};
    const u=DB.users.find(x=>x.email===email);const ok=u&&(await hashPw(pw,u.salt))===u.hash;
    if(!ok){const l=LOCK[email]=LOCK[email]||{n:0};if(++l.n>=5){l.until=Date.now()+30000;l.n=0}return{err:'badCred'}}
    if(u.status!=='active')return{err:'suspended'};delete LOCK[email];
-   const token=rid('t')+rid('')+rid('');DB.sessions=DB.sessions.filter(s=>s.exp>Date.now());DB.sessions.push({token,uid:u.id,exp:Date.now()+(remember?7*DAY:2*36e5),created:Date.now()});
-   DB.loginHistory.unshift({uid:u.id,ts:Date.now(),device:/Mobi|Android/i.test(navigator.userAgent)?'Mobile':'Desktop'});DB.loginHistory=DB.loginHistory.slice(0,100);
+   const token=rid('t')+rid('')+rid('');DB.sessions=DB.sessions.filter(s=>s.exp>Date.now());DB.sessions.push({token,uid:u.id,exp:Date.now()+(remember?7*DAY:2*36e5)});
    dropTok();(remember?LS:SS).set('cosmic_token',token);mergeGuest(u.id);save();return{user:u}},
   logout(){const tok=sessTok();DB.sessions=DB.sessions.filter(s=>s.token!==tok);dropTok();save()},
   async register(d){await sleep(400);if(!DB.settings.allowReg)return{err:{_form:'regClosed'}};const e=d.email.trim().toLowerCase();
    if(DB.users.some(u=>u.email===e))return{err:{email:'emailTaken'}};if(DB.users.some(u=>u.username.toLowerCase()===d.username.trim().toLowerCase()))return{err:{username:'userTaken'}};
    const salt=rid('x'),id=rid('u'),role=d.role==='seller'?'seller':'buyer'; // admin can never be created here
-   DB.users.push({id,role,first:d.first.trim(),last:d.last.trim(),username:d.username.trim(),email:e,phone:d.phone.trim(),salt,hash:await hashPw(d.password,salt),avatar:'🧑‍🚀',status:'active',created:Date.now(),verified:false,addresses:[]});
-   if(role==='seller'){DB.stores.push({id:rid('s'),ownerId:id,name:d.store.trim().slice(0,60),logo:'🏪',logoImg:'',cover:0,desc:{th:'',en:''},address:'',email:e,phone:d.phone.trim(),social:'',status:'pending',created:Date.now()});DB.users.filter(x=>x.role==='admin').forEach(a=>notify(a.id,'seller_new',{name:d.store.trim()}))}
+   DB.users.push({id,role,first:d.first.trim(),last:d.last.trim(),username:d.username.trim(),email:e,phone:d.phone.trim(),salt,hash:await hashPw(d.password,salt),avatar:'🧑‍🚀',status:'active',created:Date.now(),addresses:[]});
+   if(role==='seller'){DB.stores.push({id:rid('s'),ownerId:id,name:d.store.trim().slice(0,60),logo:'🏪',cover:0,desc:{th:'',en:''},address:'',email:e,phone:d.phone.trim(),social:'',status:'pending',created:Date.now()});DB.users.filter(x=>x.role==='admin').forEach(a=>notify(a.id,'seller_new',{name:d.store.trim()}))}
    save();return{ok:true,email:e}},
   async changePw(u,cur,nw){await sleep(300);if((await hashPw(cur,u.salt))!==u.hash)return{err:'badPw'};u.salt=rid('x');u.hash=await hashPw(nw,u.salt);save();return{ok:true}},
   requestReset(email){const u=DB.users.find(x=>x.email===email.trim().toLowerCase());S.reset=u?{email:u.email,code:String(Math.floor(1e5+Math.random()*9e5)),exp:Date.now()+6e5}:{email:'',code:'',exp:0};return S.reset},
   async resetPassword(email,code,pw){const r=S.reset;if(!r||!r.code||r.email!==email.trim().toLowerCase()||r.code!==code.trim()||r.exp<Date.now())return{err:'fg_bad'};const u=DB.users.find(x=>x.email===r.email);u.salt=rid('x');u.hash=await hashPw(pw,u.salt);DB.sessions=DB.sessions.filter(s=>s.uid!==u.id);S.reset=null;save();return{ok:true}}},
  catalog:{
-  save(sid,d,id){let p=id&&prod(id);if(p&&p.storeId!==sid)return null;if(!p){p={id:rid('p'),storeId:sid,sold:0,created:Date.now(),flash:false};DB.products.push(p)}Object.assign(p,d);if(p.stock<=5)notify(store(sid).ownerId,'low_stock',{name:p.name,n:p.stock});save();return p},
-  remove(id){DB.products=DB.products.filter(p=>p.id!==id);Object.values(DB.cart).forEach(c=>{const i=c.findIndex(x=>x.pid===id);if(i>=0)c.splice(i,1)});save()}},
+  save(sid,d,id){let p=id?prod(id):null;if(p&&p.storeId!==sid)return null;if(!p){p={id:rid('p'),storeId:sid,sold:0,created:Date.now(),flash:false};DB.products.push(p)}Object.assign(p,d);if(p.stock<=5)notify(store(sid).ownerId,'low_stock',{name:p.name,n:p.stock});save();return p},
+  remove(id){DB.products=DB.products.filter(p=>p.id!==id);Object.keys(DB.cart).forEach(k=>{DB.cart[k]=DB.cart[k].filter(x=>x.pid!==id)});save()}},
  orders:{
-  checkout(u,o){const items=cartItems().filter(i=>i.sel&&avail(i.p));if(!items.length)return{err:'cartEmpty'};
+  checkout(u,o){const items=cartItems().filter(i=>i.p&&i.sel&&avail(i.p));if(!items.length)return{err:'cartEmpty'};
    for(const i of items)if(i.qty>i.p.stock)return{err:'stock_short',name:L(i.p.name)};
-   const tot=calc(items,S.coupon,o.ship),by={};items.forEach(i=>(by[i.p.storeId]=by[i.p.storeId]||[]).push(i));const out=[];
-   Object.keys(by).forEach((sid,idx)=>{const its=by[sid],sub=its.reduce((s,i)=>s+unit(i.p)*i.qty,0),disc=Math.round(tot.disc*sub/tot.sub),sh=idx===0?tot.ship:0;
+   const tot=calc(items,S.coupon,o.ship),by={},out=[];items.forEach(i=>{(by[i.p.storeId]=by[i.p.storeId]||[]).push(i)});
+   Object.keys(by).forEach((sid,idx)=>{const its=by[sid],sub=its.reduce((s,i)=>s+unit(i.p)*i.qty,0),disc=tot.sub?Math.round(tot.disc*sub/tot.sub):0,sh=idx===0?tot.ship:0;
     const ord=mkOrder({buyer:u.id,storeId:sid,items:its.map(i=>snap(i.p,i.qty,unit(i.p),i.ci,i.si)),sub,disc,ship:sh,total:sub-disc+sh,shipM:o.ship,pay:o.pay,addr:o.addr});out.push(ord);
     notify(store(sid).ownerId,'order_new',{order:ord.id});notify(u.id,'order_status',{order:ord.id,status:'pending'});
     its.forEach(i=>{i.p.stock-=i.qty;i.p.sold+=i.qty;if(i.p.stock<=5)notify(store(sid).ownerId,'low_stock',{name:i.p.name,n:i.p.stock})})});
    if(tot.pr)tot.pr.used++;DB.cart[u.id]=cartArr().filter(c=>!c.sel);S.coupon='';save();return{orders:out}},
-  setStatus(u,id,s){const o=DB.orders.find(x=>x.id===id);if(!o||!['pending','processing','shipped','delivered','cancelled'].includes(s)||o.status===s)return false;
-   const ok=u.role==='admin'||(u.role==='seller'&&(store(o.storeId)||{}).ownerId===u.id)||(u.role==='buyer'&&o.buyer===u.id&&s==='cancelled'&&o.status==='pending');if(!ok)return false;
+  setStatus(u,id,s){const o=DB.orders.find(x=>x.id===id);if(!o||FLOW.concat(['cancelled']).indexOf(s)<0||o.status===s)return false;
+   const own=store(o.storeId);const ok=u.role==='admin'||(u.role==='seller'&&own&&own.ownerId===u.id)||(u.role==='buyer'&&o.buyer===u.id&&s==='cancelled'&&o.status==='pending');if(!ok)return false;
    if(s==='cancelled')o.items.forEach(i=>{const p=prod(i.pid);if(p){p.stock+=i.qty;p.sold=Math.max(0,p.sold-i.qty)}});
    o.status=s;o.hist.push({s,ts:Date.now()});notify(o.buyer,'order_status',{order:o.id,status:s});save();return true}}};
 
-/* ============ BUSINESS LOGIC ============ */
-const cartItems=()=>cartArr().map(c=>({...c,p:prod(c.pid)}));
+/* ===== BUSINESS LOGIC ===== */
+const cartItems=()=>cartArr().map(c=>Object.assign({},c,{p:prod(c.pid)})).filter(i=>i.p);
 function calc(items,code,shipKey){const sub=items.reduce((s,i)=>s+unit(i.p)*i.qty,0);
- const pr=code&&DB.promos.find(x=>x.code===code&&x.active&&sub>=x.min);let disc=0,fs=false;
+ const pr=code?DB.promos.find(x=>x.code===code&&x.active&&sub>=x.min):null;let disc=0,fs=false;
  if(pr){if(pr.type==='percent')disc=Math.round(sub*pr.value/100);else if(pr.type==='fixed')disc=Math.min(pr.value,sub);else fs=true}
- let ship=sub?DB.settings.ship[shipKey||'std']:0;if(fs||(shipKey||'std')==='std'&&sub-disc>=DB.settings.freeShip)ship=0;
+ const k=shipKey||'std';let ship=sub?DB.settings.ship[k]:0;if(fs||(k==='std'&&sub-disc>=DB.settings.freeShip))ship=0;
  return{sub,disc,ship,total:Math.max(0,sub-disc+ship),pr}}
 function canShop(){const u=U();if(u&&u.role!=='buyer'){toast(t('buyer_only'),'warn');return false}return true}
-function addToCart(pid,q,ci,si){if(!canShop())return false;const p=prod(pid);if(!avail(p)||p.stock<1)return false;const id=[pid,ci,si].join('|'),c=cartArr(),x=c.find(i=>i.id===id);
- const n=(x?x.qty:0)+q;if(n>p.stock){toast(t('stock_short',{name:L(p.name)}),'err');return false}x?x.qty=n:c.push({id,pid,qty:q,ci,si,sel:true});save();updBadges();toast(t('added_cart'));return true}
-function pushRecent(id){const r=rec(),i=r.indexOf(id);if(i>=0)r.splice(i,1);r.unshift(id);if(r.length>12)r.length=12;save()}
+function addToCart(pid,q,ci,si){if(!canShop())return false;const p=prod(pid);if(!avail(p)||p.stock<1)return false;const id=[pid,ci,si].join('|'),c=cartArr(),x=c.find(i=>i.id===id),n=(x?x.qty:0)+q;
+ if(n>p.stock){toast(t('stock_short',{name:L(p.name)}),'err');return false}if(x)x.qty=n;else c.push({id,pid,qty:q,ci,si,sel:true});save();updBadges();toast(t('added_cart'));return true}
 const myStore=()=>DB.stores.find(s=>s.ownerId===(S.u||{}).id);
 const sOrders=sid=>DB.orders.filter(o=>o.storeId===sid);
 const sumRev=a=>a.filter(paid).reduce((s,o)=>s+o.total,0);
 function series(orders,n,fn){const out=[];for(let i=n-1;i>=0;i--){const d=new Date(Date.now()-i*DAY),k=d.toDateString();out.push({l:d.getDate()+'/'+(d.getMonth()+1),v:fn(orders.filter(o=>new Date(o.ts).toDateString()===k))})}return out}
 const unreadN=()=>{const u=S.u;return u?DB.notifs.filter(n=>n.uid===u.id&&!n.read).length:0};
-const ntext=n=>{const p={};for(const k in n.p||{}){const v=n.p[k];p[k]=k==='status'?t('st_'+v):(v&&typeof v==='object'?L(v):v)}return t('n_'+n.type,p)};
+const ntext=n=>{const p={},src=n.p||{};Object.keys(src).forEach(k=>{const v=src[k];p[k]=k==='status'?t('st_'+v):(v&&typeof v==='object'?L(v):v)});return t('n_'+n.type,p)};
+function storeRate(sid){const a=DB.products.filter(p=>p.storeId===sid).map(p=>rate(p.id)).filter(r=>r.n);return a.length?a.reduce((s,r)=>s+r.avg,0)/a.length:0}
 
-/* ============ UI HELPERS ============ */
+/* ===== UI HELPERS ===== */
 function toast(m,type){const d=document.createElement('div');d.className='toast '+(type||'');d.textContent=m;$('#toasts').append(d);setTimeout(()=>d.classList.add('out'),3200);setTimeout(()=>d.remove(),3700)}
 function modal(html,wide){const m=$('#modal');m.innerHTML=`<div class="mb" data-act="mclose"></div><div class="mc glass ${wide?'wide':''}" role="dialog" aria-modal="true"><button class="x ib" data-act="mclose" aria-label="Close">✕</button>${html}</div>`;m.classList.add('open')}
-function closeModal(){const m=$('#modal');m.classList.remove('open');m.innerHTML='';S.tmpImg=undefined}
+function closeModal(){const m=$('#modal');m.classList.remove('open');m.innerHTML=''}
 function confirmBox(msg,cb){modal(`<h3>${t('confirm')}</h3><p class="mut" style="margin:12px 0 18px">${esc(msg)}</p><div class="row end"><button class="btn ghost" data-act="mclose">${t('cancel')}</button><button class="btn danger" data-act="mok">${t('confirm')}</button></div>`);S.mok=cb}
 const fv=f=>Object.fromEntries(new FormData(f));
-function showErrs(f,errs){$('[data-err]',f).forEach(e=>{const k=errs[e.dataset.err];e.textContent=k?t(k):'';if(e.parentElement.classList.contains('fld'))e.parentElement.classList.toggle('bad',!!k)});const first=Object.keys(errs).find(k=>k!=='_form');if(first){const i=f.querySelector('[name="'+first+'"]');i&&i.focus()}}
-async function busy(f,fn){if(f.dataset.busy)return;f.dataset.busy=1;const b=f.querySelector('button[type=submit]'),o=b&&b.innerHTML;if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>'}try{await fn()}catch(e){console.error(e);toast(t('error'),'err')}finally{delete f.dataset.busy;if(b&&b.isConnected){b.disabled=false;b.innerHTML=o}}}
-const fld=(n,lk,o={})=>`<div class="fld"><label for="${n}">${t(lk)}</label><input id="${n}" name="${n}" type="${o.type||'text'}" value="${esc(o.val??'')}"${o.ph?` placeholder="${esc(o.ph)}"`:''}${o.max?` maxlength="${o.max}"`:''}${o.min!=null?` min="${o.min}"`:''}${o.ac?` autocomplete="${o.ac}"`:''}${o.ro?' readonly':''}><small class="err" data-err="${n}"></small></div>`;
-const pwf=(n,lk,o={})=>`<div class="fld"><label for="${n}">${t(lk)}</label><div class="pw"><input id="${n}" name="${n}" type="password" autocomplete="${o.ac||'current-password'}"${o.inp?' data-input="strength"':''}><button type="button" class="ib" data-act="tpw" data-for="${n}" aria-label="${t('show')}">👁</button></div><small class="err" data-err="${n}"></small></div>`;
-const sel=(n,lk,opts,val)=>`<div class="fld"><label for="${n}">${t(lk)}</label><select id="${n}" name="${n}">${opts.map(([v,l])=>`<option value="${esc(v)}"${String(v)===String(val)?' selected':''}>${esc(l)}</option>`).join('')}</select><small class="err" data-err="${n}"></small></div>`;
+function showErrs(f,errs){$('[data-err]',f).forEach(e=>{const k=errs[e.dataset.err];e.textContent=k?t(k):'';if(e.parentElement.classList.contains('fld'))e.parentElement.classList.toggle('bad',!!k)});const first=Object.keys(errs).find(k=>k!=='_form');if(first){const i=f.querySelector('[name="'+first+'"]');if(i)i.focus()}}
+async function busy(f,fn){if(f.dataset.busy)return;f.dataset.busy='1';const b=f.querySelector('button[type=submit]'),o=b?b.innerHTML:'';if(b){b.disabled=true;b.innerHTML='<span class="spin"></span>'}
+ try{await fn()}catch(e){console.error(e);toast(t('error'),'err')}finally{delete f.dataset.busy;if(b&&b.isConnected){b.disabled=false;b.innerHTML=o}}}
+const fld=(n,lk,o)=>{o=o||{};return `<div class="fld"><label for="${n}">${t(lk)}</label><input id="${n}" name="${n}" type="${o.type||'text'}" value="${esc(o.val==null?'':o.val)}"${o.max?` maxlength="${o.max}"`:''}${o.min!=null?` min="${o.min}"`:''}${o.ac?` autocomplete="${o.ac}"`:''}${o.ro?' readonly':''}><small class="err" data-err="${n}"></small></div>`};
+const pwf=(n,lk,o)=>{o=o||{};return `<div class="fld"><label for="${n}">${t(lk)}</label><div class="pw"><input id="${n}" name="${n}" type="password" autocomplete="${o.ac||'current-password'}"${o.inp?' data-input="strength"':''}><button type="button" class="ib" data-act="tpw" data-for="${n}" aria-label="${t('show')}">👁</button></div><small class="err" data-err="${n}"></small></div>`};
+const sel=(n,lk,opts,val)=>`<div class="fld"><label for="${n}">${t(lk)}</label><select id="${n}" name="${n}">${opts.map(o=>`<option value="${esc(o[0])}"${String(o[0])===String(val)?' selected':''}>${esc(o[1])}</option>`).join('')}</select><small class="err" data-err="${n}"></small></div>`;
 const tbl=(heads,rows)=>`<div class="tw"><table><thead><tr>${heads.map(h=>`<th>${t(h)}</th>`).join('')}</tr></thead><tbody>${rows.length?rows.map(r=>`<tr>${r.map(c=>`<td>${c}</td>`).join('')}</tr>`).join(''):`<tr><td colspan="${heads.length}" class="mut">${t('no_items')}</td></tr>`}</tbody></table></div>`;
 const sb=s=>`<span class="sb ${esc(s)}">${t('st_'+s)}</span>`;
 const logo=()=>`<span class="lg-mark">✦</span><span class="lg-t">COSMIC<b>MARKETPLACE</b></span>`;
-const kpis=a=>`<div class="kpis">${a.map(([i,l,v])=>`<div class="kpi glass"><i>${i}</i><div class="mut sm">${t(l)}</div><b>${esc(v)}</b></div>`).join('')}</div>`;
+const kpis=a=>`<div class="kpis">${a.map(x=>`<div class="kpi glass"><i>${x[0]}</i><div class="mut sm">${t(x[1])}</div><b>${esc(x[2])}</b></div>`).join('')}</div>`;
 const panel=(title,body)=>`<div class="glass pad" style="margin-bottom:18px"><h3 style="margin-bottom:12px">${title}</h3>${body}</div>`;
-function pimg(p,c){const g=GR[(p.g||0)%GR.length];return p.img&&/^data:image\//.test(p.img)?`<div class="pimg ${c||''}"><img src="${esc(p.img)}" alt="${esc(L(p.name))}"></div>`:`<div class="pimg ${c||''}" style="--a:${g[0]};--b:${g[1]}"><span>${esc(p.icon)}</span></div>`}
-function bars(data){const max=Math.max(1,...data.map(d=>d.v)),W=600,H=200,bw=W/data.length;return `<svg viewBox="0 0 ${W} ${H+28}" class="chart" role="img"><defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>${data.map((d,i)=>{const h=d.v/max*H;return `<rect x="${i*bw+bw*.15}" y="${H-h}" width="${bw*.7}" height="${h}" rx="4" fill="url(#gb)"><title>${esc(d.l)}: ${esc(Math.round(d.v).toLocaleString())}</title></rect><text x="${i*bw+bw/2}" y="${H+18}" text-anchor="middle" fill="#94A3B8" font-size="${data.length>10?9:12}">${esc(d.l)}</text>`}).join('')}</svg>`}
+function pimg(p,c){const g=GR[(p.g||0)%GR.length];return `<div class="pimg ${c||''}" style="--ga:${g[0]};--gb:${g[1]}"><span>${esc(p.icon)}</span></div>`}
+function bars(data){const max=Math.max(1,...data.map(d=>d.v)),W=600,H=200,bw=W/data.length;return `<svg viewBox="0 0 ${W} ${H+28}" class="chart" role="img"><defs><linearGradient id="gb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>${data.map((d,i)=>{const h=d.v/max*H;return `<rect x="${i*bw+bw*.15}" y="${H-h}" width="${bw*.7}" height="${h}" rx="4" fill="url(#gb)"><title>${esc(d.l)}: ${esc(Math.round(d.v).toLocaleString())}</title></rect><text x="${i*bw+bw/2}" y="${H+18}" text-anchor="middle" fill="#94A3B8" font-size="12">${esc(d.l)}</text>`}).join('')}</svg>`}
 function lineC(data){const max=Math.max(1,...data.map(d=>d.v)),W=600,H=200,s=W/(data.length-1||1),pts=data.map((d,i)=>`${i*s},${H-d.v/max*H}`).join(' ');return `<svg viewBox="0 0 ${W} ${H+28}" class="chart" role="img"><defs><linearGradient id="gl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#A855F7" stop-opacity=".5"/><stop offset="1" stop-color="#A855F7" stop-opacity="0"/></linearGradient></defs><polygon points="0,${H} ${pts} ${W},${H}" fill="url(#gl)"/><polyline points="${pts}" fill="none" stroke="#22D3EE" stroke-width="3" stroke-linejoin="round"/>${data.map((d,i)=>i%2===0?`<text x="${i*s}" y="${H+18}" text-anchor="middle" fill="#94A3B8" font-size="11">${esc(d.l)}</text>`:'').join('')}</svg>`}
-function readImg(file,max){return new Promise((res,rej)=>{if(!file||!/^image\/(png|jpe?g|webp|gif)$/.test(file.type))return rej(new Error('type'));const r=new FileReader();r.onload=()=>{const i=new Image();i.onload=()=>{const k=Math.min(1,(max||480)/Math.max(i.width,i.height)),c=document.createElement('canvas');c.width=Math.max(1,i.width*k);c.height=Math.max(1,i.height*k);c.getContext('2d').drawImage(i,0,0,c.width,c.height);res(c.toDataURL('image/jpeg',.8))};i.onerror=rej;i.src=r.result};r.onerror=rej;r.readAsDataURL(file)})}
-function csv(name,rows){const b=new Blob(['\ufeff'+rows.map(r=>r.map(c=>{c=String(c);if(/^[=+\-@]/.test(c))c="'"+c;return '"'+c.replace(/"/g,'""')+'"'}).join(',')).join('\n')],{type:'text/csv'});const a=document.createElement('a');a.href=URL.createObjectURL(b);a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1500)}
-function parseHash(){const h=location.hash.replace(/^#\/?/,''),[p,q]=h.split('?');let path=[];try{path=p.split('/').filter(Boolean).map(decodeURIComponent)}catch(e){}return{path,q:Object.fromEntries(new URLSearchParams(q||''))}}
+function parseHash(){const h=location.hash.replace(/^#\/?/,''),i=h.indexOf('?'),p=i<0?h:h.slice(0,i),q=i<0?'':h.slice(i+1);let path=[];try{path=p.split('/').filter(Boolean).map(decodeURIComponent)}catch(e){}return{path,q:Object.fromEntries(new URLSearchParams(q))}}
 function go(p){const h='#/'+p;if(location.hash===h)render();else location.hash=h}
 const homeOf=u=>u.role==='admin'?'admin/overview':u.role==='seller'?'seller/overview':'account/overview';
 const notifPath=u=>u.role==='buyer'?'account/notifications':u.role+'/notifications';
 
-/* ============ VIEWS ============ */
-function card(p){const r=rate(p.id),w=wl().includes(p.id);return `<article class="card glass"><a class="plink" href="#/product/${esc(p.id)}">${pimg(p)}${p.disc?`<span class="tag">-${p.disc}%</span>`:''}</a><button class="heart" data-act="wish" data-id="${esc(p.id)}" aria-label="${t('wishlist')}">${w?'♥':'♡'}</button><div class="cb"><a class="pn" href="#/product/${esc(p.id)}">${esc(L(p.name))}</a><div class="mut sm">${esc((store(p.storeId)||{}).name)} · <span class="gold">★</span> ${r.avg?r.avg.toFixed(1):'–'} · ${t('sold',{n:p.sold})}</div><div class="pr"><b>${bt(unit(p))}</b>${p.disc?`<s>${bt(p.price)}</s>`:''}</div><button class="btn sm block" data-act="addcart" data-id="${esc(p.id)}"${p.stock<1?' disabled':''}>${p.stock<1?t('out_stock'):'🛒 '+t('add_cart')}</button></div></article>`}
+/* ===== VIEWS ===== */
+function card(p){const r=rate(p.id),w=wl().includes(p.id),st=store(p.storeId)||{};return `<article class="card glass"><a class="plink" href="#/product/${esc(p.id)}">${pimg(p)}${p.disc?`<span class="tag">-${p.disc}%</span>`:''}</a><button class="heart" data-act="wish" data-id="${esc(p.id)}" aria-label="${t('wishlist')}">${w?'♥':'♡'}</button><div class="cb"><a class="pn" href="#/product/${esc(p.id)}">${esc(L(p.name))}</a><div class="mut sm">${esc(st.name)} · <span class="gold">★</span> ${r.avg?r.avg.toFixed(1):'–'} · ${t('sold',{n:p.sold})}</div><div class="pr"><b>${bt(unit(p))}</b>${p.disc?`<s>${bt(p.price)}</s>`:''}</div><button class="btn sm block" data-act="addcart" data-id="${esc(p.id)}"${p.stock<1?' disabled':''}>${p.stock<1?t('out_stock'):'🛒 '+t('add_cart')}</button></div></article>`}
 const grid=a=>a.length?`<div class="grid">${a.map(card).join('')}</div>`:`<p class="mut">${t('no_items')}</p>`;
-function bell(u){const list=DB.notifs.filter(n=>n.uid===u.id).sort((a,b)=>b.ts-a.ts),un=unreadN();return `<div class="ddw"><button class="ib" data-act="dd" aria-label="${t('notif_t')}">🔔<span class="bdg" id="b-nt" data-n="${un}">${un||''}</span></button><div class="dd"><div class="row sp" style="padding:6px 10px"><b>${t('notif_t')}</b><button class="btn sm ghost" data-act="nall">${t('mark_all')}</button></div>${list.slice(0,6).map(nItem).join('')||`<p class="mut" style="padding:10px">${t('no_notif')}</p>`}<a href="#/${notifPath(u)}">${t('view_all')} →</a></div></div>`}
 const nItem=n=>`<div class="ni ${n.read?'':'un'}"><span>${NI[n.type]||'🔔'}</span><div><div>${esc(ntext(n))}</div><small class="mut">${dt(n.ts)}</small></div>${n.read?'':`<button class="btn sm ghost" data-act="nread" data-id="${esc(n.id)}" aria-label="read">✓</button>`}</div>`;
+function bell(u){const list=DB.notifs.filter(n=>n.uid===u.id).sort((a,b)=>b.ts-a.ts),un=unreadN();return `<div class="ddw"><button class="ib" data-act="dd" aria-label="${t('notif_t')}">🔔<span class="bdg" id="b-nt">${un||''}</span></button><div class="dd"><div class="row sp" style="padding:6px 10px"><b>${t('notif_t')}</b><button class="btn sm ghost" data-act="nall">${t('mark_all')}</button></div>${list.slice(0,6).map(nItem).join('')||`<p class="mut" style="padding:10px">${t('no_notif')}</p>`}<a href="#/${notifPath(u)}">${t('view_all')} →</a></div></div>`}
 function header(){const u=S.u,cs=DB.cats.filter(c=>c.active),shopper=!u||u.role==='buyer',cn=cartArr().reduce((s,i)=>s+i.qty,0),wn=wl().length;
  return `<div class="ann">${t('ann',{n:DB.settings.freeShip})}</div><header class="nav"><div class="wrap nv"><button class="ib burger" data-act="menu" aria-label="Menu">☰</button><a class="logo" href="#/home">${logo()}</a>
- <form class="search" data-form="search" role="search"><input id="hs" name="q" value="${esc(parseHash().q.q||'')}" placeholder="${esc(t('search_ph'))}" maxlength="80" aria-label="${t('search')}"><button class="btn sm" type="submit" aria-label="${t('search')}">🔍</button></form>
- <div class="acts"><button class="ib" data-act="lang" title="${t('lang_set')}">${lang==='th'?'EN':'TH'}</button>
- ${shopper?`<a class="ib hide-s" href="#/account/wishlist" aria-label="${t('wishlist')}">♡<span class="bdg" id="b-wl" data-n="${wn}">${wn||''}</span></a><a class="ib" href="#/cart" aria-label="${t('cart')}">🛒<span class="bdg" id="b-cart" data-n="${cn}">${cn||''}</span></a>`:''}
- ${u?bell(u)+`<div class="ddw"><button class="ib" data-act="dd" aria-label="${t('account')}">${esc(u.avatar)}</button><div class="dd"><div style="padding:8px 10px"><b>${esc(u.first+' '+u.last)}</b><div class="mut sm">${esc(u.email)} · ${t('r_'+u.role)}</div></div><a href="#/${homeOf(u)}">📊 ${t('dash')}</a><a href="#/account/profile">👤 ${t('m_profile')}</a>${u.role==='buyer'?`<a href="#/account/orders">📦 ${t('m_orders')}</a>`:''}<button class="it" data-act="logout">🚪 ${t('logout')}</button></div></div>`:`<a class="btn sm ghost hide-s" href="#/login">${t('login')}</a><a class="btn sm hide-s" href="#/register">${t('register')}</a>`}
- </div></div><nav class="cats" aria-label="categories"><a href="#/shop">${t('shop')}</a>${cs.map(c=>`<a href="#/shop?cat=${esc(c.id)}">${esc(c.icon)} ${esc(L(c.name))}</a>`).join('')}</nav></header>
- <div class="mm" id="mm"><a class="logo" href="#/home" style="border:0">${logo()}</a><a href="#/home">${t('home')}</a><a href="#/shop">${t('shop')}</a>${cs.map(c=>`<a href="#/shop?cat=${esc(c.id)}">${esc(c.icon)} ${esc(L(c.name))}</a>`).join('')}${u?`<a href="#/${homeOf(u)}">${t('dash')}</a><button data-act="logout">${t('logout')}</button>`:`<a href="#/login">${t('login')}</a><a href="#/register">${t('register')}</a>`}</div>`}
+ <form class="search" data-form="search" role="search"><input name="q" value="${esc(parseHash().q.q||'')}" placeholder="${esc(t('search_ph'))}" maxlength="80" aria-label="${t('search')}"><button class="btn sm" type="submit" aria-label="${t('search')}">🔍</button></form>
+ <div class="acts"><button class="ib" data-act="lang" aria-label="language">${lang==='th'?'EN':'TH'}</button>
+ ${shopper?`<a class="ib hide-s" href="#/account/wishlist" aria-label="${t('wishlist')}">♡<span class="bdg" id="b-wl">${wn||''}</span></a><a class="ib" href="#/cart" aria-label="${t('cart')}">🛒<span class="bdg" id="b-cart">${cn||''}</span></a>`:''}
+ ${u?bell(u)+`<div class="ddw"><button class="ib" data-act="dd" aria-label="${t('account')}">${esc(u.avatar)}</button><div class="dd"><div style="padding:8px 10px"><b>${esc(u.first+' '+u.last)}</b><div class="mut sm">${esc(u.email)} · ${t('r_'+u.role)}</div></div><a href="#/${homeOf(u)}">📊 ${t('dash')}</a><a href="#/account/profile">👤 ${t('m_profile')}</a><button class="it" data-act="logout">🚪 ${t('logout')}</button></div></div>`:`<a class="btn sm ghost hide-s" href="#/login">${t('login')}</a><a class="btn sm hide-s" href="#/register">${t('register')}</a>`}
+ </div></div><nav class="cats" aria-label="categories"><a href="#/shop">${t('shop')}</a>${cs.map(c=>`<a href="#/shop?cat=${esc(c.id)}">${esc(c.icon)} ${esc(L(c.name))}</a>`).join('')}${u?'':`<a class="ms" href="#/login">${t('login')}</a><a class="ms" href="#/register">${t('register')}</a>`}</nav></header>`}
 const footer=()=>`<footer class="foot"><div class="logo" style="justify-content:center;margin-bottom:8px">${logo()}</div><div>EXPLORE BEYOND. SHOP BEYOND.</div><p style="margin-top:8px">${t('ft_note')}</p><p class="sm">${t('ft_sec')}</p></footer>`;
 const shell=inner=>header()+`<main id="main">${inner}</main>`+footer();
 const nf=()=>shell(`<div class="wrap sec" style="text-align:center"><h1>404</h1><p class="mut">${t('nf')}</p><a class="btn" style="margin-top:14px" href="#/home">${t('back_home')}</a></div>`);
 const denied=()=>{const u=S.u;return shell(`<div class="wrap sec" style="text-align:center"><div style="font-size:4rem">🛑</div><h1>${t('denied_t')}</h1><p class="mut" style="margin:8px 0 16px">${t('denied_s')}</p><a class="btn" href="#/${u?homeOf(u):'login'}">${t('to_dash')}</a></div>`)};
-
-function vHome(){const av=DB.products.filter(avail),u=S.u;
+function vHome(){const av=DB.products.filter(avail);
  const sec=(k,body,extra)=>`<section class="wrap sec"><div class="sh"><h2>${t(k)}</h2>${extra||''}</div>${body}</section>`;
- const flash=av.filter(p=>p.flash).slice(0,6),best=[...av].sort((a,b)=>b.sold-a.sold).slice(0,8),rcm=[...av].sort((a,b)=>rate(b.id).avg-rate(a.id).avg||b.sold-a.sold).slice(0,8),neu=[...av].sort((a,b)=>b.created-a.created).slice(0,8);
- const rv=rec().map(prod).filter(avail).slice(0,6);
+ const flash=av.filter(p=>p.flash).slice(0,6),best=av.slice().sort((a,b)=>b.sold-a.sold).slice(0,8),rcm=av.slice().sort((a,b)=>rate(b.id).avg-rate(a.id).avg||b.sold-a.sold).slice(0,8),neu=av.slice().sort((a,b)=>b.created-a.created).slice(0,8);
  return shell(`<section class="wrap hero"><div><div class="tagl">EXPLORE BEYOND. SHOP BEYOND.</div><h1>COSMIC MARKETPLACE</h1><p class="mut" style="font-size:1.1rem;margin:14px 0 22px">${t('slogan')}</p><div class="row"><a class="btn" href="#/shop">🚀 ${t('hero_cta1')}</a><a class="btn ghost" href="#/register?role=seller">🏪 ${t('hero_cta2')}</a></div></div><div class="planet-w"><div class="planet"><div class="orbit"><span>🛸</span></div></div></div></section>`
  +sec('sec_cats',`<div class="cgrid">${DB.cats.filter(c=>c.active).map(c=>`<a class="cc glass" href="#/shop?cat=${esc(c.id)}"><i>${esc(c.icon)}</i>${esc(L(c.name))}</a>`).join('')}</div>`)
  +sec('sec_flash',grid(flash),`<span>${t('ends_in')} <span class="cd" data-cd>--:--:--</span> <a href="#/shop?flash=1" style="margin-left:8px">${t('see_all')}</a></span>`)
  +sec('sec_best',grid(best))
- +`<section class="wrap sec"><div class="banners">${DB.banners.filter(b=>b.active).map(b=>{const g=GR[b.g%6];return `<a class="bn" href="#/${esc(b.link)}" style="--a:${g[0]};--b:${g[1]}"><h3>${esc(L(b.title))}</h3><p>${esc(L(b.sub))}</p><i>${esc(b.icon)}</i></a>`}).join('')}</div></section>`
+ +`<section class="wrap sec"><div class="banners">${BANNERS.map(b=>{const g=GR[b.g%6];return `<a class="bn" href="#/${esc(b.link)}" style="--ga:${g[0]};--gb:${g[1]}"><h3>${esc(L(b.title))}</h3><p>${esc(L(b.sub))}</p><i>${esc(b.icon)}</i></a>`}).join('')}</div></section>`
  +sec('sec_rec',grid(rcm))+sec('sec_new',grid(neu))
- +sec('sec_stores',`<div class="cgrid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">${DB.stores.filter(s=>s.status==='approved').map(s=>`<a class="cc glass" href="#/store/${esc(s.id)}"><i>${esc(s.logo)}</i><b>${esc(s.name)}</b><div class="mut sm">★ ${storeRate(s.id).toFixed(1)} · ${DB.products.filter(p=>p.storeId===s.id&&avail(p)).length} ${t('products_n')}</div></a>`).join('')}</div>`)
- +(rv.length?sec('sec_recent',grid(rv)):'')
- +`<section class="wrap sec"><div class="glass pad" style="text-align:center"><h2>${t('news_t')}</h2><form class="nl" data-form="news" novalidate><div class="fld" style="flex:1;margin:0"><input name="email" type="email" placeholder="${esc(t('news_ph'))}" aria-label="${t('email')}"><small class="err" data-err="email"></small></div><button class="btn" type="submit">${t('news_btn')}</button></form></div></section>`)}
-function storeRate(sid){const a=DB.products.filter(p=>p.storeId===sid).map(p=>rate(p.id)).filter(r=>r.n);return a.length?a.reduce((s,r)=>s+r.avg,0)/a.length:0}
+ +sec('sec_stores',`<div class="cgrid" style="grid-template-columns:repeat(auto-fill,minmax(220px,1fr))">${DB.stores.filter(s=>s.status==='approved').map(s=>`<a class="cc glass" href="#/store/${esc(s.id)}"><i>${esc(s.logo)}</i><b>${esc(s.name)}</b><div class="mut sm">★ ${storeRate(s.id).toFixed(1)} · ${DB.products.filter(p=>p.storeId===s.id&&avail(p)).length} ${t('products_n')}</div></a>`).join('')}</div>`))}
 function vStore(id){const s=store(id);if(!s||s.status!=='approved')return nf();const g=GR[s.cover%6];
- return shell(`<div class="wrap sec"><div class="glass pad" style="background:linear-gradient(135deg,${g[0]}55,${g[1]}33);margin-bottom:20px"><div class="row"><div class="pimg s" style="--a:${g[0]};--b:${g[1]};width:84px;height:84px;font-size:2.6rem">${s.logoImg?`<img src="${esc(s.logoImg)}" alt="">`:esc(s.logo)}</div><div><h1>${esc(s.name)}</h1><p class="mut">${esc(L(s.desc))}</p><p class="sm">★ ${storeRate(s.id).toFixed(1)} · 📍 ${esc(s.address)} · ✉️ ${esc(s.email)} · ${esc(s.social)}</p></div></div></div>${grid(DB.products.filter(p=>p.storeId===id&&avail(p)))}</div>`)}
+ return shell(`<div class="wrap sec"><div class="glass pad" style="background:linear-gradient(135deg,${g[0]}55,${g[1]}33);margin-bottom:20px"><div class="row"><div class="avatar">${esc(s.logo)}</div><div><h1>${esc(s.name)}</h1><p class="mut">${esc(L(s.desc))}</p><p class="sm">★ ${storeRate(s.id).toFixed(1)} · 📍 ${esc(s.address)} · ✉️ ${esc(s.email)} · ${esc(s.social)}</p></div></div></div>${grid(DB.products.filter(p=>p.storeId===id&&avail(p)))}</div>`)}
 function filtered(q){let a=DB.products.filter(avail);
- if(q.q){const s=q.q.toLowerCase();a=a.filter(p=>(p.name.th+' '+p.name.en+' '+L(p.desc)+' '+(store(p.storeId)||{}).name).toLowerCase().includes(s))}
+ if(q.q){const s=q.q.toLowerCase();a=a.filter(p=>(p.name.th+' '+p.name.en+' '+L(p.desc)+' '+(store(p.storeId)||{}).name).toLowerCase().indexOf(s)>=0)}
  if(q.cat)a=a.filter(p=>p.cat===q.cat);if(q.store)a=a.filter(p=>p.storeId===q.store);if(q.min)a=a.filter(p=>unit(p)>=+q.min);if(q.max)a=a.filter(p=>unit(p)<=+q.max);
  if(q.rate)a=a.filter(p=>rate(p.id).avg>=+q.rate);if(q.stock)a=a.filter(p=>p.stock>0);if(q.flash)a=a.filter(p=>p.flash);
  const so={best:(x,y)=>y.sold-x.sold,pl:(x,y)=>unit(x)-unit(y),ph:(x,y)=>unit(y)-unit(x),rate:(x,y)=>rate(y.id).avg-rate(x.id).avg}[q.sort]||((x,y)=>y.created-x.created);return a.sort(so)}
 function vShop(q){const a=filtered(q),per=12,pages=Math.max(1,Math.ceil(a.length/per)),pg=Math.min(pages,Math.max(1,+q.page||1)),stl=DB.stores.filter(s=>s.status==='approved');
- const pager=pages>1?`<div class="pager">${Array.from({length:pages},(_,i)=>`<a class="btn sm ${i+1===pg?'':'ghost'}" href="#/shop?${new URLSearchParams({...q,page:i+1})}">${i+1}</a>`).join('')}</div>`:'';
- return shell(`<div class="wrap sec"><div class="sh"><h2>${t('shop')} <span class="mut sm">${t('results',{n:a.length})}</span></h2><div class="row"><button class="btn ghost sm" id="filtbtn" data-act="filt">⚙ ${t('filters')}</button><select id="f_sort" data-change="filter" aria-label="${t('sort')}" style="width:auto">${[['','s_new'],['best','s_best'],['pl','s_pl'],['ph','s_ph'],['rate','s_rate']].map(([v,k])=>`<option value="${v}"${(q.sort||'')===v?' selected':''}>${t(k)}</option>`).join('')}</select></div></div>
+ const pager=pages>1?`<div class="pager">${Array.from({length:pages},(_,i)=>`<a class="btn sm ${i+1===pg?'':'ghost'}" href="#/shop?${new URLSearchParams(Object.assign({},q,{page:i+1}))}">${i+1}</a>`).join('')}</div>`:'';
+ return shell(`<div class="wrap sec"><div class="sh"><h2>${t('shop')} <span class="mut sm">${t('results',{n:a.length})}</span></h2><div class="row"><button class="btn ghost sm" id="filtbtn" data-act="filt">⚙ ${t('filters')}</button><select id="f_sort" data-change="filter" aria-label="${t('sort')}" style="width:auto">${[['','s_new'],['best','s_best'],['pl','s_pl'],['ph','s_ph'],['rate','s_rate']].map(o=>`<option value="${o[0]}"${(q.sort||'')===o[0]?' selected':''}>${t(o[1])}</option>`).join('')}</select></div></div>
  <div class="shopl"><aside class="glass pad" id="filt"><div class="fld"><label for="f_q">${t('search')}</label><input id="f_q" data-change="filter" value="${esc(q.q||'')}" maxlength="80"></div>
  <div class="fld"><label for="f_cat">${t('f_cat')}</label><select id="f_cat" data-change="filter"><option value="">${t('all')}</option>${DB.cats.filter(c=>c.active).map(c=>`<option value="${esc(c.id)}"${q.cat===c.id?' selected':''}>${esc(L(c.name))}</option>`).join('')}</select></div>
  <div class="g2"><div class="fld"><label for="f_min">${t('f_min')}</label><input id="f_min" type="number" min="0" data-change="filter" value="${esc(q.min||'')}"></div><div class="fld"><label for="f_max">${t('f_max')}</label><input id="f_max" type="number" min="0" data-change="filter" value="${esc(q.max||'')}"></div></div>
- <div class="fld"><label for="f_rate">${t('f_rate')}</label><select id="f_rate" data-change="filter"><option value="">${t('all')}</option>${[4,3,2].map(n=>`<option value="${n}"${q.rate==n?' selected':''}>${n}★ +</option>`).join('')}</select></div>
+ <div class="fld"><label for="f_rate">${t('f_rate')}</label><select id="f_rate" data-change="filter"><option value="">${t('all')}</option>${[4,3,2].map(n=>`<option value="${n}"${+q.rate===n?' selected':''}>${n}★ +</option>`).join('')}</select></div>
  <div class="fld"><label for="f_store">${t('f_store')}</label><select id="f_store" data-change="filter"><option value="">${t('all')}</option>${stl.map(s=>`<option value="${esc(s.id)}"${q.store===s.id?' selected':''}>${esc(s.name)}</option>`).join('')}</select></div>
  <label class="row" style="color:var(--tx)"><input type="checkbox" id="f_stock" data-change="filter"${q.stock?' checked':''}> ${t('f_stock')}</label><a class="btn ghost sm block" style="margin-top:12px" href="#/shop">${t('clear')}</a></aside>
  <div>${grid(a.slice((pg-1)*per,pg*per))}${pager}</div></div></div>`)}
-function vProduct(id){const p=prod(id);if(!avail(p))return nf();pushRecent(id);const st=store(p.storeId),r=rate(id),rv=revs(id).sort((a,b)=>b.ts-a.ts),u=S.u,w=wl().includes(id);
+function vProduct(id){const p=prod(id);if(!avail(p))return nf();const st=store(p.storeId),r=rate(id),rv=revs(id).sort((a,b)=>b.ts-a.ts),u=S.u,w=wl().includes(id);
  const stk=p.stock<1?`<span class="sb cancelled">${t('out_stock')}</span>`:p.stock<=5?`<span class="sb pending">${t('low_stock',{n:p.stock})}</span>`:`<span class="sb delivered">${t('in_stock',{n:p.stock})}</span>`;
  const mine=u&&rv.some(x=>x.uid===u.id);
  const form=!u||u.role!=='buyer'?`<p class="mut">${t('rev_login')}</p>`:mine?`<p class="mut">${t('rev_done')}</p>`:`<form data-form="review" data-id="${esc(id)}" novalidate><div class="g2">${sel('rating','rating',[5,4,3,2,1].map(n=>[n,stars(n)]),5)}</div><div class="fld"><label for="text">${t('comment')}</label><textarea id="text" name="text" rows="3" maxlength="500"></textarea><small class="err" data-err="text"></small></div><button class="btn sm" type="submit">${t('submit')}</button></form>`;
@@ -448,232 +453,217 @@ function vProduct(id){const p=prod(id);if(!avail(p))return nf();pushRecent(id);c
  <div><h1>${esc(L(p.name))}</h1><p class="mut" style="margin:6px 0">${esc(L(p.desc))}</p><div class="row"><span class="gold">${stars(r.avg)}</span><span class="mut sm">${r.avg?r.avg.toFixed(1):'–'} (${r.n}) · ${t('sold',{n:p.sold})}</span></div>
  <p style="margin:6px 0"><a href="#/store/${esc(st.id)}">${esc(st.logo)} ${esc(st.name)}</a></p>
  <div class="pr" style="margin:10px 0"><b style="font-size:2rem">${bt(unit(p))}</b>${p.disc?`<s>${bt(p.price)}</s> <span class="sb pending">-${p.disc}%</span>`:''}</div><div style="margin-bottom:12px">${stk}</div>
- ${p.colors.length?`<div class="fld"><label>${t('color')}</label><div id="colors">${p.colors.map((c,i)=>`<button class="sw ${i?'':'on'}" style="background:${esc(c.hex)}" title="${esc(L(c.n))}" aria-label="${esc(L(c.n))}" data-act="pick" data-k="ci" data-i="${i}"></button>`).join('')}</div></div>`:''}
- ${p.sizes.length?`<div class="fld"><label>${t('size')}</label><div id="sizes">${p.sizes.map((s,i)=>`<button class="sz ${i?'':'on'}" data-act="pick" data-k="si" data-i="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>`:''}
+ ${p.colors.length?`<div class="fld"><label>${t('color')}</label><div>${p.colors.map((c,i)=>`<button class="sw ${i?'':'on'}" style="background:${esc(c.hex)}" title="${esc(L(c.n))}" aria-label="${esc(L(c.n))}" data-act="pick" data-k="ci" data-i="${i}"></button>`).join('')}</div></div>`:''}
+ ${p.sizes.length?`<div class="fld"><label>${t('size')}</label><div>${p.sizes.map((s,i)=>`<button class="sz ${i?'':'on'}" data-act="pick" data-k="si" data-i="${esc(s)}">${esc(s)}</button>`).join('')}</div></div>`:''}
  <div class="fld"><label>${t('qty')}</label><div class="qty"><button data-act="qstep" data-d="-1" aria-label="-">−</button><input id="pq" type="number" min="1" max="${p.stock}" value="1"><button data-act="qstep" data-d="1" aria-label="+">+</button></div></div>
  <div class="row"><button class="btn" data-act="addpv"${p.stock<1?' disabled':''}>🛒 ${t('add_cart')}</button><button class="btn cy" data-act="buynow"${p.stock<1?' disabled':''}>⚡ ${t('buy_now')}</button><button class="btn ghost" data-act="wish" data-id="${esc(id)}">${w?'♥':'♡'} ${t('wishlist')}</button></div></div></div>
  <div class="glass pad" style="margin-top:24px"><h3>${t('reviews')} (${r.n})</h3>${rv.map(x=>{const a=usr(x.uid),ver=DB.orders.some(o=>o.buyer===x.uid&&o.status==='delivered'&&o.items.some(i=>i.pid===id));return `<div class="sline"><div class="gold">${stars(x.rating)}</div><div><b>${esc(a?a.first+' '+a.last.slice(0,1)+'.':'?')}</b>${ver?` <span class="sb delivered">${t('verified')}</span>`:''}<div>${esc(L(x.text))}</div></div><small class="mut">${tm(x.ts)}</small></div>`}).join('')}<h3 style="margin:18px 0 8px">${t('write_review')}</h3>${form}</div>
  <div class="sh" style="margin-top:24px"><h2>${t('related')}</h2></div>${grid(DB.products.filter(x=>x.cat===p.cat&&x.id!==id&&avail(x)).slice(0,4))}</div>`)}
 function lineHtml(i){const p=i.p,v=[i.ci>=0&&p.colors[i.ci]?L(p.colors[i.ci].n):'',i.si].filter(Boolean).join(' / ');return `<div class="sline"><input type="checkbox" data-change="csel" data-id="${esc(i.id)}"${i.sel?' checked':''} aria-label="select"><div class="row" style="flex-wrap:nowrap">${pimg(p,'s')}<div><a href="#/product/${esc(p.id)}" style="color:var(--tx)">${esc(L(p.name))}</a><div class="mut sm">${esc(v)} ${avail(p)?'':'· '+t('unavailable')}</div><b>${bt(unit(p))}</b></div></div><div class="qty"><button data-act="cq" data-id="${esc(i.id)}" data-d="-1" aria-label="-">−</button><input value="${i.qty}" readonly aria-label="${t('qty')}" style="width:50px"><button data-act="cq" data-id="${esc(i.id)}" data-d="1" aria-label="+">+</button></div><button class="ib" data-act="cdel" data-id="${esc(i.id)}" aria-label="${t('remove')}">🗑</button></div>`}
 function sumBox(items,shipKey){const c=calc(items,S.coupon,shipKey);return `<div class="row sp"><span class="mut">${t('subtotal')}</span><span>${bt(c.sub)}</span></div><div class="row sp"><span class="mut">${t('discount')}${c.pr?' ('+esc(c.pr.code)+')':''}</span><span>-${bt(c.disc)}</span></div><div class="row sp"><span class="mut">${t('shipping')}</span><span>${c.ship?bt(c.ship):t('free')}</span></div><hr style="border-color:var(--br);margin:10px 0"><div class="row sp"><b>${t('grand')}</b><b style="color:var(--c);font-size:1.3rem">${bt(c.total)}</b></div>`}
-const couponForm=()=>`<form data-form="coupon" class="row" style="flex-wrap:nowrap;margin:12px 0" novalidate><input name="code" placeholder="${esc(t('coupon_ph'))}" value="${esc(S.coupon)}" maxlength="16" aria-label="${t('coupon')}"><button class="btn sm" type="submit">${t('apply')}</button></form>`;
-function vCart(){const items=cartItems().filter(i=>i.p),sl=items.filter(i=>i.sel&&avail(i.p));
- return shell(`<div class="wrap sec"><div class="sh"><h2>🛒 ${t('cart_t')}</h2></div>${items.length?`<div class="cols" style="grid-template-columns:2fr 1fr"><div class="glass pad">${items.map(lineHtml).join('')}</div><div class="glass pad" style="align-self:start"><h3>${t('co_sum')}</h3>${couponForm()}<div id="cartsum">${sumBox(sl,'std')}</div><button class="btn block" style="margin-top:14px" data-act="tocheckout"${sl.length?'':' disabled'}>${t('checkout')}</button></div></div>`:`<div class="glass pad" style="text-align:center"><p class="mut">${t('cart_empty')}</p><a class="btn" style="margin-top:12px" href="#/shop">${t('cont_shop')}</a></div>`}</div>`)}
+const couponBox=()=>`<div class="row" style="flex-wrap:nowrap;margin:12px 0"><input id="cpn" placeholder="${esc(t('coupon_ph'))}" value="${esc(S.coupon)}" maxlength="16" aria-label="${t('coupon_ph')}"><button type="button" class="btn sm" data-act="coupon">${t('apply')}</button></div>`;
+function vCart(){const items=cartItems(),sl=items.filter(i=>i.sel&&avail(i.p));
+ return shell(`<div class="wrap sec"><div class="sh"><h2>🛒 ${t('cart_t')}</h2></div>${items.length?`<div class="cols cart-cols" style="grid-template-columns:2fr 1fr"><div class="glass pad">${items.map(lineHtml).join('')}</div><div class="glass pad" style="align-self:start"><h3>${t('co_sum')}</h3>${couponBox()}${sumBox(sl,'std')}<button class="btn block" style="margin-top:14px" data-act="tocheckout"${sl.length?'':' disabled'}>${t('checkout')}</button></div></div>`:`<div class="glass pad" style="text-align:center"><p class="mut">${t('cart_empty')}</p><a class="btn" style="margin-top:12px" href="#/shop">${t('cont_shop')}</a></div>`}</div>`)}
 function vCheckout(){const u=S.u,sl=cartItems().filter(i=>i.sel&&avail(i.p));if(!sl.length)return{redirect:'cart'};const ad=u.addresses;
- return shell(`<div class="wrap sec"><div class="sh"><h2>${t('checkout')}</h2></div><form data-form="checkout" novalidate><div class="cols" style="grid-template-columns:2fr 1fr">
+ return shell(`<div class="wrap sec"><div class="sh"><h2>${t('checkout')}</h2></div><form data-form="checkout" novalidate><div class="cols cart-cols" style="grid-template-columns:2fr 1fr">
  <div><div class="glass pad" style="margin-bottom:16px"><h3>${t('co_buyer')}</h3><div class="g3">${fld('c_name','name',{val:u.first+' '+u.last})}${fld('c_email','email',{val:u.email,ro:1})}${fld('c_phone','phone',{val:u.phone})}</div></div>
- <div class="glass pad" style="margin-bottom:16px"><h3>${t('co_addr')}</h3>${sel('c_addr','co_addr',[...ad.map(a=>[a.id,a.label+' — '+a.line+', '+a.city]),['new',t('co_new')]],(ad.find(a=>a.def)||ad[0]||{id:'new'}).id)}<div id="newaddr" ${ad.length?'hidden':''}><div class="g3">${fld('n_line','line')}${fld('n_city','city')}${fld('n_zip','zip')}</div></div></div>
+ <div class="glass pad" style="margin-bottom:16px"><h3>${t('co_addr')}</h3>${sel('c_addr','co_addr',ad.map(a=>[a.id,a.label+' — '+a.line+', '+a.city]).concat([['new',t('co_new')]]),(ad.find(a=>a.def)||ad[0]||{id:'new'}).id)}<div id="newaddr" ${ad.length?'hidden':''}><div class="g3">${fld('n_line','line')}${fld('n_city','city')}${fld('n_zip','zip')}</div></div></div>
  <div class="glass pad" style="margin-bottom:16px"><h3>${t('co_ship')}</h3>${['std','exp','warp'].map((k,i)=>`<div class="opt"><input type="radio" name="ship" id="sh_${k}" value="${k}" data-change="shipc"${i?'':' checked'}><label for="sh_${k}">${t('ship_'+k)}</label><b>${bt(DB.settings.ship[k])}</b></div>`).join('')}</div>
  <div class="glass pad"><h3>${t('co_pay')}</h3>${['card','qr','cod'].map((k,i)=>`<div class="opt"><input type="radio" name="pay" id="py_${k}" value="${k}"${i?'':' checked'}><label for="py_${k}">${t('pay_'+k)}</label></div>`).join('')}<div class="note">⚠️ ${t('pay_note')}</div></div></div>
- <div class="glass pad" style="align-self:start"><h3>${t('co_sum')}</h3>${sl.map(i=>`<div class="row sp sm"><span>${esc(L(i.p.name))} ×${i.qty}</span><span>${bt(unit(i.p)*i.qty)}</span></div>`).join('')}${couponForm().replace('<form data-form="coupon"','<div data-form-x="coupon"').replace('</form>','</div>').replace('type="submit"','type="button" data-act="coupon2"')}<div id="cosum">${sumBox(sl,'std')}</div><div class="alert" data-err="_form" style="margin-top:10px"></div><button class="btn block" style="margin-top:12px" type="submit">${t('co_confirm')}</button></div></div></form></div>`)}
+ <div class="glass pad" style="align-self:start"><h3>${t('co_sum')}</h3>${sl.map(i=>`<div class="row sp sm"><span>${esc(L(i.p.name))} ×${i.qty}</span><span>${bt(unit(i.p)*i.qty)}</span></div>`).join('')}${couponBox()}<div id="cosum">${sumBox(sl,'std')}</div><div class="alert" data-err="_form" style="margin-top:10px"></div><button class="btn block" style="margin-top:12px" type="submit">${t('co_confirm')}</button></div></div></form></div>`)}
 function vDone(){const o=S.done;if(!o||!o.length)return{redirect:'account/orders'};return shell(`<div class="wrap sec" style="max-width:700px;text-align:center"><div style="font-size:4rem">🛸</div><h1>${t('done_t')}</h1><p class="mut" style="margin:8px 0">${t('done_s')}</p><div class="glass pad" style="text-align:left;margin:16px 0">${o.map(x=>`<div class="row sp"><b>${esc(x.id)}</b><span>${bt(x.total)}</span>${sb(x.status)}</div>`).join('')}</div><div class="row" style="justify-content:center"><a class="btn" href="#/account/orders">${t('m_orders')}</a><a class="btn ghost" href="#/shop">${t('cont_shop')}</a></div></div>`)}
 /* ---- auth pages ---- */
 const authShell=(c,wide)=>`<div class="auth ${wide?'wide':''}"><div class="box glass"><a class="logo" href="#/home" style="justify-content:center;margin-bottom:6px">${logo()}</a><div class="tagl" style="text-align:center;letter-spacing:.2em">EXPLORE BEYOND. SHOP BEYOND.</div>${c}<div class="row sp" style="margin-top:16px"><a href="#/home">← ${t('back_home')}</a><button class="btn sm ghost" data-act="lang">${lang==='th'?'EN':'TH'}</button></div></div></div>`;
 function vLogin(){const pf=S.prefill||'';S.prefill='';return authShell(`<h2 style="margin:16px 0">${t('auth_welcome')}</h2><form data-form="login" novalidate><div class="alert" data-err="_form" role="alert"></div>${fld('email','email',{type:'email',val:pf,ac:'email'})}${pwf('password','password')}<div class="row sp" style="margin-bottom:14px"><label class="row" style="color:var(--tx);margin:0"><input type="checkbox" name="remember"> ${t('remember')}</label><a href="#/forgot">${t('forgot_q')}</a></div><button class="btn block" type="submit">${t('login')}</button></form><p class="mut" style="margin-top:12px;text-align:center">${t('no_acc')} <a href="#/register">${t('register')}</a></p>
- <div class="demo"><b>${t('demo_t')}</b>${['buyer','seller','admin'].map(r=>`<button class="btn ghost" data-act="demo" data-r="${r}" style="height:auto;padding:8px 12px;text-align:left;justify-content:flex-start;flex-wrap:wrap"><span>${t('demo_'+r)}</span><code>${DEMO[r].email} / ${DEMO[r].pw}</code></button>`).join('')}<div class="note">⚠️ ${t('demo_warn')}</div></div>`)}
+ <div class="demo"><b>${t('demo_t')}</b>${['buyer','seller','admin'].map(r=>`<button class="btn ghost" data-act="demo" data-r="${r}" style="height:auto;padding:8px 12px;text-align:left;justify-content:flex-start"><span>${t('demo_'+r)}</span><code>${DEMO[r].email} / ${DEMO[r].pw}</code></button>`).join('')}<div class="note">⚠️ ${t('demo_warn')}</div></div>`)}
 function vRegister(q){const sl=q.role==='seller';return authShell(`<h2 style="margin:16px 0">${t('reg_t')}</h2>${DB.settings.allowReg?'':`<div class="alert">${t('regClosed')}</div>`}<form data-form="register" novalidate><div class="alert" data-err="_form" role="alert"></div><div class="g2">${fld('first','first',{ac:'given-name',max:40})}${fld('last','last',{ac:'family-name',max:40})}</div><div class="g2">${fld('username','username',{ac:'username',max:20})}${fld('phone','phone',{type:'tel',ac:'tel',max:15})}</div>${fld('email','email',{type:'email',ac:'email'})}
  <div class="g2">${pwf('password','password',{ac:'new-password',inp:1})}${pwf('confirm','confirm_pw',{ac:'new-password'})}</div><div class="bar"><i id="pwbar"></i></div><small class="mut" id="pwl">${t('pw_str')}</small>
  <div class="fld" style="margin-top:12px"><label>${t('acc_type')}</label><div class="row"><label class="opt" style="flex:1;color:var(--tx)"><input type="radio" name="role" value="buyer" data-change="role"${sl?'':' checked'}> ${t('r_buyer')}</label><label class="opt" style="flex:1;color:var(--tx)"><input type="radio" name="role" value="seller" data-change="role"${sl?' checked':''}> ${t('r_seller')}</label></div><div class="mut sm">${t('admin_note')}</div></div>
  <div id="storebox" ${sl?'':'hidden'}>${fld('store','store_name',{max:60})}<div class="note info">${t('store_hint')}</div></div><button class="btn block" type="submit"${DB.settings.allowReg?'':' disabled'}>${t('register')}</button></form><p class="mut" style="margin-top:12px;text-align:center">${t('have_acc')} <a href="#/login">${t('login')}</a></p>`,1)}
 function vForgot(){const r=S.reset;return authShell(`<h2 style="margin:16px 0">${t('fg_t')}</h2><div class="note">ℹ️ ${t('fg_note')}</div>${r?`<div class="note info">${t('fg_msg')}${r.code?'<br>'+esc(t('fg_code',{c:r.code})):''}</div><form data-form="reset" novalidate><div class="alert" data-err="_form"></div>${fld('email','email',{type:'email',val:r.email})}${fld('code','fg_code_f',{max:6})}${pwf('password','fg_new',{ac:'new-password'})}<button class="btn block" type="submit">${t('fg_reset')}</button></form>`:`<form data-form="forgot" novalidate>${fld('email','email',{type:'email'})}<button class="btn block" type="submit">${t('fg_send')}</button></form>`}<p style="margin-top:12px;text-align:center"><a href="#/login">← ${t('login')}</a></p>`)}
-/* ---- dashboard shell ---- */
-const TABS={account:[['overview','📊'],['profile','👤'],['orders','📦'],['wishlist','♡'],['recent','🕘'],['reviews','⭐'],['addresses','📍'],['notifications','🔔'],['settings','⚙️']],
+/* ---- dashboards ---- */
+const TABS={account:[['overview','📊'],['profile','👤'],['orders','📦'],['wishlist','♡'],['reviews','⭐'],['addresses','📍'],['notifications','🔔'],['settings','⚙️']],
  seller:[['overview','📊'],['products','📦'],['orders','🧾'],['store','🏪'],['reports','📈'],['notifications','🔔']],
- admin:[['overview','📊'],['users','👥'],['sellers','🧑‍🚀'],['stores','🏪'],['products','📦'],['categories','🗂'],['orders','🧾'],['reviews','⭐'],['promotions','🎁'],['banners','🖼'],['reports','📈'],['analytics','📉'],['settings','⚙️'],['notifications','🔔']]};
-function dash(kind,tab,body){const u=S.u;let tabs=TABS[kind];if(kind==='account'&&u.role!=='buyer')tabs=tabs.filter(x=>['profile','addresses','notifications','settings'].includes(x[0]));const un=unreadN();
- const side=`<aside class="side glass"><div class="row"><div class="avatar" style="width:44px;height:44px;font-size:1.4rem">${esc(u.avatar)}</div><div><b>${esc(u.first)}</b><div class="mut sm">${t('r_'+u.role)}</div></div></div><nav>${tabs.map(([k,i])=>`<a class="${k===tab?'on':''}" href="#/${kind}/${k}">${i} ${t('m_'+k)}${k==='notifications'&&un?` <span class="bdg" style="position:static">${un}</span>`:''}</a>`).join('')}</nav><button class="btn ghost sm" data-act="logout">🚪 ${t('logout')}</button></aside>`;
- if(kind==='account')return shell(`<div class="dash">${side}<section>${body}</section></div>`);
+ admin:[['overview','📊'],['users','👥'],['sellers','🧑‍🚀'],['products','📦'],['categories','🗂'],['orders','🧾'],['reviews','⭐'],['promotions','🎁'],['settings','⚙️'],['notifications','🔔']]};
+const COMMON=['profile','addresses','notifications','settings'];
+function dash(kind,tab,body){const u=S.u;let tabs=TABS[kind];if(kind==='account'&&u.role!=='buyer')tabs=tabs.filter(x=>COMMON.indexOf(x[0])>=0);const un=unreadN();
+ const side=`<aside class="side glass"><div class="row"><div class="avatar" style="width:44px;height:44px;font-size:1.4rem">${esc(u.avatar)}</div><div><b>${esc(u.first)}</b><div class="mut sm">${t('r_'+u.role)}</div></div></div><nav>${tabs.map(x=>`<a class="${x[0]===tab?'on':''}" href="#/${kind}/${x[0]}">${x[1]} ${t('m_'+x[0])}${x[0]==='notifications'&&un?` <span class="bdg" style="position:static">${un}</span>`:''}</a>`).join('')}</nav><button class="btn ghost sm" data-act="logout">🚪 ${t('logout')}</button></aside>`;
+ if(kind==='account')return shell(`<div class="dash">${side}<section style="min-width:0">${body}</section></div>`);
  return `<div class="dash full">${side}<section class="dmain"><div class="dtop"><a class="logo" href="#/${kind}/overview">${logo()}</a><div class="row"><a class="btn ghost sm" href="#/home">🛍 ${t('to_store')}</a><button class="ib" data-act="lang">${lang==='th'?'EN':'TH'}</button>${bell(u)}</div></div>${body}</section></div>`}
-const ordRow=(o,tracker)=>[`<b>${esc(o.id)}</b>`,tm(o.ts),esc((store(o.storeId)||{}).name),bt(o.total),sb(o.status),`<button class="btn sm ghost" data-act="ord" data-id="${esc(o.id)}">${t(tracker?'track':'view')}</button>`];
-function prodGrid(ids){return grid(ids.map(prod).filter(avail))}
+const ordRow=(o,tracker)=>['<b>'+esc(o.id)+'</b>',tm(o.ts),esc((store(o.storeId)||{}).name),bt(o.total),sb(o.status),`<button class="btn sm ghost" data-act="ord" data-id="${esc(o.id)}">${t(tracker?'track':'view')}</button>`];
+const OH=['order_no','date','store','total','status','actions'];
 function notifCenter(){const u=S.u,l=DB.notifs.filter(n=>n.uid===u.id).sort((a,b)=>b.ts-a.ts);return `<div class="row sp" style="margin-bottom:10px"><h2>${t('notif_t')}</h2><button class="btn sm ghost" data-act="nall">${t('mark_all')}</button></div><div class="glass pad">${l.map(nItem).join('')||`<p class="mut">${t('no_notif')}</p>`}</div>`}
-function vAccount(tab){const u=S.u,b=u.role==='buyer';const ok=b?TABS.account.some(x=>x[0]===tab):['profile','addresses','notifications','settings'].includes(tab);if(!ok)return denied();
+function vAccount(tab){const u=S.u,b=u.role==='buyer';if(!(b?TABS.account.some(x=>x[0]===tab):COMMON.indexOf(tab)>=0))return denied();
  const mo=DB.orders.filter(o=>o.buyer===u.id);let c='';
- if(tab==='overview')c=`<h2 style="margin-bottom:14px">${t('m_overview')}</h2>${kpis([['📦','my_orders_n',mo.length],['💳','spent',bt(sumRev(mo))],['♡','m_wishlist',wl().length],['🔔','unread',unreadN()]])}${panel(t('recent_orders'),tbl(['order_no','date','store','total','status','actions'],mo.slice(0,5).map(o=>ordRow(o,1))))}`;
+ if(tab==='overview')c=`<h2 style="margin-bottom:14px">${t('m_overview')}</h2>${kpis([['📦','my_orders_n',mo.length],['💳','spent',bt(sumRev(mo))],['♡','m_wishlist',wl().length],['🔔','unread',unreadN()]])}${panel(t('recent_orders'),tbl(OH,mo.slice(0,5).map(o=>ordRow(o,1))))}`;
  if(tab==='profile')c=`<h2 style="margin-bottom:14px">${t('m_profile')}</h2><div class="cols"><div class="glass pad"><div class="row"><div class="avatar">${esc(u.avatar)}</div><div><h3>${esc(u.first+' '+u.last)}</h3><div class="mut">@${esc(u.username)}</div>${sb(u.status)} <span class="sb processing">${t('r_'+u.role)}</span></div></div><p class="mut sm" style="margin:12px 0 6px">${t('avatar')}</p><div class="row avs">${AVS.map(a=>`<button data-act="avatar" data-v="${esc(a)}" aria-label="avatar">${a}</button>`).join('')}</div><p class="sm mut" style="margin-top:12px">${t('member_since')}: ${tm(u.created)}</p></div>
  <div class="glass pad"><h3>${t('edit_profile')}</h3><form data-form="profile" novalidate><div class="g2">${fld('first','first',{val:u.first,max:40})}${fld('last','last',{val:u.last,max:40})}</div>${fld('username','username',{val:u.username,max:20})}${fld('email','email',{val:u.email,ro:1})}${fld('phone','phone',{val:u.phone,max:15})}<button class="btn" type="submit">${t('save')}</button></form></div></div>
  ${panel(t('change_pw'),`<form data-form="pw" novalidate style="max-width:420px">${pwf('cur','cur_pw')}${pwf('nw','fg_new',{ac:'new-password'})}${pwf('cf','confirm_pw',{ac:'new-password'})}<button class="btn" type="submit">${t('change_pw')}</button></form>`)}`;
- if(tab==='orders')c=`<h2 style="margin-bottom:14px">${t('m_orders')}</h2><div class="glass pad">${tbl(['order_no','date','store','total','status','actions'],mo.map(o=>ordRow(o,1)))}</div>`;
- if(tab==='wishlist')c=`<h2 style="margin-bottom:14px">${t('m_wishlist')}</h2>${prodGrid(wl())}`;
- if(tab==='recent')c=`<h2 style="margin-bottom:14px">${t('m_recent')}</h2>${prodGrid(rec())}`;
+ if(tab==='orders')c=`<h2 style="margin-bottom:14px">${t('m_orders')}</h2><div class="glass pad">${tbl(OH,mo.map(o=>ordRow(o,1)))}</div>`;
+ if(tab==='wishlist')c=`<h2 style="margin-bottom:14px">${t('m_wishlist')}</h2>${grid(wl().map(prod).filter(avail))}`;
  if(tab==='reviews')c=`<h2 style="margin-bottom:14px">${t('my_rev')}</h2><div class="glass pad">${DB.reviews.filter(r=>r.uid===u.id).map(r=>{const p=prod(r.pid);return `<div class="sline"><div class="gold">${stars(r.rating)}</div><div><a href="#/product/${esc(r.pid)}">${esc(p?L(p.name):'—')}</a><div>${esc(L(r.text))}</div></div><small class="mut">${tm(r.ts)}</small></div>`}).join('')||`<p class="mut">${t('no_items')}</p>`}</div>`;
- if(tab==='addresses')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_addresses')}</h2><button class="btn sm" data-act="addr">+ ${t('add_addr')}</button></div><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${u.addresses.map(a=>`<div class="glass pad"><b>${esc(a.label)}</b> ${a.def?`<span class="sb delivered">${t('default')}</span>`:''}<p>${esc(a.name)} · ${esc(a.phone)}</p><p class="mut">${esc(a.line)}, ${esc(a.city)} ${esc(a.zip)}</p><div class="row" style="margin-top:8px"><button class="btn sm ghost" data-act="addr" data-id="${esc(a.id)}">${t('edit')}</button>${a.def?'':`<button class="btn sm ghost" data-act="defaddr" data-id="${esc(a.id)}">${t('set_default')}</button>`}<button class="btn sm danger" data-act="deladdr" data-id="${esc(a.id)}">${t('delete')}</button></div></div>`).join('')||`<p class="mut">${t('no_items')}</p>`}</div>`;
+ if(tab==='addresses')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_addresses')}</h2><button class="btn sm" data-act="addr">+ ${t('add_addr')}</button></div><div class="grid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr))">${u.addresses.map(a=>`<div class="glass pad"><b>${esc(a.label)}</b> ${a.def?`<span class="sb delivered">${t('default')}</span>`:''}<p>${esc(a.name)} · ${esc(a.phone)}</p><p class="mut">${esc(a.line)}, ${esc(a.city)} ${esc(a.zip)}</p><div class="row" style="margin-top:8px">${a.def?'':`<button class="btn sm ghost" data-act="defaddr" data-id="${esc(a.id)}">${t('set_default')}</button>`}<button class="btn sm danger" data-act="deladdr" data-id="${esc(a.id)}">${t('delete')}</button></div></div>`).join('')||`<p class="mut">${t('no_items')}</p>`}</div>`;
  if(tab==='notifications')c=notifCenter();
- if(tab==='settings')c=`<h2 style="margin-bottom:14px">${t('m_settings')}</h2>${panel(t('lang_set'),`<div class="row"><button class="btn ${lang==='th'?'':'ghost'}" data-act="setlang" data-v="th">ไทย</button><button class="btn ${lang==='en'?'':'ghost'}" data-act="setlang" data-v="en">English</button></div>`)}${panel(t('login_hist'),tbl(['date','device'],DB.loginHistory.filter(h=>h.uid===u.id).slice(0,8).map(h=>[dt(h.ts),esc(h.device)])))}<div class="note">${t('sess_note')}</div>`;
+ if(tab==='settings')c=`<h2 style="margin-bottom:14px">${t('m_settings')}</h2>${panel(t('lang_set'),`<div class="row"><button class="btn ${lang==='th'?'':'ghost'}" data-act="setlang" data-v="th">ไทย</button><button class="btn ${lang==='en'?'':'ghost'}" data-act="setlang" data-v="en">English</button></div>`)}<div class="note">${t('sess_note')}</div>`;
  return dash('account',tab,c)}
-function ordModal(id){const u=S.u,o=DB.orders.find(x=>x.id===id);if(!o)return;if(u.role==='buyer'&&o.buyer!==u.id)return;if(u.role==='seller'&&(store(o.storeId)||{}).ownerId!==u.id)return;
- const cur=FLOW.indexOf(o.status),canC=u.role==='buyer'&&o.status==='pending',canS=u.role!=='buyer'&&o.status!=='cancelled'&&o.status!=='delivered'||u.role==='admin';
- modal(`<h3>${t('order_no')} ${esc(o.id)}</h3><p class="mut sm">${dt(o.ts)} · ${esc((store(o.storeId)||{}).name)} · ${t('buyer')}: ${esc((usr(o.buyer)||{}).username||'-')}</p>${o.status==='cancelled'?sb('cancelled'):`<div class="stl">${FLOW.map((s,i)=>{const h=o.hist.find(x=>x.s===s);return `<div class="${i<=cur?'on':''}"><i>${i<=cur?'✓':i+1}</i>${t('st_'+s)}<br><small>${h?dt(h.ts):''}</small></div>`}).join('')}</div>`}
- ${o.items.map(i=>`<div class="sline">${pimg({...i,name:i.name},'s')}<div><b>${esc(L(i.name))}</b><div class="mut sm">×${i.qty} ${esc(i.si||'')}</div></div><b>${bt(i.price*i.qty)}</b></div>`).join('')}
+const sumBox2=o=>`<div class="row sp"><span class="mut">${t('subtotal')}</span>${bt(o.sub)}</div><div class="row sp"><span class="mut">${t('discount')}</span>-${bt(o.disc)}</div><div class="row sp"><span class="mut">${t('shipping')}</span>${o.ship?bt(o.ship):t('free')}</div><div class="row sp"><b>${t('grand')}</b><b>${bt(o.total)}</b></div>`;
+function ordModal(id){const u=U(),o=DB.orders.find(x=>x.id===id);if(!u||!o)return;const own=store(o.storeId);if(u.role==='buyer'&&o.buyer!==u.id)return;if(u.role==='seller'&&(!own||own.ownerId!==u.id))return;
+ const cur=FLOW.indexOf(o.status),canC=u.role==='buyer'&&o.status==='pending',canS=u.role!=='buyer'&&o.status!=='cancelled'&&o.status!=='delivered';
+ modal(`<h3>${t('order_no')} ${esc(o.id)}</h3><p class="mut sm">${dt(o.ts)} · ${esc((own||{}).name)} · ${t('buyer')}: ${esc((usr(o.buyer)||{}).username||'-')}</p>${o.status==='cancelled'?sb('cancelled'):`<div class="stl">${FLOW.map((s,i)=>{const h=o.hist.find(x=>x.s===s);return `<div class="${i<=cur?'on':''}"><i>${i<=cur?'✓':i+1}</i>${t('st_'+s)}<br><small>${h?dt(h.ts):''}</small></div>`}).join('')}</div>`}
+ ${o.items.map(i=>`<div class="sline">${pimg(i,'s')}<div><b>${esc(L(i.name))}</b><div class="mut sm">×${i.qty} ${esc(i.si||'')}</div></div><b>${bt(i.price*i.qty)}</b></div>`).join('')}
  <p class="sm mut" style="margin-top:10px">📍 ${esc(o.addr.name)} · ${esc(o.addr.phone)} · ${esc(o.addr.line||'')} ${esc(o.addr.city||'')} ${esc(o.addr.zip||'')}</p><div style="margin-top:10px">${sumBox2(o)}</div>
  <div class="row end" style="margin-top:14px">${canC?`<button class="btn danger sm" data-act="ostat" data-id="${esc(o.id)}" data-s="cancelled">${t('cancel_order')}</button>`:''}${canS?`<select id="os" style="width:auto">${['pending','processing','shipped','delivered','cancelled'].map(s=>`<option value="${s}"${s===o.status?' selected':''}>${t('st_'+s)}</option>`).join('')}</select><button class="btn sm" data-act="ostat" data-id="${esc(o.id)}">${t('save')}</button>`:''}</div>`,1)}
-const sumBox2=o=>`<div class="row sp"><span class="mut">${t('subtotal')}</span>${bt(o.sub)}</div><div class="row sp"><span class="mut">${t('discount')}</span>-${bt(o.disc)}</div><div class="row sp"><span class="mut">${t('shipping')}</span>${o.ship?bt(o.ship):t('free')}</div><div class="row sp"><b>${t('grand')}</b><b>${bt(o.total)}</b></div>`;
-function vSeller(tab){const u=S.u,s=myStore();if(!s)return dash('seller',tab,`<div class="note">No store.</div>`);const so=sOrders(s.id),mp=DB.products.filter(p=>p.storeId===s.id);let c='';
- const pend=so.filter(o=>o.status==='pending'||o.status==='processing').length;
- if(tab==='overview'){const top=[...mp].sort((a,b)=>b.sold-a.sold).slice(0,5);c=`<h2 style="margin-bottom:6px">🛰️ ${esc(s.name)} ${sb(s.status)}</h2>${s.status!=='approved'?`<div class="note">${t('pending_n')}: ${t('store_hint')}</div>`:''}${kpis([['💰','rev_total',bt(sumRev(so))],['🧾','orders_n',so.length],['📦','products_n',mp.length],['👥','customers_n',new Set(so.map(o=>o.buyer)).size],['⏳','pending_n',pend],['✅','done_n',so.filter(o=>o.status==='delivered').length]])}<div class="cols"><div class="glass pad"><h3>${t('rev_chart')}</h3>${lineC(series(so.filter(paid),14,a=>a.reduce((x,o)=>x+o.total,0)))}</div><div class="glass pad"><h3>${t('top_prod')}</h3>${bars(top.map(p=>({l:L(p.name).slice(0,8),v:p.sold})))}</div></div>${panel(t('recent_orders'),tbl(['order_no','date','store','total','status','actions'],so.slice(0,8).map(o=>ordRow(o))))}`}
- if(tab==='products')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_products')}</h2><button class="btn" data-act="prodform">+ ${t('add_prod')}</button></div><div class="glass pad">${tbl(['product','category','price','discount','stock','status','actions'],mp.map(p=>[`<div class="row" style="flex-wrap:nowrap">${pimg(p,'s')}<span>${esc(L(p.name))}</span></div>`,esc(L((cat(p.cat)||{}).name)),bt(p.price),p.disc+'%',`<input type="number" min="0" value="${p.stock}" data-change="stockc" data-id="${esc(p.id)}" aria-label="${t('stock')}">`,sb(p.status==='active'?'active':'suspended').replace(t('st_suspended'),t('st_hidden')),`<button class="btn sm ghost" data-act="prodform" data-id="${esc(p.id)}">${t('edit')}</button> <button class="btn sm danger" data-act="proddel" data-id="${esc(p.id)}">${t('delete')}</button>`]))}</div>`;
- if(tab==='orders')c=`<h2 style="margin-bottom:14px">${t('m_orders')}</h2><div class="glass pad">${tbl(['order_no','date','store','total','status','actions'],so.map(o=>ordRow(o)))}</div>`;
- if(tab==='store')c=`<h2 style="margin-bottom:14px">${t('store_set')}</h2><div class="glass pad"><p>${t('store_rating')}: <b class="gold">★ ${storeRate(s.id).toFixed(1)}</b> ${sb(s.status)}</p><form data-form="storeset" novalidate style="margin-top:12px"><div class="g2">${fld('name','store_name',{val:s.name,max:60})}${sel('logo','store_logo',EMO.map(e=>[e,e]),s.logo)}</div><div class="g2">${sel('cover','store_cover',GR.map((g,i)=>[i,'Theme '+(i+1)]),s.cover)}<div class="fld"><label for="logoimg">${t('upload_img')}</label><input id="logoimg" type="file" accept="image/*" data-change="img"></div></div><div class="g2">${fld('desc_th','desc_th',{val:s.desc.th,max:300})}${fld('desc_en','desc_en',{val:s.desc.en,max:300})}</div>${fld('address','store_addr',{val:s.address,max:200})}<div class="g3">${fld('email','email',{val:s.email})}${fld('phone','phone',{val:s.phone,max:15})}${fld('social','contact',{val:s.social,max:60})}</div><button class="btn" type="submit">${t('save')}</button></form></div>`;
- if(tab==='reports'){const by={};so.filter(paid).forEach(o=>o.items.forEach(i=>{const k=i.pid;by[k]=by[k]||{n:i.name,q:0,r:0};by[k].q+=i.qty;by[k].r+=i.qty*i.price}));c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_reports')}</h2><button class="btn sm ghost" data-act="csv" data-k="seller">⬇ ${t('export_csv')}</button></div>${panel(t('rev_by_prod'),tbl(['product','sales_qty','revenue'],Object.values(by).sort((a,b)=>b.r-a.r).map(x=>[esc(L(x.n)),x.q,bt(x.r)])))}${panel(t('ord_status'),bars(['pending','processing','shipped','delivered','cancelled'].map(k=>({l:t('st_'+k).slice(0,7),v:so.filter(o=>o.status===k).length}))))}`}
+function vSeller(tab){const s=myStore();if(!s)return denied();const so=sOrders(s.id),mp=DB.products.filter(p=>p.storeId===s.id);let c='';
+ if(tab==='overview'){const top=mp.slice().sort((a,b)=>b.sold-a.sold).slice(0,5);c=`<h2 style="margin-bottom:6px">🛰️ ${esc(s.name)} ${sb(s.status)}</h2>${s.status!=='approved'?`<div class="note">${t('store_hint')}</div>`:''}${kpis([['💰','rev_total',bt(sumRev(so))],['🧾','orders_n',so.length],['📦','products_n',mp.length],['👥','customers_n',new Set(so.map(o=>o.buyer)).size],['⏳','pending_n',so.filter(o=>o.status==='pending'||o.status==='processing').length],['✅','done_n',so.filter(o=>o.status==='delivered').length]])}<div class="cols"><div class="glass pad"><h3>${t('rev_chart')}</h3>${lineC(series(so.filter(paid),14,a=>a.reduce((x,o)=>x+o.total,0)))}</div><div class="glass pad"><h3>${t('top_prod')}</h3>${bars(top.map(p=>({l:L(p.name).slice(0,8),v:p.sold})))}</div></div>${panel(t('recent_orders'),tbl(OH,so.slice(0,8).map(o=>ordRow(o))))}`}
+ if(tab==='products')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_products')}</h2><button class="btn" data-act="prodform">+ ${t('add_prod')}</button></div><div class="glass pad">${tbl(['product','category','price','discount','stock','status','actions'],mp.map(p=>[`<div class="row" style="flex-wrap:nowrap">${pimg(p,'s')}<span>${esc(L(p.name))}</span></div>`,esc(L((cat(p.cat)||{}).name)),bt(p.price),p.disc+'%',`<input type="number" min="0" value="${p.stock}" data-change="stockc" data-id="${esc(p.id)}" aria-label="${t('stock')}">`,sb(p.status),`<button class="btn sm ghost" data-act="prodform" data-id="${esc(p.id)}">${t('edit')}</button> <button class="btn sm danger" data-act="proddel" data-id="${esc(p.id)}">${t('delete')}</button>`]))}</div>`;
+ if(tab==='orders')c=`<h2 style="margin-bottom:14px">${t('m_orders')}</h2><div class="glass pad">${tbl(OH,so.map(o=>ordRow(o)))}</div>`;
+ if(tab==='store')c=`<h2 style="margin-bottom:14px">${t('store_set')}</h2><div class="glass pad"><p>${t('store_rating')}: <b class="gold">★ ${storeRate(s.id).toFixed(1)}</b> ${sb(s.status)}</p><form data-form="storeset" novalidate style="margin-top:12px"><div class="g3">${fld('name','store_name',{val:s.name,max:60})}${sel('logo','store_logo',EMO.map(e=>[e,e]),s.logo)}${sel('cover','store_cover',GR.map((g,i)=>[i,'Theme '+(i+1)]),s.cover)}</div><div class="g2">${fld('desc_th','desc_th',{val:s.desc.th,max:300})}${fld('desc_en','desc_en',{val:s.desc.en,max:300})}</div>${fld('address','store_addr',{val:s.address,max:200})}<div class="g3">${fld('email','email',{val:s.email})}${fld('phone','phone',{val:s.phone,max:15})}${fld('social','contact',{val:s.social,max:60})}</div><button class="btn" type="submit">${t('save')}</button></form></div>`;
+ if(tab==='reports'){const by={};so.filter(paid).forEach(o=>o.items.forEach(i=>{const x=by[i.pid]=by[i.pid]||{n:i.name,q:0,r:0};x.q+=i.qty;x.r+=i.qty*i.price}));c=`<h2 style="margin-bottom:14px">${t('m_reports')}</h2>${panel(t('rev_by_prod'),tbl(['product','sales_qty','revenue'],Object.values(by).sort((a,b)=>b.r-a.r).map(x=>[esc(L(x.n)),x.q,bt(x.r)])))}${panel(t('m_orders'),bars(FLOW.concat(['cancelled']).map(k=>({l:t('st_'+k).slice(0,7),v:so.filter(o=>o.status===k).length}))))}`}
  if(tab==='notifications')c=notifCenter();
- if(!c)return denied();return dash('seller',tab,c)}
-function vAdmin(tab){const u=S.u;let c='',O=DB.orders;const nonAdmin=DB.users.filter(x=>x.role!=='admin');
- if(tab==='overview'){const act=[...O.slice(0,5).map(o=>({ts:o.ts,x:'🛒 '+o.id+' — '+bt(o.total)})),...DB.users.slice(-3).map(x=>({ts:x.created,x:'👤 '+x.username+' ('+t('r_'+x.role)+')'})),...DB.reviews.slice(-3).map(r=>({ts:r.ts,x:'⭐ '+r.rating+'★ → '+L((prod(r.pid)||{}).name)}))].sort((a,b)=>b.ts-a.ts).slice(0,8);
-  c=`<h2 style="margin-bottom:14px">${t('m_overview')}</h2>${kpis([['💰','rev_total',bt(sumRev(O))],['👥','users_n',nonAdmin.length],['🧑‍🚀','sellers_n',DB.users.filter(x=>x.role==='seller').length],['📦','products_n',DB.products.length],['🧾','orders_n',O.length]])}<div class="cols"><div class="glass pad"><h3>${t('growth')}</h3>${lineC(series(O.filter(paid),14,a=>a.reduce((x,o)=>x+o.total,0)))}</div><div class="glass pad"><h3>${t('activity')}</h3>${act.map(a=>`<div class="sline"><div>${esc(a.x)}</div><small class="mut">${dt(a.ts)}</small></div>`).join('')}</div></div>${panel(t('notif_t'),DB.notifs.filter(n=>n.uid===u.id).slice(0,4).map(nItem).join('')||`<p class="mut">${t('no_notif')}</p>`)}`}
+ return c?dash('seller',tab,c):denied()}
+function vAdmin(tab){const u=S.u,O=DB.orders;let c='';
+ if(tab==='overview'){const act=O.slice(0,5).map(o=>({ts:o.ts,x:'🛒 '+o.id+' — '+bt(o.total)})).concat(DB.users.slice(-3).map(x=>({ts:x.created,x:'👤 '+x.username+' ('+t('r_'+x.role)+')'})),DB.reviews.slice(-3).map(r=>({ts:r.ts,x:'⭐ '+r.rating+'★ → '+L((prod(r.pid)||{}).name)}))).sort((a,b)=>b.ts-a.ts).slice(0,8);
+  c=`<h2 style="margin-bottom:14px">${t('m_overview')}</h2>${kpis([['💰','rev_total',bt(sumRev(O))],['👥','users_n',DB.users.filter(x=>x.role!=='admin').length],['🧑‍🚀','sellers_n',DB.users.filter(x=>x.role==='seller').length],['📦','products_n',DB.products.length],['🧾','orders_n',O.length]])}<div class="cols"><div class="glass pad"><h3>${t('growth')}</h3>${lineC(series(O.filter(paid),14,a=>a.reduce((x,o)=>x+o.total,0)))}</div><div class="glass pad"><h3>${t('activity')}</h3>${act.map(a=>`<div class="sline"><div>${esc(a.x)}</div><small class="mut">${dt(a.ts)}</small></div>`).join('')}</div></div>${panel(t('notif_t'),DB.notifs.filter(n=>n.uid===u.id).slice(0,4).map(nItem).join('')||`<p class="mut">${t('no_notif')}</p>`)}`}
  if(tab==='users')c=`<h2 style="margin-bottom:14px">${t('m_users')}</h2><div class="glass pad">${tbl(['user','email','role','date','status','actions'],DB.users.map(x=>[esc(x.avatar+' '+x.first+' '+x.last),esc(x.email),t('r_'+x.role),tm(x.created),sb(x.status),x.role==='admin'?'—':`<button class="btn sm ghost" data-act="adm" data-k="ustat" data-id="${esc(x.id)}">${t(x.status==='active'?'suspend':'activate')}</button> <button class="btn sm danger" data-act="adm" data-k="udel" data-id="${esc(x.id)}">${t('delete')}</button>`]))}</div>`;
- if(tab==='sellers')c=`<h2 style="margin-bottom:14px">${t('m_sellers')}</h2><div class="glass pad">${tbl(['user','email','store','status','actions'],DB.users.filter(x=>x.role==='seller').map(x=>{const s=DB.stores.find(y=>y.ownerId===x.id)||{};return [esc(x.first+' '+x.last),esc(x.email),esc(s.name||'-'),sb(s.status||'pending'),s.id&&s.status!=='approved'?`<button class="btn sm ok" data-act="adm" data-k="sapp" data-id="${esc(s.id)}">${t('approve')}</button>`:s.id?`<button class="btn sm ghost" data-act="adm" data-k="ssus" data-id="${esc(s.id)}">${t('suspend')}</button>`:'']}))}</div>`;
- if(tab==='stores')c=`<h2 style="margin-bottom:14px">${t('m_stores')}</h2><div class="glass pad">${tbl(['store','owner','products_n','store_rating','status','actions'],DB.stores.map(s=>[esc(s.logo+' '+s.name),esc((usr(s.ownerId)||{}).email),DB.products.filter(p=>p.storeId===s.id).length,'★ '+storeRate(s.id).toFixed(1),sb(s.status),`<a class="btn sm ghost" href="#/store/${esc(s.id)}">${t('view')}</a> <button class="btn sm ghost" data-act="adm" data-k="${s.status==='approved'?'ssus':'sapp'}" data-id="${esc(s.id)}">${t(s.status==='approved'?'suspend':'approve')}</button>`]))}</div>`;
- if(tab==='products')c=`<h2 style="margin-bottom:14px">${t('m_products')}</h2><div class="glass pad">${tbl(['product','store','price','stock','status','actions'],DB.products.map(p=>[esc(p.icon+' '+L(p.name)),esc((store(p.storeId)||{}).name),bt(unit(p)),p.stock,sb(p.status==='active'?'active':'suspended'),`<button class="btn sm ghost" data-act="adm" data-k="ptog" data-id="${esc(p.id)}">${t(p.status==='active'?'hide':'show')}</button> <button class="btn sm danger" data-act="adm" data-k="pdel" data-id="${esc(p.id)}">${t('delete')}</button>`]))}</div>`;
- if(tab==='categories')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_categories')}</h2><button class="btn" data-act="catform">+ ${t('add')}</button></div><div class="glass pad">${tbl(['icon','name','products_n','status','actions'],DB.cats.map(x=>[esc(x.icon),esc(L(x.name)),DB.products.filter(p=>p.cat===x.id).length,sb(x.active?'active':'suspended'),`<button class="btn sm ghost" data-act="catform" data-id="${esc(x.id)}">${t('edit')}</button> <button class="btn sm ghost" data-act="adm" data-k="ctog" data-id="${esc(x.id)}">${t(x.active?'hide':'show')}</button> <button class="btn sm danger" data-act="adm" data-k="cdel" data-id="${esc(x.id)}">${t('delete')}</button>`]))}</div>`;
- if(tab==='orders')c=`<h2 style="margin-bottom:14px">${t('m_orders')}</h2><div class="glass pad">${tbl(['order_no','date','store','total','status','actions'],O.map(o=>ordRow(o)))}</div>`;
- if(tab==='reviews')c=`<h2 style="margin-bottom:14px">${t('m_reviews')}</h2><div class="glass pad">${tbl(['product','user','rating','comment','status','actions'],DB.reviews.slice().sort((a,b)=>b.ts-a.ts).map(r=>[esc(L((prod(r.pid)||{}).name)),esc((usr(r.uid)||{}).username),'★'+r.rating,esc(L(r.text)),sb(r.hidden?'suspended':'active'),`<button class="btn sm ghost" data-act="adm" data-k="rhide" data-id="${esc(r.id)}">${t(r.hidden?'show':'hide')}</button> <button class="btn sm danger" data-act="adm" data-k="rdel" data-id="${esc(r.id)}">${t('delete')}</button>`]))}</div>`;
- if(tab==='promotions')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_promotions')}</h2><button class="btn" data-act="promoform">+ ${t('add')}</button></div><div class="glass pad">${tbl(['code','type','value','min_spend','used','status','actions'],DB.promos.map(x=>[`<b>${esc(x.code)}</b>`,t(x.type==='percent'?'t_percent':x.type==='fixed'?'t_fixed':'t_ship'),x.value,bt(x.min),x.used,sb(x.active?'active':'suspended'),`<button class="btn sm ghost" data-act="promoform" data-id="${esc(x.code)}">${t('edit')}</button> <button class="btn sm ghost" data-act="adm" data-k="prtog" data-id="${esc(x.code)}">${t(x.active?'hide':'show')}</button> <button class="btn sm danger" data-act="adm" data-k="prdel" data-id="${esc(x.code)}">${t('delete')}</button>`]))}</div>`;
- if(tab==='banners')c=`<h2 style="margin-bottom:14px">${t('m_banners')}</h2><div class="glass pad">${tbl(['icon','name','status','actions'],DB.banners.map(b=>[esc(b.icon),esc(L(b.title)),sb(b.active?'active':'suspended'),`<button class="btn sm ghost" data-act="bnform" data-id="${esc(b.id)}">${t('edit')}</button> <button class="btn sm ghost" data-act="adm" data-k="btog" data-id="${esc(b.id)}">${t(b.active?'hide':'show')}</button>`]))}</div>`;
- if(tab==='reports'){const rc=DB.cats.map(x=>[esc(L(x.name)),bt(O.filter(paid).reduce((s,o)=>s+o.items.filter(i=>(prod(i.pid)||{}).cat===x.id).reduce((a,i)=>a+i.qty*i.price,0),0))]),rs=DB.stores.map(s=>[esc(s.name),sOrders(s.id).length,bt(sumRev(sOrders(s.id)))]);
-  c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_reports')}</h2><button class="btn sm ghost" data-act="csv" data-k="admin">⬇ ${t('export_csv')}</button></div>${panel(t('rev_by_cat'),tbl(['category','revenue'],rc))}${panel(t('rev_by_store'),tbl(['store','orders_n','revenue'],rs))}`}
- if(tab==='analytics'){const wk=[];for(let i=7;i>=0;i--){const a=Date.now()-(i+1)*7*DAY,b=Date.now()-i*7*DAY;wk.push({l:'W'+(8-i),v:DB.users.filter(x=>x.created>=a&&x.created<b).length})}
-  c=`<h2 style="margin-bottom:14px">${t('m_analytics')}</h2><div class="cols"><div class="glass pad"><h3>${t('ord_14')}</h3>${lineC(series(O,14,a=>a.length))}</div><div class="glass pad"><h3>${t('rev_by_cat')}</h3>${bars(DB.cats.map(x=>({l:L(x.name).slice(0,7),v:O.filter(paid).reduce((s,o)=>s+o.items.filter(i=>(prod(i.pid)||{}).cat===x.id).reduce((a,i)=>a+i.qty*i.price,0),0)})))}</div><div class="glass pad"><h3>${t('ord_status')}</h3>${bars(['pending','processing','shipped','delivered','cancelled'].map(k=>({l:t('st_'+k).slice(0,7),v:O.filter(o=>o.status===k).length})))}</div><div class="glass pad"><h3>${t('user_growth')}</h3>${bars(wk)}</div></div>`}
+ if(tab==='sellers')c=`<h2 style="margin-bottom:14px">${t('m_sellers')}</h2><div class="glass pad">${tbl(['store','owner','products_n','store_rating','status','actions'],DB.stores.map(s=>[esc(s.logo+' '+s.name),esc((usr(s.ownerId)||{}).email),DB.products.filter(p=>p.storeId===s.id).length,'★ '+storeRate(s.id).toFixed(1),sb(s.status),(s.status==='approved'?`<a class="btn sm ghost" href="#/store/${esc(s.id)}">${t('view')}</a> <button class="btn sm ghost" data-act="adm" data-k="ssus" data-id="${esc(s.id)}">${t('suspend')}</button>`:`<button class="btn sm ok" data-act="adm" data-k="sapp" data-id="${esc(s.id)}">${t('approve')}</button>`)]))}</div>`;
+ if(tab==='products')c=`<h2 style="margin-bottom:14px">${t('m_products')}</h2><div class="glass pad">${tbl(['product','store','price','stock','status','actions'],DB.products.map(p=>[esc(p.icon+' '+L(p.name)),esc((store(p.storeId)||{}).name),bt(unit(p)),p.stock,sb(p.status),`<button class="btn sm ghost" data-act="adm" data-k="ptog" data-id="${esc(p.id)}">${t(p.status==='active'?'hide':'show')}</button> <button class="btn sm danger" data-act="adm" data-k="pdel" data-id="${esc(p.id)}">${t('delete')}</button>`]))}</div>`;
+ if(tab==='categories')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_categories')}</h2><button class="btn" data-act="catform">+ ${t('add')}</button></div><div class="glass pad">${tbl(['icon','name','products_n','status','actions'],DB.cats.map(x=>[esc(x.icon),esc(L(x.name)),DB.products.filter(p=>p.cat===x.id).length,sb(x.active?'active':'hidden'),`<button class="btn sm ghost" data-act="adm" data-k="ctog" data-id="${esc(x.id)}">${t(x.active?'hide':'show')}</button> <button class="btn sm danger" data-act="adm" data-k="cdel" data-id="${esc(x.id)}">${t('delete')}</button>`]))}</div>`;
+ if(tab==='orders')c=`<h2 style="margin-bottom:14px">${t('m_orders')}</h2><div class="glass pad">${tbl(OH,O.map(o=>ordRow(o)))}</div>`;
+ if(tab==='reviews')c=`<h2 style="margin-bottom:14px">${t('m_reviews')}</h2><div class="glass pad">${tbl(['product','user','rating','comment','status','actions'],DB.reviews.slice().sort((a,b)=>b.ts-a.ts).map(r=>[esc(L((prod(r.pid)||{}).name)),esc((usr(r.uid)||{}).username),'★'+r.rating,esc(L(r.text)),sb(r.hidden?'hidden':'active'),`<button class="btn sm ghost" data-act="adm" data-k="rhide" data-id="${esc(r.id)}">${t(r.hidden?'show':'hide')}</button> <button class="btn sm danger" data-act="adm" data-k="rdel" data-id="${esc(r.id)}">${t('delete')}</button>`]))}</div>`;
+ if(tab==='promotions')c=`<div class="row sp" style="margin-bottom:14px"><h2>${t('m_promotions')}</h2><button class="btn" data-act="promoform">+ ${t('add')}</button></div><div class="glass pad">${tbl(['code','type','value','min_spend','used','status','actions'],DB.promos.map(x=>['<b>'+esc(x.code)+'</b>',t(x.type==='percent'?'t_percent':x.type==='fixed'?'t_fixed':'t_ship'),x.value,bt(x.min),x.used,sb(x.active?'active':'hidden'),`<button class="btn sm ghost" data-act="adm" data-k="prtog" data-id="${esc(x.code)}">${t(x.active?'hide':'show')}</button> <button class="btn sm danger" data-act="adm" data-k="prdel" data-id="${esc(x.code)}">${t('delete')}</button>`]))}</div>`;
  if(tab==='settings'){const s=DB.settings;c=`<h2 style="margin-bottom:14px">${t('site_set')}</h2><div class="glass pad"><form data-form="settings" novalidate style="max-width:520px"><div class="g2">${fld('std','ship_fee_std',{type:'number',val:s.ship.std,min:0})}${fld('exp','ship_fee_exp',{type:'number',val:s.ship.exp,min:0})}${fld('warp','ship_fee_warp',{type:'number',val:s.ship.warp,min:0})}${fld('free','free_ship_min',{type:'number',val:s.freeShip,min:0})}</div><label class="row" style="color:var(--tx)"><input type="checkbox" name="allowReg"${s.allowReg?' checked':''}> ${t('allow_reg')}</label><button class="btn" style="margin-top:12px" type="submit">${t('save')}</button></form></div><div style="margin-top:16px"><button class="btn danger" data-act="resetdb">${t('reset_demo')}</button></div><div class="note" style="margin-top:12px">${t('sess_note')}</div>`}
  if(tab==='notifications')c=notifCenter();
- if(!c)return denied();return dash('admin',tab,c)}
+ return c?dash('admin',tab,c):denied()}
 
-/* ============ ROUTER ============ */
-function route(a,b,c,q){const u=S.u;
- const gate=(roles,fn)=>{if(!u){S.next=location.hash;return{redirect:'login'}}return roles.includes(u.role)?fn():denied()};
+/* ===== ROUTER ===== */
+function route(a,b,q){const u=S.u;
+ const gate=(roles,fn)=>{if(!u){S.next=location.hash;return{redirect:'login'}}return roles.indexOf(u.role)>=0?fn():denied()};
  switch(a){
-  case'':case'home':return vHome();case'shop':return vShop(q);case'product':return vProduct(b);case'store':return vStore(b);case'cart':return vCart();
+  case'home':return vHome();case'shop':return vShop(q);case'product':return vProduct(b);case'store':return vStore(b);case'cart':return vCart();
   case'checkout':return gate(['buyer'],vCheckout);case'done':return gate(['buyer'],vDone);
   case'login':return u?{redirect:homeOf(u)}:vLogin();case'register':return u?{redirect:homeOf(u)}:vRegister(q);case'forgot':return vForgot();
   case'account':return gate(['buyer','seller','admin'],()=>vAccount(b||'overview'));
   case'seller':return gate(['seller'],()=>vSeller(b||'overview'));case'admin':return gate(['admin'],()=>vAdmin(b||'overview'));
   default:return nf()}}
 let lastKey='';
-function render(){U();const R=parseHash(),[a,b,c]=R.path;let out;
- try{out=route(a||'home',b,c,R.q)}catch(e){console.error(e);out=`<div class="wrap sec"><div class="glass pad"><h2>${t('error')}</h2><p class="mut">${esc(e.message)}</p></div></div>`}
- if(out&&out.redirect){S.u&&0;location.replace('#/'+out.redirect);return}
- const key=(a||'home')+'/'+(b||''),y=scrollY,snap={};
- $('#app input[id],#app select[id],#app textarea[id]').forEach(e=>{if(e.type!=='file')snap[e.id]=e.type==='checkbox'?e.checked:e.value});
- $('#app').innerHTML=out;document.body.classList.remove('mmo');
- if(lang!==document.documentElement.lang)document.documentElement.lang=lang;
- if(S.keepForm){for(const id in snap){const e=document.getElementById(id);if(e&&e.type!=='radio'){e.type==='checkbox'?e.checked=snap[id]:e.value=snap[id]}}S.keepForm=false}
- scrollTo(0,key===lastKey?y:0);lastKey=key;tick();document.title='COSMIC MARKETPLACE'}
-function updBadges(){U();const set=(id,n)=>{const e=document.getElementById(id);if(e){e.textContent=n||'';e.dataset.n=n}};set('b-cart',cartArr().reduce((s,i)=>s+i.qty,0));set('b-wl',wl().length);set('b-nt',unreadN())}
-function tick(){const d=new Date(),e=new Date(d);e.setHours(24,0,0,0);const s=Math.floor((e-d)/1e3),f=n=>String(n).padStart(2,'0'),x=`${f(s/3600|0)}:${f(s%3600/60|0)}:${f(s%60)}`;$('[data-cd]').forEach(el=>el.textContent=x)}
-function afterLogin(u){toast(t('loginOk',{name:u.first}),'ok');const nx=S.next;S.next='';go(nx&&u.role==='buyer'&&!/login|register/.test(nx)?nx.replace(/^#\//,''):homeOf(u))}
+function render(){U();const R=parseHash(),a=R.path[0]||'home',b=R.path[1];let out;
+ try{out=route(a,b,R.q)}catch(e){console.error(e);out=`<div class="wrap sec"><div class="glass pad"><h2>${t('error')}</h2><p class="mut">${esc(e.message)}</p><a class="btn" href="#/home">${t('back_home')}</a></div></div>`}
+ if(out&&out.redirect){location.replace('#/'+out.redirect);return}
+ const key=a+'/'+(b||''),y=window.scrollY,keep={};
+ if(S.keep)$('#app input[id],#app select[id],#app textarea[id]').forEach(e=>{keep[e.id]=e.type==='checkbox'?e.checked:e.value});
+ $('#app').innerHTML=out;document.body.classList.remove('mmo');document.documentElement.lang=lang;
+ if(S.keep){Object.keys(keep).forEach(id=>{const e=document.getElementById(id);if(e&&e.type!=='radio'){if(e.type==='checkbox')e.checked=keep[id];else e.value=keep[id]}});const ca=$('#c_addr'),na=$('#newaddr');if(ca&&na)na.hidden=ca.value!=='new';S.keep=false}
+ window.scrollTo(0,key===lastKey?y:0);lastKey=key;tick()}
+function updBadges(){U();const set=(id,n)=>{const e=document.getElementById(id);if(e)e.textContent=n||''};set('b-cart',cartArr().reduce((s,i)=>s+i.qty,0));set('b-wl',wl().length);set('b-nt',unreadN())}
+function tick(){const d=new Date(),e=new Date(d);e.setHours(24,0,0,0);const s=Math.floor((e-d)/1e3),f=n=>String(n).padStart(2,'0'),x=f(Math.floor(s/3600))+':'+f(Math.floor(s%3600/60))+':'+f(s%60);$('[data-cd]').forEach(el=>{el.textContent=x})}
+function afterLogin(u){toast(t('loginOk',{name:u.first}));const nx=S.next;S.next='';go(nx&&u.role==='buyer'&&!/login|register/.test(nx)?nx.replace(/^#\//,''):homeOf(u))}
 
-/* ============ EVENT HANDLING ============ */
+/* ===== EVENT HANDLING ===== */
 const A={},F={},C={},I={};
-A.mclose=closeModal;A.mok=()=>{const f=S.mok;closeModal();f&&f()};
+A.mclose=closeModal;A.mok=()=>{const f=S.mok;closeModal();if(f)f()};
 A.menu=()=>document.body.classList.toggle('mmo');
 A.filt=()=>$('#filt').classList.toggle('open');
 A.dd=el=>{const d=el.parentElement.querySelector('.dd'),o=d.classList.contains('open');$('.dd.open').forEach(x=>x.classList.remove('open'));if(!o)d.classList.add('open')};
+A.setlang=(el,v)=>{lang=v||el.dataset.v;LS.set('cosmic_lang',lang);closeModal();S.keep=true;render()};
 A.lang=()=>A.setlang(null,lang==='th'?'en':'th');
-A.setlang=(el,v)=>{lang=v||el.dataset.v;LS.set('cosmic_lang',lang);document.documentElement.lang=lang;closeModal();S.keepForm=true;render()};
 A.tpw=el=>{const i=document.getElementById(el.dataset.for);i.type=i.type==='password'?'text':'password'};
 A.logout=()=>{Svc.auth.logout();S.u=null;toast(t('logoutOk'));go('home')};
-A.demo=async el=>{if(el.dataset.busy)return;el.dataset.busy=1;const o=el.innerHTML;el.innerHTML='<span class="spin"></span>';const r=await Svc.auth.login(DEMO[el.dataset.r].email,DEMO[el.dataset.r].pw,false);delete el.dataset.busy;el.innerHTML=o;if(r.err)return toast(t(r.err),'err');S.u=r.user;afterLogin(r.user)};
-A.wish=el=>{const id=el.dataset.id,w=wl(),i=w.indexOf(id);if(!canShop())return;i>=0?w.splice(i,1):w.push(id);save();toast(t(i>=0?'wish_rm':'wish_add'));updBadges();$(`[data-act=wish][data-id="${id}"]`).forEach(b=>{const on=i<0;b.firstChild.textContent=on?'♥':'♡'});if(parseHash().path[1]==='wishlist')render()};
-A.addcart=el=>addToCart(el.dataset.id,1,(prod(el.dataset.id).colors.length?0:-1),(prod(el.dataset.id).sizes[0]||''));
+A.demo=async el=>{if(el.dataset.busy)return;el.dataset.busy='1';const o=el.innerHTML;el.innerHTML='<span class="spin"></span>';const r=await Svc.auth.login(DEMO[el.dataset.r].email,DEMO[el.dataset.r].pw,false);delete el.dataset.busy;el.innerHTML=o;if(r.err)return toast(t(r.err),'err');S.u=r.user;afterLogin(r.user)};
+A.wish=el=>{if(!canShop())return;const id=el.dataset.id,w=wl(),i=w.indexOf(id);if(i>=0)w.splice(i,1);else w.push(id);save();toast(t(i>=0?'wish_rm':'wish_add'));render()};
+A.addcart=el=>{const p=prod(el.dataset.id);addToCart(p.id,1,p.colors.length?0:-1,p.sizes[0]||'')};
 A.pick=el=>{$('#pv').dataset[el.dataset.k]=el.dataset.i;$('button',el.parentElement).forEach(b=>b.classList.toggle('on',b===el))};
 A.gal=el=>{$('#gm').style.filter=el.style.filter;$('.th').forEach(b=>b.classList.toggle('on',b===el))};
 A.qstep=el=>{const i=$('#pq'),m=+i.max||99;i.value=Math.min(m,Math.max(1,(+i.value||1)+(+el.dataset.d)))};
 const pvSel=()=>{const pv=$('#pv'),i=$('#pq');return{id:pv.dataset.id,q:Math.max(1,Math.min(+i.max||99,Math.floor(+i.value)||1)),ci:+pv.dataset.ci,si:pv.dataset.si}};
 A.addpv=()=>{const s=pvSel();addToCart(s.id,s.q,s.ci,s.si)};
-A.buynow=()=>{const s=pvSel();if(!U()){S.next='#/checkout';toast(t('login'),'warn');return go('login')}if(addToCart(s.id,s.q,s.ci,s.si)){cartArr().forEach(i=>i.sel=i.id===[s.id,s.ci,s.si].join('|'));save();go('checkout')}};
+A.buynow=()=>{const s=pvSel();if(!U()){S.next='#/checkout';toast(t('login'),'warn');return go('login')}if(addToCart(s.id,s.q,s.ci,s.si)){const k=[s.id,s.ci,s.si].join('|');cartArr().forEach(i=>{i.sel=i.id===k});save();go('checkout')}};
 A.cq=el=>{const i=cartArr().find(x=>x.id===el.dataset.id),p=i&&prod(i.pid);if(!p)return;const n=i.qty+(+el.dataset.d);if(n<1)return;if(n>p.stock)return toast(t('stock_short',{name:L(p.name)}),'err');i.qty=n;save();render()};
 A.cdel=el=>{DB.cart[owner()]=cartArr().filter(i=>i.id!==el.dataset.id);save();render()};
 A.tocheckout=()=>{if(!U()){S.next='#/checkout';return go('login')}go('checkout')};
-A.coupon2=()=>{applyCoupon($('[name=code]',$('[data-form-x=coupon]')).value)};
-A.nread=el=>{const n=DB.notifs.find(x=>x.id===el.dataset.id&&x.uid===(U()||{}).id);if(n){n.read=true;save();render()}};
-A.nall=()=>{const u=U();DB.notifs.forEach(n=>{if(n.uid===u.id)n.read=true});save();render()};
-A.avatar=el=>{const u=U();u.avatar=el.dataset.v;save();render()};
+A.coupon=()=>applyCoupon($('#cpn').value);
+A.nread=el=>{const u=U(),n=DB.notifs.find(x=>x.id===el.dataset.id&&u&&x.uid===u.id);if(n){n.read=true;save();render()}};
+A.nall=()=>{const u=U();if(!u)return;DB.notifs.forEach(n=>{if(n.uid===u.id)n.read=true});save();render()};
+A.avatar=el=>{U().avatar=el.dataset.v;save();render()};
 A.ord=el=>ordModal(el.dataset.id);
 A.ostat=el=>{const u=U(),s=el.dataset.s||$('#os').value;if(Svc.orders.setStatus(u,el.dataset.id,s)){toast(t('saved'));closeModal();render()}else toast(t('error'),'err')};
-A.addr=el=>{const a=el.dataset.id&&U().addresses.find(x=>x.id===el.dataset.id)||{label:'',name:'',phone:'',line:'',city:'',zip:''};modal(`<h3>${t('add_addr')}</h3><form data-form="addr" data-id="${esc(a.id||'')}" novalidate>${fld('label','label',{val:a.label,max:30})}<div class="g2">${fld('name','name',{val:a.name,max:80})}${fld('phone','phone',{val:a.phone,max:15})}</div>${fld('line','line',{val:a.line,max:200})}<div class="g2">${fld('city','city',{val:a.city,max:60})}${fld('zip','zip',{val:a.zip,max:10})}</div><button class="btn" type="submit">${t('save')}</button></form>`)};
-A.defaddr=el=>{U().addresses.forEach(a=>a.def=a.id===el.dataset.id);save();render()};
+A.addr=()=>modal(`<h3>${t('add_addr')}</h3><form data-form="addr" novalidate>${fld('label','label',{max:30})}<div class="g2">${fld('name','name',{max:80})}${fld('phone','phone',{max:15})}</div>${fld('line','line',{max:200})}<div class="g2">${fld('city','city',{max:60})}${fld('zip','zip',{max:10})}</div><button class="btn" type="submit">${t('save')}</button></form>`);
+A.defaddr=el=>{U().addresses.forEach(a=>{a.def=a.id===el.dataset.id});save();render()};
 A.deladdr=el=>confirmBox(t('confirm_del'),()=>{const u=U();u.addresses=u.addresses.filter(a=>a.id!==el.dataset.id);if(u.addresses.length&&!u.addresses.some(a=>a.def))u.addresses[0].def=true;save();render()});
-A.prodform=el=>{const s=myStore(),p=el.dataset.id&&DB.products.find(x=>x.id===el.dataset.id&&x.storeId===s.id)||{name:{th:'',en:''},desc:{th:'',en:''},cat:DB.cats[0].id,price:'',disc:0,stock:10,icon:'🚀',g:0,colors:[],sizes:[],status:'active',img:''};S.tmpImg=undefined;
- modal(`<h3>${p.id?t('edit_prod'):t('add_prod')}</h3><form data-form="prod" data-id="${esc(p.id||'')}" novalidate><div class="g2">${fld('name_th','name_th',{val:p.name.th,max:100})}${fld('name_en','name_en',{val:p.name.en,max:100})}</div><div class="g2">${fld('desc_th','desc_th',{val:p.desc.th,max:400})}${fld('desc_en','desc_en',{val:p.desc.en,max:400})}</div><div class="g2">${sel('cat','category',DB.cats.map(c=>[c.id,c.icon+' '+L(c.name)]),p.cat)}${sel('status','status',[['active',t('visible')],['hidden',t('st_hidden')]],p.status)}</div><div class="g3">${fld('price','price',{type:'number',val:p.price,min:1})}${fld('disc','disc_pct',{type:'number',val:p.disc,min:0})}${fld('stock','stock',{type:'number',val:p.stock,min:0})}</div><div class="g3">${sel('icon','icon',EMO.map(e=>[e,e]),p.icon)}${sel('g','theme_col',GR.map((g,i)=>[i,'Theme '+(i+1)]),p.g)}<div class="fld"><label for="pimgf">${t('upload_img')}</label><input id="pimgf" type="file" accept="image/*" data-change="img"></div></div><div class="row"><div id="imgprev">${p.img?pimg(p,'s'):''}</div><button type="button" class="btn sm ghost" data-act="rmimg">${t('remove_img')}</button><small class="mut">${t('img_note')}</small></div>${fld('colors','colors_in',{val:p.colors.map(c=>L(c.n)).join(', '),max:100})}${fld('sizes','sizes_in',{val:p.sizes.join(', '),max:100})}<button class="btn" type="submit">${t('save')}</button></form>`,1)};
-A.rmimg=()=>{S.tmpImg='';const e=$('#imgprev');if(e)e.innerHTML=''};
-A.proddel=el=>confirmBox(t('confirm_del'),()=>{const p=prod(el.dataset.id);if(p&&p.storeId===myStore().id){Svc.catalog.remove(p.id);toast(t('deleted'));render()}});
-A.catform=el=>{const c=el.dataset.id&&cat(el.dataset.id)||{icon:'🌌',name:{th:'',en:''},active:true};modal(`<h3>${t('m_categories')}</h3><form data-form="cat" data-id="${esc(c.id||'')}" novalidate>${sel('icon','icon',EMO.map(e=>[e,e]),c.icon)}${fld('name_th','name_th',{val:c.name.th,max:50})}${fld('name_en','name_en',{val:c.name.en,max:50})}<button class="btn" type="submit">${t('save')}</button></form>`)};
-A.promoform=el=>{const x=el.dataset.id&&DB.promos.find(p=>p.code===el.dataset.id)||{code:'',type:'percent',value:10,min:0,active:true};modal(`<h3>${t('m_promotions')}</h3><form data-form="promo" data-id="${esc(el.dataset.id||'')}" novalidate>${fld('code','code',{val:x.code,max:16})}${sel('type','type',[['percent',t('t_percent')],['fixed',t('t_fixed')],['ship',t('t_ship')]],x.type)}<div class="g2">${fld('value','value',{type:'number',val:x.value,min:0})}${fld('min','min_spend',{type:'number',val:x.min,min:0})}</div><button class="btn" type="submit">${t('save')}</button></form>`)};
-A.bnform=el=>{const b=DB.banners.find(x=>x.id===el.dataset.id);modal(`<h3>${t('m_banners')}</h3><form data-form="banner" data-id="${esc(b.id)}" novalidate>${fld('t_th','b_title_th',{val:b.title.th,max:80})}${fld('t_en','b_title_en',{val:b.title.en,max:80})}${fld('s_th','b_sub_th',{val:b.sub.th,max:80})}${fld('s_en','b_sub_en',{val:b.sub.en,max:80})}<button class="btn" type="submit">${t('save')}</button></form>`)};
-A.csv=el=>{const u=U();if(el.dataset.k==='admin'&&u.role!=='admin')return;const o=el.dataset.k==='admin'?DB.orders:sOrders(myStore().id);csv('orders.csv',[['id','date','store','buyer','status','total'],...o.map(x=>[x.id,new Date(x.ts).toISOString(),(store(x.storeId)||{}).name,(usr(x.buyer)||{}).username,x.status,x.total])])};
+A.prodform=el=>{const s=myStore(),old=el.dataset.id?DB.products.find(x=>x.id===el.dataset.id&&x.storeId===s.id):null,p=old||{name:{th:'',en:''},desc:{th:'',en:''},cat:DB.cats[0].id,price:'',disc:0,stock:10,icon:'🚀',g:0,colors:[],sizes:[],status:'active'};
+ modal(`<h3>${old?t('edit_prod'):t('add_prod')}</h3><form data-form="prod" data-id="${esc(old?old.id:'')}" novalidate><div class="g2">${fld('name_th','name_th',{val:p.name.th,max:100})}${fld('name_en','name_en',{val:p.name.en,max:100})}</div><div class="g2">${fld('desc_th','desc_th',{val:p.desc.th,max:400})}${fld('desc_en','desc_en',{val:p.desc.en,max:400})}</div><div class="g2">${sel('cat','category',DB.cats.map(c=>[c.id,c.icon+' '+L(c.name)]),p.cat)}${sel('status','status',[['active',t('visible')],['hidden',t('st_hidden')]],p.status)}</div><div class="g3">${fld('price','price',{type:'number',val:p.price,min:1})}${fld('disc','discount_pct',{type:'number',val:p.disc,min:0})}${fld('stock','stock',{type:'number',val:p.stock,min:0})}</div><div class="g2">${sel('icon','icon',EMO.map(e=>[e,e]),p.icon)}${sel('g','theme_col',GR.map((g,i)=>[i,'Theme '+(i+1)]),p.g)}</div>${fld('colors','colors_in',{val:p.colors.map(c=>L(c.n)).join(', '),max:100})}${fld('sizes','sizes_in',{val:p.sizes.join(', '),max:100})}<button class="btn" type="submit">${t('save')}</button></form>`,1)};
+A.proddel=el=>confirmBox(t('confirm_del'),()=>{const p=prod(el.dataset.id),s=myStore();if(p&&s&&p.storeId===s.id){Svc.catalog.remove(p.id);toast(t('deleted'));render()}});
+A.catform=()=>modal(`<h3>${t('m_categories')}</h3><form data-form="cat" novalidate>${sel('icon','icon',EMO.map(e=>[e,e]),'🌌')}${fld('name_th','name_th',{max:50})}${fld('name_en','name_en',{max:50})}<button class="btn" type="submit">${t('save')}</button></form>`);
+A.promoform=()=>modal(`<h3>${t('m_promotions')}</h3><form data-form="promo" novalidate>${fld('code','code',{max:16})}${sel('type','type',[['percent',t('t_percent')],['fixed',t('t_fixed')],['ship',t('t_ship')]],'percent')}<div class="g2">${fld('value','value',{type:'number',val:10,min:0})}${fld('min','min_spend',{type:'number',val:0,min:0})}</div><button class="btn" type="submit">${t('save')}</button></form>`);
 A.resetdb=()=>confirmBox(t('reset_demo')+'?',()=>{LS.del(KEY);dropTok();location.hash='#/home';location.reload()});
 const ADM={
  ustat:id=>{const x=usr(id);if(!x||x.role==='admin')return;x.status=x.status==='active'?'suspended':'active';if(x.status!=='active')DB.sessions=DB.sessions.filter(s=>s.uid!==id)},
- udel:id=>confirmBox(t('confirm_del'),()=>{const x=usr(id);if(!x||x.role==='admin')return;DB.users=DB.users.filter(y=>y.id!==id);DB.sessions=DB.sessions.filter(s=>s.uid!==id);save();render()}),
+ udel:id=>{const x=usr(id);if(!x||x.role==='admin')return;DB.users=DB.users.filter(y=>y.id!==id);DB.sessions=DB.sessions.filter(s=>s.uid!==id)},
  sapp:id=>{const s=store(id);if(s)s.status='approved'},ssus:id=>{const s=store(id);if(s)s.status='suspended'},
- ptog:id=>{const p=prod(id);if(p)p.status=p.status==='active'?'hidden':'active'},pdel:id=>confirmBox(t('confirm_del'),()=>{Svc.catalog.remove(id);render()}),
+ ptog:id=>{const p=prod(id);if(p)p.status=p.status==='active'?'hidden':'active'},pdel:id=>{Svc.catalog.remove(id)},
  ctog:id=>{const c=cat(id);if(c)c.active=!c.active},cdel:id=>{if(DB.products.some(p=>p.cat===id))return toast(t('in_use'),'warn');DB.cats=DB.cats.filter(c=>c.id!==id)},
  rhide:id=>{const r=DB.reviews.find(x=>x.id===id);if(r)r.hidden=!r.hidden},rdel:id=>{DB.reviews=DB.reviews.filter(x=>x.id!==id)},
- prtog:id=>{const p=DB.promos.find(x=>x.code===id);if(p)p.active=!p.active},prdel:id=>{DB.promos=DB.promos.filter(x=>x.code!==id)},btog:id=>{const b=DB.banners.find(x=>x.id===id);if(b)b.active=!b.active}};
-A.adm=el=>{const u=U();if(!u||u.role!=='admin')return toast(t('denied_t'),'err');const f=ADM[el.dataset.k];if(!f)return;const r=f(el.dataset.id);if(r===undefined){save();render()}};
-C.filter=()=>{const g=id=>(document.getElementById(id)||{}).value||'';const q={q:g('f_q').trim(),cat:g('f_cat'),store:g('f_store'),min:g('f_min'),max:g('f_max'),rate:g('f_rate'),sort:g('f_sort'),stock:($('#f_stock')||{}).checked?'1':''};location.hash='#/shop?'+new URLSearchParams(Object.entries(q).filter(([k,v])=>v))};
+ prtog:id=>{const p=DB.promos.find(x=>x.code===id);if(p)p.active=!p.active},prdel:id=>{DB.promos=DB.promos.filter(x=>x.code!==id)}};
+const ADM_CONFIRM=['udel','pdel','cdel','rdel','prdel'];
+A.adm=el=>{const u=U();if(!u||u.role!=='admin')return toast(t('denied_t'),'err');const k=el.dataset.k,f=ADM[k],id=el.dataset.id;if(!f)return;
+ const run=()=>{f(id);save();render()};if(ADM_CONFIRM.indexOf(k)>=0)confirmBox(t('confirm_del'),run);else run()};
+C.filter=()=>{const g=id=>(document.getElementById(id)||{}).value||'';const q={q:g('f_q').trim(),cat:g('f_cat'),store:g('f_store'),min:g('f_min'),max:g('f_max'),rate:g('f_rate'),sort:g('f_sort'),stock:($('#f_stock')||{}).checked?'1':''};location.hash='#/shop?'+new URLSearchParams(Object.entries(q).filter(e=>e[1]))};
 C.csel=el=>{const i=cartArr().find(x=>x.id===el.dataset.id);if(i){i.sel=el.checked;save();render()}};
 C.stockc=el=>{const p=prod(el.dataset.id),s=myStore();if(!p||!s||p.storeId!==s.id)return;const n=Math.floor(+el.value);if(!(n>=0)){toast(t('v_num'),'err');return render()}p.stock=n;if(n<=5)notify(s.ownerId,'low_stock',{name:p.name,n});save();toast(t('saved'))};
 C.shipc=()=>{const k=($('input[name=ship]:checked')||{}).value||'std';$('#cosum').innerHTML=sumBox(cartItems().filter(i=>i.sel&&avail(i.p)),k)};
 C.role=el=>{$('#storebox').hidden=el.value!=='seller'};
-C.img=async el=>{try{const d=await readImg(el.files[0],el.id==='logoimg'?200:480);S.tmpImg=d;const pv=$('#imgprev');if(pv)pv.innerHTML=`<div class="pimg s"><img src="${esc(d)}" alt=""></div>`;if(el.id==='logoimg')toast(t('saved')+' ✓')}catch(e){toast(t('error'),'err')}};
-document.addEventListener('change',e=>{const el=e.target;if(el.id==='c_addr'){$('#newaddr').hidden=el.value!=='new'}const f=el.dataset&&C[el.dataset.change];if(f)f(el)});
-I.strength=el=>{const p=el.value,s=pwScore(p),b=$('#pwbar'),l=$('#pwl'),k=p?(s<=1?0:s===2?1:s<=4?2:3):-1;b.style.width=p?(s*20)+'%':'0';b.style.background=['#EF4444','#F59E0B','#38BDF8','#22C55E'][k]||'transparent';l.textContent=t('pw_str')+(k>=0?': '+t('pw_'+k):'')};
 function pwScore(p){let s=0;if(p.length>=8)s++;if(p.length>=12)s++;if(/[a-z]/.test(p)&&/[A-Z]/.test(p))s++;if(/\d/.test(p))s++;if(/[^A-Za-z0-9]/.test(p))s++;return s}
+I.strength=el=>{const p=el.value,s=pwScore(p),b=$('#pwbar'),l=$('#pwl'),k=p?(s<=1?0:s===2?1:s<=4?2:3):-1;b.style.width=p?(s*20)+'%':'0';b.style.background=['#EF4444','#F59E0B','#38BDF8','#22C55E'][k]||'transparent';l.textContent=t('pw_str')+(k>=0?': '+t('pw_'+k):'')};
+document.addEventListener('change',e=>{const el=e.target;if(el.id==='c_addr'){const na=$('#newaddr');if(na)na.hidden=el.value!=='new'}const f=el.dataset&&C[el.dataset.change];if(f)f(el)});
 document.addEventListener('input',e=>{const f=e.target.dataset&&I[e.target.dataset.input];if(f)f(e.target)});
 document.addEventListener('click',e=>{if(!e.target.closest('.ddw'))$('.dd.open').forEach(x=>x.classList.remove('open'));const el=e.target.closest('[data-act]');if(!el)return;const f=A[el.dataset.act];if(f){if(el.tagName==='A')e.preventDefault();f(el,e)}});
-document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();document.body.classList.remove('mmo')}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeModal();document.body.classList.remove('mmo')}if(e.key==='Enter'&&e.target.id==='cpn'){e.preventDefault();applyCoupon(e.target.value)}});
 document.addEventListener('submit',e=>{const f=e.target,n=f.dataset&&f.dataset.form;if(n&&F[n]){e.preventDefault();F[n](f)}});
-function applyCoupon(code){code=(code||'').trim().toUpperCase();const sl=cartItems().filter(i=>i.sel&&avail(i.p)),sub=sl.reduce((s,i)=>s+unit(i.p)*i.qty,0);if(!code){S.coupon='';return render()}
- const p=DB.promos.find(x=>x.code===code&&x.active);if(!p)return toast(t('coupon_bad'),'err');if(sub<p.min)return toast(t('coupon_min',{n:p.min}),'warn');S.coupon=code;toast(t('coupon_ok'));S.keepForm=true;render()}
-F.coupon=f=>applyCoupon(fv(f).code);
+function applyCoupon(code){code=(code||'').trim().toUpperCase();const sl=cartItems().filter(i=>i.sel&&avail(i.p)),sub=sl.reduce((s,i)=>s+unit(i.p)*i.qty,0);if(!code){S.coupon='';S.keep=true;return render()}
+ const p=DB.promos.find(x=>x.code===code&&x.active);if(!p)return toast(t('coupon_bad'),'err');if(sub<p.min)return toast(t('coupon_min',{n:p.min}),'warn');S.coupon=code;toast(t('coupon_ok'));S.keep=true;render()}
+const PHONE=/^\+?\d{8,15}$/;
 F.search=f=>{const q=fv(f).q.trim();go('shop'+(q?'?q='+encodeURIComponent(q):''))};
-F.news=f=>{const e=fv(f).email.trim();if(!EM.test(e))return showErrs(f,{email:'v_email'});DB.newsletter.push({email:e,ts:Date.now()});save();f.reset();showErrs(f,{});toast(t('news_ok'))};
 F.login=f=>busy(f,async()=>{const d=fv(f),er={};if(!d.email.trim())er.email='v_req';else if(!EM.test(d.email.trim()))er.email='v_email';if(!d.password)er.password='v_req';if(Object.keys(er).length)return showErrs(f,er);showErrs(f,{});
  const r=await Svc.auth.login(d.email,d.password,!!d.remember);if(r.err)return showErrs(f,{_form:r.err});S.u=r.user;afterLogin(r.user)});
 F.register=f=>busy(f,async()=>{const d=fv(f),er={};['first','last','username','phone','email','password','confirm'].forEach(k=>{if(!(d[k]||'').trim())er[k]='v_req'});
- if(!er.email&&!EM.test(d.email.trim()))er.email='v_email';if(!er.username&&!/^[A-Za-z0-9_]{3,20}$/.test(d.username.trim()))er.username='v_user';if(!er.phone&&!/^\+?\d{8,15}$/.test(d.phone.replace(/[\s-]/g,'')))er.phone='v_phone';
+ if(!er.email&&!EM.test(d.email.trim()))er.email='v_email';if(!er.username&&!/^[A-Za-z0-9_]{3,20}$/.test(d.username.trim()))er.username='v_user';if(!er.phone&&!PHONE.test(d.phone.replace(/[\s-]/g,'')))er.phone='v_phone';
  if(!er.password&&d.password.length<8)er.password='v_pw8';if(!er.confirm&&d.confirm!==d.password)er.confirm='v_match';if(d.role==='seller'&&!(d.store||'').trim())er.store='v_req';
  if(Object.keys(er).length)return showErrs(f,er);showErrs(f,{});const r=await Svc.auth.register(d);if(r.err)return showErrs(f,r.err);S.prefill=r.email;toast(t('regOk'));go('login')});
 F.forgot=f=>{const e=fv(f).email.trim();if(!e)return showErrs(f,{email:'v_req'});if(!EM.test(e))return showErrs(f,{email:'v_email'});Svc.auth.requestReset(e);render()};
 F.reset=f=>busy(f,async()=>{const d=fv(f),er={};if(!d.email.trim())er.email='v_req';if(!d.code.trim())er.code='v_req';if(d.password.length<8)er.password='v_pw8';if(Object.keys(er).length)return showErrs(f,er);
  const r=await Svc.auth.resetPassword(d.email,d.code,d.password);if(r.err)return showErrs(f,{_form:r.err});toast(t('fg_ok'));S.prefill=d.email.trim();go('login')});
-F.profile=f=>{const u=U(),d=fv(f),er={};['first','last','username','phone'].forEach(k=>{if(!(d[k]||'').trim())er[k]='v_req'});if(!er.username&&!/^[A-Za-z0-9_]{3,20}$/.test(d.username.trim()))er.username='v_user';if(!er.phone&&!/^\+?\d{8,15}$/.test(d.phone.replace(/[\s-]/g,'')))er.phone='v_phone';
+F.profile=f=>{const u=U(),d=fv(f),er={};['first','last','username','phone'].forEach(k=>{if(!(d[k]||'').trim())er[k]='v_req'});if(!er.username&&!/^[A-Za-z0-9_]{3,20}$/.test(d.username.trim()))er.username='v_user';if(!er.phone&&!PHONE.test(d.phone.replace(/[\s-]/g,'')))er.phone='v_phone';
  if(!er.username&&DB.users.some(x=>x.id!==u.id&&x.username.toLowerCase()===d.username.trim().toLowerCase()))er.username='userTaken';if(Object.keys(er).length)return showErrs(f,er);Object.assign(u,{first:d.first.trim(),last:d.last.trim(),username:d.username.trim(),phone:d.phone.trim()});save();toast(t('saved'));render()};
 F.pw=f=>busy(f,async()=>{const u=U(),d=fv(f),er={};if(!d.cur)er.cur='v_req';if(d.nw.length<8)er.nw='v_pw8';if(d.cf!==d.nw)er.cf='v_match';if(Object.keys(er).length)return showErrs(f,er);const r=await Svc.auth.changePw(u,d.cur,d.nw);if(r.err)return showErrs(f,{cur:r.err});toast(t('pw_changed'));f.reset();showErrs(f,{})});
 F.addr=f=>{const u=U(),d=fv(f),er={};['label','name','phone','line','city','zip'].forEach(k=>{if(!(d[k]||'').trim())er[k]='v_req'});if(Object.keys(er).length)return showErrs(f,er);
- const o={label:d.label.trim(),name:d.name.trim(),phone:d.phone.trim(),line:d.line.trim(),city:d.city.trim(),zip:d.zip.trim()},a=f.dataset.id&&u.addresses.find(x=>x.id===f.dataset.id);a?Object.assign(a,o):u.addresses.push({id:rid('a'),def:!u.addresses.length,...o});save();closeModal();render()};
+ u.addresses.push({id:rid('a'),def:!u.addresses.length,label:d.label.trim(),name:d.name.trim(),phone:d.phone.trim(),line:d.line.trim(),city:d.city.trim(),zip:d.zip.trim()});save();closeModal();render()};
 F.review=f=>{const u=U();if(!u||u.role!=='buyer')return toast(t('buyer_only'),'err');const d=fv(f),pid=f.dataset.id,p=prod(pid),txt=(d.text||'').trim();if(txt.length<5)return showErrs(f,{text:'v_short'});if(DB.reviews.some(r=>r.pid===pid&&r.uid===u.id))return toast(t('rev_done'),'warn');
- DB.reviews.push({id:rid('r'),pid,uid:u.id,rating:Math.min(5,Math.max(1,+d.rating||5)),text:txt.slice(0,500),ts:Date.now(),hidden:false});notify(store(p.storeId).ownerId,'review_new',{name:p.name,stars:+d.rating||5});save();toast(t('saved'));render()};
-F.checkout=f=>busy(f,async()=>{const u=U(),d=fv(f),er={};if(!d.c_name.trim())er.c_name='v_req';if(!/^\+?\d{8,15}$/.test(d.c_phone.replace(/[\s-]/g,'')))er.c_phone='v_phone';let addr;
- if(d.c_addr==='new'||!u.addresses.length){['n_line','n_city','n_zip'].forEach(k=>{if(!(d[k]||'').trim())er[k]='v_req'});addr={label:'New',line:(d.n_line||'').trim(),city:(d.n_city||'').trim(),zip:(d.n_zip||'').trim()}}else addr=u.addresses.find(a=>a.id===d.c_addr);
- if(Object.keys(er).length)return showErrs(f,er);showErrs(f,{});await sleep(600);addr={...addr,name:d.c_name.trim(),phone:d.c_phone.trim()};
- if(d.c_addr==='new'&&!u.addresses.length){u.addresses.push({id:rid('a'),def:true,...addr})}
- const r=Svc.orders.checkout(u,{addr,ship:['std','exp','warp'].includes(d.ship)?d.ship:'std',pay:d.pay});if(r.err)return showErrs(f,{_form:r.err==='stock_short'?null:r.err}),toast(r.err==='stock_short'?t('stock_short',{name:r.name}):t(r.err),'err');S.done=r.orders;go('done')});
-F.prod=f=>{const s=myStore(),d=fv(f),er={};if(!d.name_th.trim())er.name_th='v_req';if(!d.name_en.trim())er.name_en='v_req';if(!(+d.price>0))er.price='v_num';if(!(d.disc===''||+d.disc>=0&&+d.disc<=90))er.disc='v_num';if(!(Number.isInteger(+d.stock)&&+d.stock>=0))er.stock='v_num';if(Object.keys(er).length)return showErrs(f,er);
- const old=f.dataset.id&&prod(f.dataset.id),list=x=>x.split(',').map(y=>y.trim()).filter(Boolean).slice(0,10);
- const data={name:{th:d.name_th.trim(),en:d.name_en.trim()},desc:{th:d.desc_th.trim(),en:d.desc_en.trim()},cat:cat(d.cat)?d.cat:DB.cats[0].id,price:Math.round(+d.price),disc:Math.round(+d.disc||0),stock:+d.stock,icon:EMO.includes(d.icon)?d.icon:'📦',g:Math.min(5,Math.max(0,+d.g||0)),status:d.status==='hidden'?'hidden':'active',colors:list(d.colors).map((n,i)=>({n,hex:COL[i%4].hex})),sizes:list(d.sizes),img:S.tmpImg!==undefined?S.tmpImg:(old?old.img:'')};
+ const rt=Math.min(5,Math.max(1,+d.rating||5));DB.reviews.push({id:rid('r'),pid,uid:u.id,rating:rt,text:txt.slice(0,500),ts:Date.now(),hidden:false});notify(store(p.storeId).ownerId,'review_new',{name:p.name,stars:rt});save();toast(t('saved'));render()};
+F.checkout=f=>busy(f,async()=>{const u=U(),d=fv(f),er={};if(!d.c_name.trim())er.c_name='v_req';if(!PHONE.test(d.c_phone.replace(/[\s-]/g,'')))er.c_phone='v_phone';let addr;
+ if(d.c_addr==='new'||!u.addresses.length){['n_line','n_city','n_zip'].forEach(k=>{if(!(d[k]||'').trim())er[k]='v_req'});addr={label:'New',line:(d.n_line||'').trim(),city:(d.n_city||'').trim(),zip:(d.n_zip||'').trim()}}else addr=u.addresses.find(a=>a.id===d.c_addr)||u.addresses[0];
+ if(Object.keys(er).length)return showErrs(f,er);showErrs(f,{});await sleep(500);addr=Object.assign({},addr,{name:d.c_name.trim(),phone:d.c_phone.trim()});
+ const r=Svc.orders.checkout(u,{addr,ship:['std','exp','warp'].indexOf(d.ship)>=0?d.ship:'std',pay:d.pay});
+ if(r.err){toast(r.err==='stock_short'?t('stock_short',{name:r.name}):t(r.err),'err');return}S.done=r.orders;go('done')});
+F.prod=f=>{const s=myStore(),d=fv(f),er={};if(!d.name_th.trim())er.name_th='v_req';if(!d.name_en.trim())er.name_en='v_req';if(!(+d.price>0))er.price='v_num';if(!(d.disc===''||(+d.disc>=0&&+d.disc<=90)))er.disc='v_num';if(!(Number.isInteger(+d.stock)&&+d.stock>=0))er.stock='v_num';if(Object.keys(er).length)return showErrs(f,er);
+ const list=x=>x.split(',').map(y=>y.trim()).filter(Boolean).slice(0,10);
+ const data={name:{th:d.name_th.trim(),en:d.name_en.trim()},desc:{th:d.desc_th.trim(),en:d.desc_en.trim()},cat:cat(d.cat)?d.cat:DB.cats[0].id,price:Math.round(+d.price),disc:Math.round(+d.disc||0),stock:+d.stock,icon:EMO.indexOf(d.icon)>=0?d.icon:'📦',g:Math.min(5,Math.max(0,+d.g||0)),status:d.status==='hidden'?'hidden':'active',colors:list(d.colors).map((n,i)=>({n,hex:COL[i%3].hex})),sizes:list(d.sizes)};
  if(Svc.catalog.save(s.id,data,f.dataset.id||null)){closeModal();toast(t('saved'));render()}};
 F.storeset=f=>{const s=myStore(),d=fv(f),er={};if(!d.name.trim())er.name='v_req';if(d.email&&!EM.test(d.email.trim()))er.email='v_email';if(Object.keys(er).length)return showErrs(f,er);
- Object.assign(s,{name:d.name.trim(),logo:EMO.includes(d.logo)?d.logo:s.logo,cover:Math.min(5,Math.max(0,+d.cover||0)),desc:{th:d.desc_th.trim(),en:d.desc_en.trim()},address:d.address.trim(),email:d.email.trim(),phone:d.phone.trim(),social:d.social.trim()});if(S.tmpImg)s.logoImg=S.tmpImg;S.tmpImg=undefined;save();toast(t('saved'));render()};
-F.cat=f=>{const d=fv(f),er={};if(!d.name_th.trim())er.name_th='v_req';if(!d.name_en.trim())er.name_en='v_req';if(Object.keys(er).length)return showErrs(f,er);const o={icon:EMO.includes(d.icon)?d.icon:'🌌',name:{th:d.name_th.trim(),en:d.name_en.trim()}},c=f.dataset.id&&cat(f.dataset.id);c?Object.assign(c,o):DB.cats.push({id:rid('c'),active:true,...o});save();closeModal();render()};
-F.promo=f=>{const d=fv(f),er={},code=d.code.trim().toUpperCase();if(!/^[A-Z0-9]{3,16}$/.test(code))er.code='v_code';if(!(+d.value>=0))er.value='v_num';if(!(+d.min>=0))er.min='v_num';if(!er.code&&!f.dataset.id&&DB.promos.some(p=>p.code===code))er.code='userTaken';if(Object.keys(er).length)return showErrs(f,er);
- const o={code,type:['percent','fixed','ship'].includes(d.type)?d.type:'percent',value:Math.min(d.type==='percent'?100:1e6,+d.value),min:+d.min},p=f.dataset.id&&DB.promos.find(x=>x.code===f.dataset.id);p?Object.assign(p,o):DB.promos.push({active:true,used:0,...o});save();closeModal();render()};
-F.banner=f=>{const d=fv(f),b=DB.banners.find(x=>x.id===f.dataset.id);if(!b)return;b.title={th:d.t_th.trim(),en:d.t_en.trim()};b.sub={th:d.s_th.trim(),en:d.s_en.trim()};save();closeModal();render()};
-F.settings=f=>{const d=fv(f),er={};['std','exp','warp','free'].forEach(k=>{if(!(+d[k]>=0)||d[k]==='')er[k]='v_num'});if(Object.keys(er).length)return showErrs(f,er);const s=DB.settings;s.ship={std:+d.std,exp:+d.exp,warp:+d.warp};s.freeShip=+d.free;s.allowReg=!!d.allowReg;save();toast(t('saved'))};
+ Object.assign(s,{name:d.name.trim(),logo:EMO.indexOf(d.logo)>=0?d.logo:s.logo,cover:Math.min(5,Math.max(0,+d.cover||0)),desc:{th:d.desc_th.trim(),en:d.desc_en.trim()},address:d.address.trim(),email:d.email.trim(),phone:d.phone.trim(),social:d.social.trim()});save();toast(t('saved'));render()};
+F.cat=f=>{const d=fv(f),er={};if(!d.name_th.trim())er.name_th='v_req';if(!d.name_en.trim())er.name_en='v_req';if(Object.keys(er).length)return showErrs(f,er);DB.cats.push({id:rid('c'),active:true,icon:EMO.indexOf(d.icon)>=0?d.icon:'🌌',name:{th:d.name_th.trim(),en:d.name_en.trim()}});save();closeModal();render()};
+F.promo=f=>{const d=fv(f),er={},code=d.code.trim().toUpperCase();if(!/^[A-Z0-9]{3,16}$/.test(code))er.code='v_code';if(!(+d.value>=0)||d.value==='')er.value='v_num';if(!(+d.min>=0)||d.min==='')er.min='v_num';if(!er.code&&DB.promos.some(p=>p.code===code))er.code='userTaken';if(Object.keys(er).length)return showErrs(f,er);
+ DB.promos.push({code,type:['percent','fixed','ship'].indexOf(d.type)>=0?d.type:'percent',value:Math.min(d.type==='percent'?100:1e6,+d.value),min:+d.min,active:true,used:0});save();closeModal();render()};
+F.settings=f=>{const d=fv(f),er={};['std','exp','warp','free'].forEach(k=>{if(d[k]===''||!(+d[k]>=0))er[k]='v_num'});if(Object.keys(er).length)return showErrs(f,er);const s=DB.settings;s.ship={std:+d.std,exp:+d.exp,warp:+d.warp};s.freeShip=+d.free;s.allowReg=!!d.allowReg;save();toast(t('saved'))};
 
-/* ============ STARFIELD & INIT ============ */
-function starfield(){const c=$('#stars'),x=c.getContext('2d');let W,H,ST=[],sh=null;const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
- const rs=()=>{W=c.width=innerWidth;H=c.height=innerHeight;ST=Array.from({length:Math.min(200,W*H/7000|0)},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,s:Math.random()*.9+.2,p:Math.random()*6}))};rs();addEventListener('resize',rs);
- (function f(ts){x.clearRect(0,0,W,H);for(const s of ST){x.fillStyle=`rgba(200,220,255,${.35+.65*Math.abs(Math.sin(ts/1000*s.s+s.p))})`;x.beginPath();x.arc(s.x,s.y,s.r,0,6.3);x.fill();if(!reduce){s.y+=s.s*.08;if(s.y>H)s.y=0}}
-  if(!reduce){if(!sh&&Math.random()<.003)sh={x:Math.random()*W,y:Math.random()*H*.5,l:0};if(sh){sh.l+=1;sh.x+=9;sh.y+=4;x.strokeStyle='rgba(34,211,238,'+(1-sh.l/40)+')';x.lineWidth=2;x.beginPath();x.moveTo(sh.x,sh.y);x.lineTo(sh.x-70,sh.y-31);x.stroke();if(sh.l>40)sh=null}}
-  requestAnimationFrame(f)})(0)}
+/* ===== STARFIELD & INIT ===== */
+function starfield(){const c=$('#stars'),x=c.getContext('2d');if(!x)return;let W,H,ST=[];const reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+ const rs=()=>{W=c.width=innerWidth;H=c.height=innerHeight;ST=Array.from({length:Math.min(160,Math.floor(W*H/8000))},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.4+.2,s:Math.random()*.9+.2,p:Math.random()*6}))};rs();addEventListener('resize',rs);
+ function frame(ts){x.clearRect(0,0,W,H);for(const s of ST){x.fillStyle='rgba(200,220,255,'+(.35+.65*Math.abs(Math.sin(ts/1000*s.s+s.p)))+')';x.beginPath();x.arc(s.x,s.y,s.r,0,6.3);x.fill();if(!reduce){s.y+=s.s*.08;if(s.y>H)s.y=0}}requestAnimationFrame(frame)}
+ requestAnimationFrame(frame)}
 async function init(){
  try{DB=load();if(!DB){DB=await seed();save()}}catch(e){console.error(e);DB=await seed()}
- ['sessions','newsletter','loginHistory'].forEach(k=>DB[k]=DB[k]||[]);
- document.documentElement.lang=lang;starfield();addEventListener('hashchange',render);
- addEventListener('storage',e=>{if(e.key===KEY){const d=load();if(d){DB=d;render()}}});
- setInterval(tick,1000);render()}
-init();
+ ['sessions','notifs','orders','reviews','promos'].forEach(k=>{DB[k]=DB[k]||[]});DB.cart=DB.cart||{};DB.wishlist=DB.wishlist||{};
+ document.documentElement.lang=lang;starfield();addEventListener('hashchange',render);setInterval(tick,1000);render()}
+init().catch(e=>{console.error(e);$('#app').innerHTML='<div style="padding:30px;color:#fff">Init error: '+esc(e.message)+'</div>'});
 </script>
 </body>
 </html>
