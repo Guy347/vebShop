@@ -1,6 +1,7 @@
 'use strict';
-/* ============ UTILITIES ============ */
-const $=(s,r=document)=>r.querySelector(s),$=(s,r=document)=>[...r.querySelectorAll(s)];
+
+const $=(s,r=document)=>r.querySelector(s);
+const $$=(s,r=document)=>[...r.querySelectorAll(s)];
 const esc=s=>String(s==null?'':s).replace(/[&<>"'`]/g,c=>'&#'+c.charCodeAt(0)+';');
 const rid=p=>p+Math.random().toString(36).slice(2,9);
 const DAY=864e5,sleep=ms=>new Promise(r=>setTimeout(r,ms));
